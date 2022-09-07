@@ -7,10 +7,10 @@
 <body>
 <nav>
   <ul>
-    <li><a href="">About us</a></li>
-    <li><a href="">Skills</a></li>
-    <li><a href="">Portfolio</a></li>
-    <li><a href="">Contact</a></li>
+    <li><a href="#about">About us</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 <div id="about">
@@ -32,6 +32,19 @@
   <div class="portfolio-item">
     <img style="width: 400px; height: auto;" src="https://images.unsplash.com/photo-1574671652898-fc04f34c7517?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1524&q=80" alt="Jezyk nr 3">
   </div>
+</div>
+<div id="contact">
+  <h1>Joanna Prajzendanc</h1>
+  <address>Ul. Pocztowa 1/2, 00-000 Miastowo</address>
+  <form>
+    <label for="name">Imię</label>
+    <input type="text" id="name" name="name" required />
+    <label for="topic">Temat</label>
+    <input type="text" id="topic" name="topic" required />
+    <label for="message">Wiadomość</label>
+    <textarea id="message" name="message" rows="3" required></textarea>
+    <button type="submit">Wyślij</button>
+  </form>
 </div>
 </body>
 </html>
