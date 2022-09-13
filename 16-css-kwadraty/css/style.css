@@ -1,0 +1,19 @@
+.main
+{
+    background-color: #808080;
+    width: 500px;
+    padding: 10px;
+}
+
+.main h1
+{
+    color: white;
+}
+
+.square
+{
+    width: 200px;
+    height: 200px;
+    background-color: #fea500;
+    margin: 20px;
+}
