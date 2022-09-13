@@ -1,0 +1,49 @@
+body
+{
+    background-color: #f5f5dd;
+}
+
+h1
+{
+    color: darkmagenta;
+}
+
+h2
+{
+    color: red;
+}
+
+p:first-of-type
+{
+    color: green;
+}
+
+p:nth-of-type(2)
+{
+    color: darkcyan;
+}
+
+li:first-child
+{
+  color: blueviolet;
+}
+
+li:nth-child(2)
+{
+    color: red;
+}
+
+li:nth-child(3)
+{
+    color: green;
+}
+
+li:nth-child(4)
+{
+    color: blue;
+}
+
+li:last-child
+{
+    color: deeppink;
+}
