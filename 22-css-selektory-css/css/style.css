@@ -1,0 +1,14 @@
+p
+{
+    color: red;
+}
+
+h1, h3
+{
+    background-color: lightblue;
+}
+
+h1 + h3
+{
+    color: deeppink;
+}
