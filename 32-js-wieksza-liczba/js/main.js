@@ -9,4 +9,4 @@ function suma(l1, l2) {
     return temp;
 }
 
-console.log('suma:', suma(num1, num2));
+console.log('większa liczba:', suma(num1, num2));
