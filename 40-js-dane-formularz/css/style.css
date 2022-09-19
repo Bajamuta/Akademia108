@@ -1,0 +1,33 @@
+h1 {
+    color: rebeccapurple;
+}
+
+p:first-child {
+    margin-top: 20px;
+    font-weight: bold;
+    text-shadow: 3px 3px 3px pink;
+    text-transform: uppercase;
+}
+
+label {
+    color: green;
+}
+
+button {
+    background-color: #fea500;
+    border: peachpuff;
+    border-radius: 50px;
+    margin-top: 20px;
+    padding: 10px;
+    box-shadow: 3px 3px 6px indianred;
+}
+
+button:hover {
+    background-color: red;
+}
+
+button:active {
+    background-color: rebeccapurple;
+    box-shadow: 0 0 0 transparent;
+    color: white;
+}

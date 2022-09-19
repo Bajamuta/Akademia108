@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+    <meta charset="UTF-8">
+    <title>40-js-dane-formularz</title>
+</head>
+<body>
+<section>
+  <h1>Formularz</h1>
+  <form>
+    <div>
+      <label for="imie">Imię:</label>
+      <input type="text" id="imie" name="imie" placeholder="Wpisz imię" required>
+    </div>
+    <div>
+      <label for="nazwisko">Nazwisko:</label>
+      <input type="text" id="nazwisko" name="nazwisko" placeholder="Wpisz nazwisko" required>
+    </div>
+    <div>
+      <label for="numer">Numer telefonu:</label>
+      <input type="text" id="numer" name="numer" placeholder="Wpisz numer telefonu" required>
+    </div>
+  </form>
+  <button>Wyświetl dane</button>
+  <div id="container">
+    <p>Dane:</p>
+    <p id="name"></p>
+    <p id="surname"></p>
+    <p id="phone"></p>
+  </div>
+</section>
+<script src="js/main.js"></script>
+</body>
+</html>
