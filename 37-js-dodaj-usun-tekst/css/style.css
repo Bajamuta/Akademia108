@@ -1,0 +1,11 @@
+h1 {
+    color: red;
+}
+p {
+    initial-letter: 3.0;
+}
+
+button {
+    border: 1px solid pink;
+    border-radius: 50px;
+}
