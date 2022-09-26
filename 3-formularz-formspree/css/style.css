@@ -1,0 +1,27 @@
+form {
+    width: 300px;
+    float: left;
+}
+
+.form-group
+{
+    margin-bottom: 20px;
+}
+
+.form-group label
+{
+    display: block;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.form-group *
+{
+    width: 100%;
+}
+
+section {
+    width: 400px;
+    float: left;
+    margin-left: 40px;
+}
