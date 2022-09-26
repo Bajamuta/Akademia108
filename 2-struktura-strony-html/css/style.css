@@ -1,0 +1,70 @@
+body
+{
+    width: 50vw;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+nav {
+
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+nav ul li {
+    display: inline;
+    padding: 0 20px;
+    font-size: x-large;
+    border: 1px solid darkslateblue;
+}
+
+nav ul li:not(:last-child)
+{
+    margin-right: 20px;
+}
+
+nav ul li.home {
+    background-color: darkslateblue;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: darkslateblue;
+}
+
+nav ul li.home a {
+    color: white;
+}
+
+header {
+    padding: 40px;
+    background-color: orange;
+    margin-bottom: 40px;
+}
+
+header p {
+    width: 60%;
+}
+
+main section{
+    padding: 40px;
+    background-color: yellowgreen;
+    margin-bottom: 40px;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+article p {
+    padding: 0 40px;
+}
+
+footer {
+    text-align: center;
+    background-color: lightgray;
+    padding: 20px;
+}
