@@ -1,0 +1,83 @@
+body {
+    background-color: #213b50;
+    color: white;
+}
+
+form{
+    width: 400px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label
+{
+    display: block;
+    padding-bottom: 5px;
+}
+
+.form-group fieldset label,
+.form-group input[type="checkbox"] ~ label{
+    display: inline;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea,
+.form-group select
+{
+    width: 100%;
+    background-color: #2b4a64;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.form-group select {
+    width: 105%;
+}
+
+.form-group input[type="text"]:active,
+.form-group input[type="text"]:focus,
+.form-group input[type="text"]:focus-visible,
+.form-group input[type="email"]:active,
+.form-group input[type="email"]:focus,
+.form-group input[type="email"]:focus-visible,
+.form-group input[type="tel"]:active,
+.form-group input[type="tel"]:focus,
+.form-group input[type="tel"]:focus-visible,
+.form-group textarea:active,
+.form-group textarea:focus,
+.form-group textarea:focus-visible,
+.form-group select:active,
+.form-group select:focus-visible,
+.form-group select:focus {
+    background-color: #4e708c;
+    border: 1px solid #ffffff;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+}
+
+fieldset legend {
+    padding-bottom: 5px;
+}
+
+button {
+    background-color: #1ac056;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: none;
+    padding: 15px;
+    border-radius: 0;
+}
+
+button:hover, button:active, button:focus {
+    background-color: #46e881;
+    cursor: pointer;
+}
