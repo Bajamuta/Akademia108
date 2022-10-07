@@ -36,7 +36,12 @@ p.subtitle {
 nav {
     width: 100%;
     background-color: #007bff;
+    text-align: center;
+}
+
+nav a {
     color: white;
+    text-decoration: none;
     text-transform: uppercase;
 }
 
@@ -168,13 +173,14 @@ article p {
     margin-right: 20px;
 }
 
-button {
+button, a.button {
     border: 1px solid #007bff;
     color: black;
     background-color: transparent;
     text-transform: uppercase;
     padding: 10px 15px;
     margin: 0 auto;
+    text-decoration: none;
 }
 
 button:hover {
@@ -266,7 +272,29 @@ footer {
     }
 }
 
-@media screen and (max-width: 768px){
+@media screen and (min-width: 480px) and (max-width: 768px){
+    .container {
+        max-width: 95%;
+    }
+    .gallery .gallery-item {
+        flex: 0 0 100%;
+    }
+    .gallery .gallery-item span
+    {
+        top: 45%;
+        font-size: 3em;
+    }
+    .contact-form.form-50 {
+        flex: 0 100%;
+    }
+}
+
+@media screen and (min-width: 0px) and (max-width: 480px){
+
+    header
+    {
+        height: 100vh !important;
+    }
     .container {
         max-width: 95%;
     }
