@@ -5,6 +5,7 @@ let em = document.getElementById('email');
 let wszystkieZgody = document.getElementById('wszystkieZgody');
 let zgoda1 = document.getElementById('zgoda1');
 let zgoda2 = document.getElementById('zgoda2');
+let errors;
 
 wszystkieZgody.addEventListener('change', () => {
        zgoda1.checked = wszystkieZgody.checked;
@@ -15,31 +16,8 @@ wszystkieZgody.addEventListener('change', () => {
 
 b.addEventListener('click', (evt) => {
     evt.preventDefault();
-    let errors;
     if (!frm.checkValidity()) {
-        if (!document.getElementById('errors')) {
-            errors = document.createElement('ul');
-            errors.classList.add('errors');
-            errors.setAttribute('id', 'errors');
-            document.body.appendChild(errors);
-        }
-        else {
-            errors = document.getElementById('errors');
-        }
-
-        if (imNazw.validity.valueMissing) {
-            addError("Podaj imię i nazwisko!", errors);
-        }
-        if (em.validity.valueMissing) {
-            addError("Podaj adres e-mail!", errors);
-        }
-        if (em.validity.patternMismatch) {
-            addError("Nieprawidłowy adres e-mail", errors);
-        }
-        console.log(em.pattern);
-        if (zgoda1.validity.valueMissing) {
-            addError("Zgoda1 jest wymagana!", errors);
-        }
+        validate();
     }
 });
 
@@ -50,6 +28,28 @@ function addError(message, ul) {
     ul.appendChild(er);
 }
 
-const emailPattern = () => {
-
+function validate()
+{
+    if (!document.getElementById('errors')) {
+        errors = document.createElement('ul');
+        errors.classList.add('errors');
+        errors.setAttribute('id', 'errors');
+        document.body.appendChild(errors);
+    }
+    else {
+        errors = document.getElementById('errors');
+        errors.innerHTML = '';
+    }
+    if (imNazw.validity.valueMissing) {
+        addError("Podaj imię i nazwisko!", errors);
+    }
+    if (em.validity.valueMissing) {
+        addError("Podaj adres e-mail!", errors);
+    }
+    if (em.validity.patternMismatch) {
+        addError("Nieprawidłowy adres e-mail! wzór: adres@domena.com", errors);
+    }
+    if (zgoda1.validity.valueMissing) {
+        addError("Zgoda1 jest wymagana!", errors);
+    }
 }

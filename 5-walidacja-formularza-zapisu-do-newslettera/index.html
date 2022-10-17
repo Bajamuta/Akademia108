@@ -11,11 +11,11 @@
     <form id="formularz">
         <label for="imieNazwisko">
             Imię i nazwisko*
-            <input type="text" name="imieNazwisko" id="imieNazwisko" required>
+            <input type="text" name="imieNazwisko" id="imieNazwisko" required placeholder="Jan Kowalski">
         </label>
         <label for="email">
             Adres e-mail*
-            <input type="email" name="email" id="email" required>
+            <input type="email" name="email" id="email" required pattern="^.+@.+[.].+$" placeholder="adres@domena.com">
         </label>
         <label for="wszystkieZgody">
             <input type="checkbox" name="wszystkieZgody" id="wszystkieZgody">
