@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>5-walidacja-formularza-zapisu-do-newslettera</title>
+</head>
+<body>
+    <h1>Formularz zapisu do Newslettera</h1>
+    <form id="formularz">
+        <label for="imieNazwisko">
+            Imię i nazwisko*
+            <input type="text" name="imieNazwisko" id="imieNazwisko" required placeholder="Jan Kowalski">
+        </label>
+        <label for="email">
+            Adres e-mail*
+            <input type="email" name="email" id="email" required pattern="^.+@.+[.].+$" placeholder="adres@domena.com">
+        </label>
+        <label for="wszystkieZgody">
+            <input type="checkbox" name="wszystkieZgody" id="wszystkieZgody">
+            Wszystkie zgody
+        </label>
+        <label for="zgoda1">
+            <input type="checkbox" name="zgoda1" id="zgoda1" required>
+            Zgoda marketingowa 1*
+        </label>
+        <label>
+            <input type="checkbox" name="zgoda2" id="zgoda2">
+            Zgoda marketingowa 2
+        </label>
+        <button id="btn-wyslij" type="submit">Wyślij</button>
+    </form>
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+form {
+    width: 40%;
+    margin: 0 auto;
+}
+
+label, label input[type="text"], label input[type="email"] {
+    display: block;
+    width: 100%;
+}
+
+label {
+    margin-bottom: 20px;
+}
+
+ul.errors li{
+    color: red;
+}

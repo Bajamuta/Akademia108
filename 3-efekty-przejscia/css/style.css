@@ -1,0 +1,34 @@
+div {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+    transition: all 2s ease-in;
+}
+
+div.first {
+    background-color: orange;
+}
+
+div.first:hover {
+    width: 300px;
+}
+
+div.second
+{
+    background-color: lightcoral;
+}
+
+div.second:hover {
+    height: 300px;
+}
+
+div.third
+{
+    background-color: mediumvioletred;
+}
+
+div.third:hover
+{
+    width: 300px;
+    height: 300px;
+}
