@@ -1,9 +1,8 @@
 $(document).ready(function () {
    $(".hamburger").click( () => {
-       $(".visible").addClass('hide').removeClass("visible");
-       $(".hidden").removeClass('hidden').addClass('show');
-       /*$(".hide").removeClass("hide").addClass("hidden");
-       $(".show").removeClass("show").addClass("visible");*/
+       $(".hamburger-cross").toggleClass('visible').toggleClass('hidden');
+       $(".hamburger-lines").toggleClass('visible').toggleClass('hidden');
+       $(".main-menu").toggleClass('visible').toggleClass('hidden');
    }
    );
 });
