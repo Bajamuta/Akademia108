@@ -1,0 +1,17 @@
+.zdjecie {
+    object-fit: cover;
+}
+.zdjecie-widok
+{
+    height: 280px;
+}
+.zdjecie-zespol
+{
+    height: 200px;
+}
+.tlo
+{
+    background-image: url("../img/slider-1.jpg");
+    background-position: bottom;
+    background-size: cover;
+}
