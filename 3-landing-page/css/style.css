@@ -1,17 +1,42 @@
 .zdjecie {
     object-fit: cover;
 }
-.zdjecie-widok
-{
-    height: 280px;
+
+.zdjecie-widok {
+    max-height: 280px;
 }
-.zdjecie-zespol
-{
-    height: 200px;
+
+.zdjecie-zespol {
+    width: 200px;
 }
-.tlo
-{
+
+.tlo {
     background-image: url("../img/slider-1.jpg");
-    background-position: bottom;
-    background-size: cover;
+
+}
+
+@media screen and (max-width: 768px) {
+    .sm-order-1 {
+        order: 1;
+    }
+
+    .sm-order-2 {
+        order: 2;
+    }
+
+    .sm-order-3 {
+        order: 3;
+    }
+
+    .sm-order-4 {
+        order: 4;
+    }
+
+    .sm-order-5 {
+        order: 5;
+    }
+
+    .sm-order-6 {
+        order: 6;
+    }
 }
