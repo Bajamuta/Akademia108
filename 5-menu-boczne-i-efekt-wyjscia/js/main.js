@@ -5,4 +5,10 @@ $(document).ready(function () {
        $(".main-menu").toggleClass('visible').toggleClass('hidden');
    }
    );
+   $(".main-menu-item a").click((e) => {
+       e.preventDefault();
+       $("body").fadeOut(2000, () => {
+           window.location.replace(e.currentTarget.href);
+       });
+   })
 });
