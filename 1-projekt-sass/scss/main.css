@@ -11416,20 +11416,21 @@ header.header-image .header-content .header-content-inner h5 {
   }
   #main-slider .carousel-caption p, #main-slider .carousel-caption h1 {
     color: #ffffff;
-    text-transform: capitalize;
+    text-transform: uppercase;
   }
   #main-slider .carousel-caption h1 {
-    font-size: 36px;
+    font-size: 38px;
     margin-top: 24px;
     margin-bottom: 24px;
+    letter-spacing: 4px;
   }
   #main-slider .carousel-caption p {
     font-size: 20px;
     margin-bottom: 24px;
   }
   #main-slider .carousel-caption .btn-primary {
-    margin-top: 48px;
-    font-size: 14px;
+    margin-top: 24px;
+    font-size: 22px;
     padding: 10px 12px;
   }
   #main-slider .icon-prev, #main-slider .icon-next {
@@ -11626,7 +11627,7 @@ header.header-image .header-content .header-content-inner h5 {
   background-color: #222222;
 }
 .t108-footer .footer-above {
-  padding-top: 48px;
+  padding-top: 80px;
 }
 .t108-footer .footer-above .margin-none p {
   margin-bottom: 0;
@@ -11651,6 +11652,7 @@ header.header-image .header-content .header-content-inner h5 {
 }
 .t108-footer .footer-above .footer-col .contact .fa-twitter, .t108-footer .footer-above .footer-col .tweets .fa-twitter {
   color: #a5e200;
+  font-size: 25px;
 }
 .t108-footer .footer-above .footer-col .tweets a:hover {
   color: #88ba00;
@@ -11749,7 +11751,7 @@ hr {
 }
 
 hr.divider-light-dark {
-  max-width: 79.2px;
+  max-width: 150px;
   border-color: #a5e200;
   border-width: 3px;
 }
@@ -11902,10 +11904,10 @@ form fieldset input[name=comment], form fieldset input[name=message] {
 }
 .t108-one-page #about .about-box .icon-about {
   color: #ffffff;
-  width: 72px;
-  height: 72px;
+  width: 96px;
+  height: 96px;
   border-radius: 100%;
-  line-height: 72px;
+  line-height: 96px;
   background-color: #a5e200;
   margin: 0 auto 24px;
 }
@@ -11938,9 +11940,8 @@ form fieldset input[name=comment], form fieldset input[name=message] {
   color: #ffffff;
 }
 .t108-one-page #counters-numbers .container .counters-box p, .t108-one-page #counters-progress .container .counters-box p {
-  margin-bottom: 0;
   color: #ffffff;
-  margin: 24px auto;
+  margin: 24px auto 0 auto;
 }
 .t108-one-page #counters-numbers .container .counters-box .text-primary, .t108-one-page #counters-progress .container .counters-box .text-primary {
   color: #a5e200;
@@ -11997,9 +11998,9 @@ form fieldset input[name=comment], form fieldset input[name=message] {
   height: 100%;
   opacity: 0;
   background: rgba(34, 34, 34, 0.8);
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  transition: all 1s;
 }
 .t108-one-page #portfolio .portfolio-box .portfolio-box-caption .portfolio-box-caption-content {
   position: absolute;
@@ -12029,6 +12030,12 @@ form fieldset input[name=comment], form fieldset input[name=message] {
   border-radius: 100%;
   line-height: 72px;
   border: 2px solid #a5e200;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+.t108-one-page #counters-services .icon-services:hover, .t108-one-page #counters-services .icon-services:active, .t108-one-page #counters-services .icon-services:focus {
+  transform: rotate(-45deg);
 }
 .t108-one-page #counters-services .counters-box {
   margin: 0 auto 72px;
@@ -12037,7 +12044,8 @@ form fieldset input[name=comment], form fieldset input[name=message] {
   margin-bottom: 0;
 }
 .t108-one-page #counters-services .counters-box .divider-light-dark {
-  width: 48px;
+  width: 25px;
+  opacity: 50%;
   margin-left: 0;
   margin-bottom: 20px;
 }
