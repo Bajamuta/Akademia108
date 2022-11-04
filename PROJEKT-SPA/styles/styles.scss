@@ -1,0 +1,33 @@
+.logo {
+  width: 50px;
+}
+
+.logo-decoration {
+  display: block;
+  margin: 0 auto;
+}
+
+#home {
+  .home-decorations {
+    height: 70vh;
+    .home-decorations-left img {
+      height: 50%;
+    }
+    .home-decorations-right img {
+      height: 100%;
+    }
+  }
+  .home-title-container {
+    position: relative;
+    top: 200px;
+    .home-title {
+    }
+  }
+  .home-watch-link {
+    line-height: 20px;
+    i {
+      font-size: 20px;
+    }
+  }
+}
+
