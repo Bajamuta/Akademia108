@@ -20,7 +20,7 @@ body {
     cursor: pointer;
 }
 
-.hamburger .hamburger-lines {
+.hamburger .hamburger-lines.visible {
     display: flex;
     width: 20px;
     flex-wrap: wrap;
@@ -28,16 +28,20 @@ body {
     align-content: space-between;
 }
 
-.hamburger .hamburger-line {
+.hamburger .hamburger-line{
     height: 2px;
     background-color: #000;
     display: block;
     width: 20px;
 }
 
-.hamburger .hamburger-cross {
+.hamburger .hamburger-cross.visible {
     width: 20px;
     height: 1em;
+}
+
+.hamburger .hamburger-lines.hidden, .hamburger .hamburger-cross.hidden {
+    display: none;
 }
 
 .hamburger .hamburger-cross-left, .hamburger .hamburger-cross-right {
@@ -66,7 +70,6 @@ body {
 .main-menu {
     position: absolute;
     top: 50px;
-    left: 0;
     background-color: #fff;
     width: 240px;
     margin: 0;
@@ -74,6 +77,14 @@ body {
     padding-top: 20px;
     list-style-type: none;
     transition: all .4s;
+}
+
+.main-menu.visible {
+    left: 0;
+}
+
+.main-menu.hidden {
+    left: -200px;
 }
 
 .main-menu .main-menu-item {
@@ -90,46 +101,13 @@ body {
     text-decoration: underline;
 }
 
-.hidden {
-    display: none !important;
-}
 
 .hide {
-    -webkit-animation: disapear 1s;
-    -webkit-animation-fill-mode: backwards;
-    animation: disapear 1s;
-    animation-fill-mode: backwards;
+    -webkit-animation: ease-in 1s;
+    animation: ease-in 1s;
 }
 
 .show {
     -webkit-animation: ease-in 1s;
     animation: ease-in 1s;
-}
-
-@-webkit-keyframes disapear{
-
-    50% {
-
-        -webkit-transform: translateX(-5%);
-        transform: translateX(-5%);
-    }
-
-    100% {
-        -webkit-transform: translateX(200%);
-        transform: translateX(200%);
-    }
-}
-
-@keyframes disapear {
-
-    50% {
-
-        -webkit-transform: translateX(-5%);
-        transform: translateX(-5%);
-    }
-
-    100% {
-        -webkit-transform: translateX(200%);
-        transform: translateX(200%);
-    }
 }

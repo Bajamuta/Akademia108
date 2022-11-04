@@ -1,0 +1,11 @@
+.zdjecie {
+    object-fit: cover;
+}
+
+.zdjecie-zespol {
+    width: 200px;
+}
+
+.tlo {
+    background-image: url("../img/slider-1.jpg");
+}
