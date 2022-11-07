@@ -1,5 +1,5 @@
 .logo {
-  width: 50px;
+  width: 80px;
 }
 
 .logo-decoration {
@@ -9,9 +9,18 @@
 
 #home .home-decorations {
   height: 70vh;
+  position: absolute;
+}
+#home .home-decorations .home-decorations-left {
+  left: 0;
+  top: 0;
 }
 #home .home-decorations .home-decorations-left img {
   height: 50%;
+}
+#home .home-decorations .home-decorations-right {
+  top: 0;
+  right: 0;
 }
 #home .home-decorations .home-decorations-right img {
   height: 100%;
@@ -25,6 +34,13 @@
 }
 #home .home-watch-link i {
   font-size: 20px;
+}
+
+header .navbar-nav .nav-link {
+  color: black;
+  font-weight: bold;
+  padding-left: 3rem !important;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=styles.css.map */

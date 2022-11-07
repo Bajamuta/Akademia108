@@ -1,5 +1,5 @@
 .logo {
-  width: 50px;
+  width: 80px;
 }
 
 .logo-decoration {
@@ -10,18 +10,25 @@
 #home {
   .home-decorations {
     height: 70vh;
-    .home-decorations-left img {
-      height: 50%;
+    position: absolute;
+    .home-decorations-left {
+      left: 0;
+      top: 0;
+      img {
+        height: 50%;
+      }
     }
-    .home-decorations-right img {
-      height: 100%;
+    .home-decorations-right {
+      top: 0;
+      right: 0;
+      img {
+        height: 100%;
+      }
     }
   }
   .home-title-container {
     position: relative;
     top: 200px;
-    .home-title {
-    }
   }
   .home-watch-link {
     line-height: 20px;
@@ -30,4 +37,16 @@
     }
   }
 }
+
+header {
+  .navbar-nav {
+    .nav-link {
+      color: rgba(0,0,0,1);
+      font-weight: bold;
+      padding-left: 3rem !important;
+      text-transform: uppercase;
+    }
+  }
+}
+
 
