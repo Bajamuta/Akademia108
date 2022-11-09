@@ -125,7 +125,7 @@ body {
 }
 #team .team-boxes .team-box .team-presentation {
   position: absolute;
-  bottom: -2rem;
+  bottom: -4rem;
   padding: 1rem;
   background-color: white;
   width: 70%;
@@ -151,6 +151,11 @@ body {
 }
 #team .team-boxes .team-box:hover .team-presentation .team-box-social, #team .team-boxes .team-box:focus .team-presentation .team-box-social, #team .team-boxes .team-box:active .team-presentation .team-box-social {
   display: flex;
+}
+
+#appointment .appointment-form-container {
+  background-color: #1ba4ce;
+  padding: 2rem;
 }
 
 img.icon {
