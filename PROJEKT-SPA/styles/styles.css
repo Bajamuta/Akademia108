@@ -86,20 +86,24 @@ body {
   background-color: rgba(27, 164, 206, 0.9);
 }
 
-#procedures .procedures-boxes {
+.boxes {
   display: flex;
   margin: 0 auto;
-  width: 85%;
   justify-content: space-between;
 }
-#procedures .procedures-boxes .procedures-box {
-  padding: 1rem;
-  text-decoration: none;
-  width: 28%;
-  border: 1px solid rgba(48, 56, 59, 0.2);
+.boxes.boxes-3 {
+  width: 85%;
 }
-#procedures .procedures-boxes .procedures-box img {
+.boxes.boxes-3 .box {
+  width: 28%;
+  padding: 1rem;
+}
+.boxes img {
   width: 100%;
+}
+
+#procedures .procedures-boxes .procedures-box {
+  border: 1px solid rgba(48, 56, 59, 0.2);
 }
 #procedures .procedures-boxes .procedures-box:hover, #procedures .procedures-boxes .procedures-box:active, #procedures .procedures-boxes .procedures-box:focus {
   border: none;
@@ -107,6 +111,46 @@ body {
 }
 #procedures .procedures-boxes .procedures-box:hover .btn-secondary, #procedures .procedures-boxes .procedures-box:active .btn-secondary, #procedures .procedures-boxes .procedures-box:focus .btn-secondary {
   background-color: #1ba4ce;
+}
+
+#team .team-boxes .team-box {
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+#team .team-boxes .team-box .team-image {
+  position: relative;
+  margin: -1rem;
+}
+#team .team-boxes .team-box .team-presentation {
+  position: absolute;
+  bottom: -2rem;
+  padding: 1rem;
+  background-color: white;
+  width: 70%;
+  left: auto;
+  right: auto;
+}
+#team .team-boxes .team-box .team-presentation .team-box-social {
+  display: none;
+}
+#team .team-boxes .team-box .team-presentation .team-box-social a.box {
+  color: #1ba4ce;
+  border-radius: 100%;
+  border: 1px solid #1ba4ce;
+  width: 10%;
+  padding: 0.5rem;
+}
+#team .team-boxes .team-box .team-presentation .team-box-social a.box:hover, #team .team-boxes .team-box .team-presentation .team-box-social a.box:active, #team .team-boxes .team-box .team-presentation .team-box-social a.box:focus {
+  color: white;
+  background-color: #1ba4ce;
+}
+#team .team-boxes .team-box:hover .team-presentation, #team .team-boxes .team-box:focus .team-presentation, #team .team-boxes .team-box:active .team-presentation {
+  box-shadow: 0 5px 20px #f0f0f0;
+}
+#team .team-boxes .team-box:hover .team-presentation .team-box-social, #team .team-boxes .team-box:focus .team-presentation .team-box-social, #team .team-boxes .team-box:active .team-presentation .team-box-social {
+  display: flex;
 }
 
 img.icon {
