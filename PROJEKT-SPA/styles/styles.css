@@ -1,46 +1,239 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://github.com/kristerkari/normalize.scss/blob/master/_normalize.scss");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.decorated {
+  font-family: "Bellota", sans-serif;
+}
+
+.title {
+  font-weight: 800;
+  font-family: "Bellota", sans-serif;
+  font-size: xx-large;
+}
+
 .logo {
   width: 80px;
 }
 
 .logo-decoration {
   display: block;
+  margin: 0 auto 2rem auto;
+  width: 6rem;
+}
+
+#about .about-decorations {
+  height: 45rem;
+  z-index: -999;
+}
+#about .about-decorations .about-decorations-left img {
+  left: -2rem;
+}
+#about .about-title-container {
+  margin-top: 15rem;
+}
+#about .about-title {
+  font-size: xxx-large;
+}
+#about .about-watch-link {
+  line-height: 20px;
+}
+#about .about-watch-link i {
+  font-size: 20px;
+}
+#about .about-btn-reserve {
+  text-transform: none;
+}
+#about .about-text {
+  color: gray;
+  margin-bottom: 3rem;
+  font-size: smaller;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+#services .services-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: stretch;
+}
+#services .services-container .services-item {
+  flex: 1 1 auto;
+  max-width: 25%;
+  position: relative;
+}
+#services .services-container .services-item img:not(.icon) {
+  width: 100%;
+}
+#services .services-container .services-item .services-overlay {
+  display: none;
+  color: white;
+}
+#services .services-container .services-item:hover, #services .services-container .services-item:focus, #services .services-container .services-item:active {
+  cursor: pointer;
+}
+#services .services-container .services-item:hover .services-overlay, #services .services-container .services-item:focus .services-overlay, #services .services-container .services-item:active .services-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(27, 164, 206, 0.9);
+}
+
+img.icon {
+  width: 3rem;
+}
+
+.navbar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.navbar ul li {
+  display: inline;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+header .navbar {
+  z-index: 999;
+}
+header .navbar .nav-link {
+  padding-left: 3rem !important;
+}
+
+.container {
+  width: 75%;
   margin: 0 auto;
 }
 
-#home .home-decorations {
-  height: 70vh;
+.position-absolute {
   position: absolute;
 }
-#home .home-decorations .home-decorations-left {
-  left: 0;
-  top: 0;
-}
-#home .home-decorations .home-decorations-left img {
-  height: 50%;
-}
-#home .home-decorations .home-decorations-right {
-  top: 0;
-  right: 0;
-}
-#home .home-decorations .home-decorations-right img {
-  height: 100%;
-}
-#home .home-title-container {
+
+.position-relative {
   position: relative;
-  top: 200px;
-}
-#home .home-watch-link {
-  line-height: 20px;
-}
-#home .home-watch-link i {
-  font-size: 20px;
 }
 
-header .navbar-nav .nav-link {
-  color: black;
+.d-flex {
+  display: flex;
+}
+
+.d-block {
+  display: block;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.m-auto {
+  margin: 0 auto;
+}
+
+.my-4 {
+  margin: 3rem 0;
+}
+
+.ml-1 {
+  margin-left: 1rem;
+}
+
+.mr-1 {
+  margin-right: 1rem;
+}
+
+.font-weight-bold {
   font-weight: bold;
-  padding-left: 3rem !important;
+}
+
+.justify-content-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-end {
+  align-items: end;
+}
+
+.flex-column {
+  flex-flow: column wrap;
+}
+
+.top-0 {
+  top: 0;
+}
+
+.left-0 {
+  left: 0;
+}
+
+.right-0 {
+  right: 0;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.h-50 {
+  height: 50%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.description {
+  line-height: 1.8;
+  margin: 0 auto 2rem auto;
+  width: 65%;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: smaller;
+}
+
+.btn {
+  padding: 1rem 2rem;
+  color: white;
+  display: inline-block;
+  text-decoration: none;
   text-transform: uppercase;
+  font-size: small;
+}
+.btn.btn-secondary {
+  background-color: #30383b;
+}
+.btn.btn-primary {
+  background-color: #1ba4ce;
+}
+.btn.btn-rounded {
+  border-radius: 2rem;
 }
 
 /*# sourceMappingURL=styles.css.map */
