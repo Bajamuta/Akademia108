@@ -111,6 +111,31 @@ body {
   }
 }
 
+#procedures {
+  .procedures-boxes {
+    display: flex;
+    margin: 0 auto;
+    width: 85%;
+    justify-content: space-between;
+    .procedures-box {
+      padding: 1rem;
+      text-decoration: none;
+      width: 28%;
+      border: 1px solid rgba($darkgrey, 0.2);
+      img {
+        width: 100%;
+      }
+      &:hover, &:active, &:focus {
+        border: none;
+        box-shadow: $shadow;
+        .btn-secondary {
+          background-color: $blue;
+        }
+      }
+    }
+  }
+}
+
 img.icon {
   width: 3rem;
 }
@@ -184,7 +209,23 @@ header {
 }
 
 .my-4 {
-  margin: 3rem 0;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.my-3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.my-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .ml-1 {
@@ -240,11 +281,13 @@ header {
 }
 
 .description {
-  line-height: 1.8;
-  margin: 0 auto 2rem auto;
-  width: 65%;
+  line-height: 1.6;
   color: rgba(0,0,0,0.4);
   font-size: smaller;
+  &.extra-description {
+    margin: 0 auto 2rem auto;
+    width: 65%;
+  }
 }
 
 .btn {
@@ -263,5 +306,12 @@ header {
   &.btn-rounded {
     border-radius: 2rem;
   }
+  &.btn-small {
+    font-size: x-small;
+    padding: 0.7rem 2rem;
+  }
 }
 
+section {
+  text-align: center;
+}

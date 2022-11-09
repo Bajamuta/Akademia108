@@ -86,6 +86,29 @@ body {
   background-color: rgba(27, 164, 206, 0.9);
 }
 
+#procedures .procedures-boxes {
+  display: flex;
+  margin: 0 auto;
+  width: 85%;
+  justify-content: space-between;
+}
+#procedures .procedures-boxes .procedures-box {
+  padding: 1rem;
+  text-decoration: none;
+  width: 28%;
+  border: 1px solid rgba(48, 56, 59, 0.2);
+}
+#procedures .procedures-boxes .procedures-box img {
+  width: 100%;
+}
+#procedures .procedures-boxes .procedures-box:hover, #procedures .procedures-boxes .procedures-box:active, #procedures .procedures-boxes .procedures-box:focus {
+  border: none;
+  box-shadow: 0 5px 20px #f0f0f0;
+}
+#procedures .procedures-boxes .procedures-box:hover .btn-secondary, #procedures .procedures-boxes .procedures-box:active .btn-secondary, #procedures .procedures-boxes .procedures-box:focus .btn-secondary {
+  background-color: #1ba4ce;
+}
+
 img.icon {
   width: 3rem;
 }
@@ -155,7 +178,23 @@ header .navbar .nav-link {
 }
 
 .my-4 {
-  margin: 3rem 0;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
+}
+
+.my-3 {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.my-2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.my-1 {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .ml-1 {
@@ -211,11 +250,13 @@ header .navbar .nav-link {
 }
 
 .description {
-  line-height: 1.8;
-  margin: 0 auto 2rem auto;
-  width: 65%;
+  line-height: 1.6;
   color: rgba(0, 0, 0, 0.4);
   font-size: smaller;
+}
+.description.extra-description {
+  margin: 0 auto 2rem auto;
+  width: 65%;
 }
 
 .btn {
@@ -234,6 +275,14 @@ header .navbar .nav-link {
 }
 .btn.btn-rounded {
   border-radius: 2rem;
+}
+.btn.btn-small {
+  font-size: x-small;
+  padding: 0.7rem 2rem;
+}
+
+section {
+  text-align: center;
 }
 
 /*# sourceMappingURL=styles.css.map */
