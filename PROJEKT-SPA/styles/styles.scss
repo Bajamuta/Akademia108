@@ -29,6 +29,11 @@ body {
 
 }
 
+.date {
+  text-transform: uppercase;
+  font-size: small;
+}
+
 .logo {
   width: 80px;
 }
@@ -142,24 +147,23 @@ body {
   img {
     width: 100%;
   }
+  .shadowed-box {
+    border: 1px solid rgba($darkgrey, 0.2);
+
+    &:hover, &:active, &:focus {
+      border: none;
+      box-shadow: $shadow;
+
+      .btn-secondary {
+        background-color: $blue;
+      }
+    }
+  }
 }
 
 
 #procedures {
-  .procedures-boxes {
-    .procedures-box {
-      border: 1px solid rgba($darkgrey, 0.2);
 
-      &:hover, &:active, &:focus {
-        border: none;
-        box-shadow: $shadow;
-
-        .btn-secondary {
-          background-color: $blue;
-        }
-      }
-    }
-  }
 }
 
 #team {
@@ -316,6 +320,22 @@ header {
   margin-bottom: 1rem;
 }
 
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
 .ml-1 {
   margin-left: 1rem;
 }
@@ -407,4 +427,5 @@ header {
 
 section {
   text-align: center;
+  padding: 3rem 0;
 }

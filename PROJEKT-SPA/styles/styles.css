@@ -14,6 +14,11 @@ body {
   font-size: xx-large;
 }
 
+.date {
+  text-transform: uppercase;
+  font-size: small;
+}
+
 .logo {
   width: 80px;
 }
@@ -101,15 +106,14 @@ body {
 .boxes img {
   width: 100%;
 }
-
-#procedures .procedures-boxes .procedures-box {
+.boxes .shadowed-box {
   border: 1px solid rgba(48, 56, 59, 0.2);
 }
-#procedures .procedures-boxes .procedures-box:hover, #procedures .procedures-boxes .procedures-box:active, #procedures .procedures-boxes .procedures-box:focus {
+.boxes .shadowed-box:hover, .boxes .shadowed-box:active, .boxes .shadowed-box:focus {
   border: none;
   box-shadow: 0 5px 20px #f0f0f0;
 }
-#procedures .procedures-boxes .procedures-box:hover .btn-secondary, #procedures .procedures-boxes .procedures-box:active .btn-secondary, #procedures .procedures-boxes .procedures-box:focus .btn-secondary {
+.boxes .shadowed-box:hover .btn-secondary, .boxes .shadowed-box:active .btn-secondary, .boxes .shadowed-box:focus .btn-secondary {
   background-color: #1ba4ce;
 }
 
@@ -246,6 +250,22 @@ header .navbar .nav-link {
   margin-bottom: 1rem;
 }
 
+.mb-1 {
+  margin-bottom: 1rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
+.mb-3 {
+  margin-bottom: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 4rem;
+}
+
 .ml-1 {
   margin-left: 1rem;
 }
@@ -332,6 +352,7 @@ header .navbar .nav-link {
 
 section {
   text-align: center;
+  padding: 3rem 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
