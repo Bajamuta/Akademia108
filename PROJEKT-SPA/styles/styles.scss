@@ -544,3 +544,29 @@ section {
     }
   }
 }
+
+footer {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: small;
+  .footer-link-logo {
+    display: block;
+    height: 100%;
+    margin-bottom: 2rem;
+  }
+  .footer-note {
+    text-transform: uppercase;
+    color: gray;
+    margin-top: 3rem;
+  }
+  .navbar {
+    .nav-item {
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+    .nav-link {
+      color: lighten($violet, 30%);
+    }
+  }
+}
