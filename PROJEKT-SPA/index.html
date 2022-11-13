@@ -58,12 +58,12 @@
             </div>
         </div>
     </div>
-    <div class="about-decorations d-flex justify-content-between w-100 position-absolute top-0">
-        <div class="about-decorations-left d-flex flex-column justify-content-center">
-            <img class="h-50 position-relative" aria-hidden="true" src="img/header-flowers.png" alt="Flowers decoration"/>
+    <div class="about-decorations">
+        <div class="about-decorations-item about-decorations-left d-flex flex-column justify-content-center">
+            <img class="" aria-hidden="true" src="img/header-flowers.png" alt="Flowers decoration"/>
         </div>
-        <div class="about-decorations-right">
-            <img class="h-100" src="img/header-bg.png" aria-hidden="true" alt="Photo of products" />
+        <div class="about-decorations-item about-decorations-right">
+            <img class="" src="img/header-bg.png" aria-hidden="true" alt="Photo of products" />
         </div>
     </div>
 </div>
@@ -218,23 +218,67 @@
             </div>
         </div>
     </section>
-    <section id="appointment" class="my-4">
-        <div class="d-flex">
+    <section id="appointment" class="mt-4">
+        <div class="appointment-container">
             <div class="appointment-image">
                 <img src="img/contact-bg.jpg" alt="Appointment">
             </div>
-            <div class="appointment-form-container">
-                <form>
-                    <div class="form-row">
-                        <div class="form-input-group">
-                            <label for="name">Name</label>
-                            <input type="text" id="name" name="name">
+            <div class="appointment-form-container form-container w-100 bg-primary">
+                <form id="appointment-form" class="w-75">
+                    <div class="form-group-input">
+                        <div class="form-item">
+                            <label for="appointment-name">
+                                First name
+                            </label>
+                            <input class="form-input" type="text" name="appointment-name" id="appointment-name" placeholder="first name">
                         </div>
-                        <div class="form-input-group">
-                            <label for="email">Email</label>
-                            <input type="text" id="email" name="email">
+                        <div class="form-item">
+                            <label for="appointment-email">
+                                E-mail adress
+                            </label>
+                            <input class="form-input" type="text" name="appointment-email" id="appointment-email" placeholder="e-mail adress">
                         </div>
                     </div>
+                    <div class="form-group-input">
+                        <div class="form-item">
+                            <label for="appointment-name">
+                                Service
+                            </label>
+                            <select class="form-input" name="appointment-service" id="appointment-service">
+                                <option value="1">Service 1</option>
+                                <option value="2">Service 2</option>
+                                <option value="3">Service 3</option>
+                            </select>
+                        </div>
+                        <div class="form-item">
+                            <label for="appointment-phone">
+                                Phone number
+                            </label>
+                            <input class="form-input" type="text" name="appointment-phone" id="appointment-phone" placeholder="Phone number">
+                        </div>
+                    </div>
+                    <div class="form-group-input">
+                        <div class="form-item">
+                            <label for="appointment-date">
+                                Date
+                            </label>
+                            <input class="form-input" type="date" name="appointment-date" id="appointment-date" placeholder="Pick date">
+                        </div>
+                        <div class="form-item">
+                            <label for="appointment-time">
+                                Time
+                            </label>
+                            <input class="form-input" type="time" name="appointment-time" id="appointment-time" placeholder="Pick time">
+                        </div>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="appointment-notes">
+                            Your notes
+                        </label>
+                        <textarea class="form-input" rows="3" name="appointment-notes" id="appointment-notes" placeholder="Your notes"></textarea>
+                    </div>
+                    <input type="button" class="btn btn-primary-reversed btn-rounded" value="Make an appointment">
                 </form>
             </div>
         </div>
@@ -309,25 +353,25 @@
                         </p>
                     </div>
                 </div>
-                <div class="contact-form-container">
-                    <form>
+                <div class="form-container">
+                    <form id="contact-form">
                         <div class="form-item">
-                            <label for="form-name">
+                            <label for="contact-name">
                                 First name
                             </label>
-                            <input class="form-input" type="text" name="form-name" id="form-name" placeholder="first name">
+                            <input class="form-input" type="text" name="contact-name" id="contact-name" placeholder="first name">
                         </div>
                         <div class="form-item">
-                            <label for="form-email">
+                            <label for="contact-email">
                                 E-mail adress
                             </label>
-                            <input class="form-input" type="text" name="form-email" id="form-email" placeholder="e-mail adress">
+                            <input class="form-input" type="text" name="contact-email" id="contact-email" placeholder="e-mail adress">
                         </div>
                         <div class="form-item">
-                            <label for="form-comment">
+                            <label for="contact-comment">
                                 Comment
                             </label>
-                            <textarea class="form-input" rows="3" name="form-comment" id="form-comment" placeholder="write comment"></textarea>
+                            <textarea class="form-input" rows="3" name="contact-comment" id="contact-comment" placeholder="write comment"></textarea>
                         </div>
                         <input type="button" class="btn btn-primary-reversed btn-rounded" value="Submit now">
                     </form>

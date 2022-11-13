@@ -27,10 +27,6 @@ body {
   font-size: xx-large;
 }
 
-.subtitle {
-
-}
-
 .date {
   text-transform: uppercase;
   font-size: small;
@@ -51,15 +47,28 @@ body {
   .about-decorations {
     height: 45rem;
     z-index: -999;
-
-    .about-decorations-left {
-      img {
-        left: -2rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    .about-decorations-item {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      &.about-decorations-left {
+        left: 0;
+        img {
+          left: -2rem;
+          height: 50%;
+          position: relative;
+        }
       }
-    }
-
-    .about-decorations-right {
-      img {
+      &.about-decorations-right {
+        right: 0;
+        img {
+          height: 100%;
+          position: relative;
+        }
       }
     }
   }
@@ -163,11 +172,6 @@ body {
   }
 }
 
-
-#procedures {
-
-}
-
 #team {
   .team-boxes {
     .team-box {
@@ -222,10 +226,17 @@ body {
 }
 
 #appointment {
-  .appointment-form-container {
-    background-color: $blue;
-    padding: 2rem;
+  .appointment-container {
+    display: grid;
+    grid-template-columns: 40% auto;
+    .appointment-form-container {
+      background-color: $blue;
+      padding: 5rem;
+      width: auto;
+      text-align: left;
+    }
   }
+
 }
 
 #contact {
@@ -252,38 +263,6 @@ body {
           margin: 0;
           text-transform: uppercase;
           line-height: 1.6;
-        }
-      }
-    }
-    .contact-form-container {
-      width: 100%;
-      .form-item {
-        display: flex;
-        flex-flow: column;
-        gap: 1rem;
-        margin-bottom: 2rem;
-        label {
-          display: none;
-        }
-        &:active, &:focus {
-          label {
-            display: block;
-          }
-        }
-        .form-input {
-          background-color: transparent;
-          border-top: none;
-          border-left: none;
-          border-right: none;
-          border-bottom: 1px solid $white;
-          font-family: inherit;
-          padding: 1rem;
-          &::placeholder {
-            text-transform: uppercase;
-            color: $white;
-            font-family: inherit;
-            font-size: medium;
-          }
         }
       }
     }
@@ -324,7 +303,7 @@ header {
 }
 
 .container {
-  width: 75%;
+  width: 70%;
   margin: 0 auto;
 }
 
@@ -406,6 +385,10 @@ header {
 
 .mr-1 {
   margin-right: 1rem;
+}
+
+.mt-4 {
+  margin-top: 4rem;
 }
 
 .font-weight-bold {
@@ -506,4 +489,42 @@ section {
 
 .text-white {
   color: $white;
+}
+
+.form-container {
+  width: 100%;
+  .form-group-input {
+    display: flex;
+    gap: 5rem;
+  }
+  .form-item {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    width: 100%;
+    label {
+      display: none;
+    }
+    &:active, &:focus {
+      label {
+        display: block;
+      }
+    }
+    .form-input {
+      background-color: transparent;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      border-bottom: 1px solid $white;
+      font-family: inherit;
+      padding: 1rem;
+      &::placeholder {
+        text-transform: uppercase;
+        color: $white;
+        font-family: inherit;
+        font-size: medium;
+      }
+    }
+  }
 }
