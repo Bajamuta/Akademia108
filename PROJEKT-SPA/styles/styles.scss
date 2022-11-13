@@ -231,12 +231,24 @@ body {
     grid-template-columns: 40% auto;
     .appointment-form-container {
       background-color: $blue;
-      padding: 5rem;
+      padding: 5rem 10rem 5rem 5rem;
       width: auto;
       text-align: left;
     }
   }
-
+  .appointment-image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      display: block;
+      position: relative;
+      object-position: center;
+    }
+  }
 }
 
 #contact {
@@ -519,11 +531,15 @@ section {
       border-bottom: 1px solid $white;
       font-family: inherit;
       padding: 1rem;
+      color: $white;
+      text-transform: uppercase;
+      font-size: inherit;
       &::placeholder {
         text-transform: uppercase;
         color: $white;
         font-family: inherit;
         font-size: medium;
+        opacity: 1;
       }
     }
   }
