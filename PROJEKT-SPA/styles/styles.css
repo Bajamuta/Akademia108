@@ -693,6 +693,11 @@ header .navbar .nav-link {
   border-color: transparent;
 }
 
+.btn-empty {
+  background: transparent;
+  border: none;
+}
+
 section {
   text-align: center;
   padding: 3rem 0;
@@ -770,26 +775,15 @@ footer .navbar .nav-link {
   color: #9677a8;
 }
 
-.hamburger {
+.hamburger-container {
   display: none;
   width: 35px;
   height: 35px;
   position: absolute;
-  right: 3rem;
+  right: 3.5rem;
 }
 
-.hamburger-init {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 2;
-  cursor: pointer;
-  outline: none;
-}
-
-.hamburger-bars {
+#hamburger.hamburger-bars {
   position: relative;
   width: 100%;
   height: 100%;
@@ -799,28 +793,22 @@ footer .navbar .nav-link {
   align-items: center;
   z-index: 1;
 }
-
-.hamburger-bars .bar1,
-.hamburger-bars .bar2,
-.hamburger-bars .bar3 {
+#hamburger.hamburger-bars .bar1, #hamburger.hamburger-bars .bar2, #hamburger.hamburger-bars .bar3 {
   width: 100%;
   height: 0.3rem;
   background: #1ba4ce;
   transition: all 0.3s;
-  border-radius: 15px;
+  border-radius: 20px;
 }
-
-.hamburger-init:checked + .hamburger-bars .bar1 {
+#hamburger.hamburger-bars.clicked .bar1 {
   transform: translateY(20px) rotate(45deg);
   background: white;
 }
-
-.hamburger-init:checked + .hamburger-bars .bar2 {
+#hamburger.hamburger-bars.clicked .bar2 {
   opacity: 0;
 }
-
-.hamburger-init:checked + .hamburger-bars .bar3 {
-  transform: translateY(-5px) rotate(-45deg);
+#hamburger.hamburger-bars.clicked .bar3 {
+  transform: translateY(-2px) rotate(-45deg);
   background: white;
 }
 
@@ -902,13 +890,14 @@ footer .navbar .nav-link {
   }
   #appointment .appointment-container .appointment-form-container {
     text-align: center;
+    padding: 5rem;
   }
 
   .container {
     max-width: 680px;
   }
 
-  .hamburger {
+  .hamburger-container {
     display: flex;
   }
 
@@ -917,6 +906,9 @@ footer .navbar .nav-link {
   }
   header .navbar .navbar-collapse {
     display: none;
+  }
+  header .navbar .navbar-collapse .nav-link {
+    font-size: xx-large;
   }
   header .navbar .navbar-collapse.collapse {
     display: block;
