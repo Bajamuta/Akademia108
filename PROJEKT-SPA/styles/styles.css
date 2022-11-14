@@ -57,26 +57,29 @@ body {
   height: 100%;
   position: relative;
 }
-#about .about-title-container {
+#about .about-container {
   margin-top: 15rem;
 }
-#about .about-title {
+#about .about-container .about-title-container {
+  width: 50%;
+}
+#about .about-container .about-title-container .about-title {
   font-size: xxx-large;
 }
-#about .about-watch-container {
+#about .about-container .about-watch-container {
   display: flex;
   align-items: center;
 }
-#about .about-watch-container .about-btn-reserve {
+#about .about-container .about-watch-container .about-btn-reserve {
   text-transform: none;
 }
-#about .about-watch-container .about-watch-link {
+#about .about-container .about-watch-container .about-watch-link {
   line-height: 2rem;
   text-decoration: none;
   color: #30383b;
   margin-left: 1.5rem;
 }
-#about .about-watch-container .about-watch-link i {
+#about .about-container .about-watch-container .about-watch-link i {
   font-size: 2rem;
   margin-right: 0.5rem;
 }
@@ -580,6 +583,9 @@ footer .navbar .nav-link {
 
   #about .about-decorations {
     height: 30rem;
+  }
+  #about .about-container .about-title-container {
+    width: 100%;
   }
 
   #contact .contact-container {

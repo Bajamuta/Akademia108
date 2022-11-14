@@ -73,29 +73,31 @@ body {
       }
     }
   }
-  .about-title-container {
+  .about-container {
     margin-top: 15rem;
-  }
-  .about-title {
-    font-size: xxx-large;
-  }
-
-  .about-watch-container {
-    display: flex;
-    align-items: center;
-    .about-btn-reserve {
-      text-transform: none;
-    }
-    .about-watch-link {
-      line-height: 2rem;
-      text-decoration: none;
-      color: $darkgrey;
-      margin-left: 1.5rem;
-      i {
-        font-size: 2rem;
-        margin-right: 0.5rem;
+    .about-title-container {
+      width: 50%;
+      .about-title {
+        font-size: xxx-large;
       }
     }
+    .about-watch-container {
+      display: flex;
+      align-items: center;
+      .about-btn-reserve {
+        text-transform: none;
+      }
+      .about-watch-link {
+        line-height: 2rem;
+        text-decoration: none;
+        color: $darkgrey;
+        margin-left: 1.5rem;
+        i {
+          font-size: 2rem;
+          margin-right: 0.5rem;
+        }
+      }
+  }
   }
   .about-text {
     color: gray;
@@ -648,6 +650,11 @@ footer {
   #about {
     .about-decorations {
       height: 30rem;
+    }
+    .about-container {
+      .about-title-container {
+        width: 100%;
+      }
     }
   }
   #contact {
