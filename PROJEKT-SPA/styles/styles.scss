@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bellota:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-@import url('https://github.com/kristerkari/normalize.scss/blob/master/_normalize.scss');
+@import "normalize";
 
 $blue: #1ba4ce;
 $white: white;
@@ -121,6 +121,10 @@ body {
 
       img:not(.icon) {
         width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        position: relative;
       }
 
       .services-overlay {
@@ -151,7 +155,6 @@ body {
   display: flex;
   margin: 0 auto;
   justify-content: space-between;
-
   &.boxes-3 {
     width: 85%;
 
@@ -160,7 +163,6 @@ body {
       padding: 1rem;
     }
   }
-
   img {
     width: 100%;
   }
@@ -175,6 +177,12 @@ body {
         background-color: $blue;
       }
     }
+  }
+  .box-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 100%;
   }
 }
 
@@ -324,7 +332,7 @@ header {
 }
 
 .container {
-  width: 70%;
+  max-width: 1240px;
   margin: 0 auto;
 }
 
@@ -638,6 +646,9 @@ footer {
 
 @media screen and (max-width: 1080px)
 {
+  .container {
+   max-width: 800px;
+  }
   .form-container {
     .form-group-input {
       display: flex;
@@ -666,24 +677,16 @@ footer {
   }
   .boxes {
     &.boxes-3 {
-      flex-flow: column;
       width: 100%;
-      align-items: center;
-      &.procedures-boxes, &.blog-boxes {
-        gap: 3rem;
-      }
-      &.team-boxes {
-        gap: 5rem;
-      }
-      &.team-box-social {
-        flex-flow: row;
-      }
     }
   }
 }
 
-@media screen and (max-width: 996px)
+@media screen and (max-width: 940px)
 {
+  .container {
+    max-width: 600px;
+  }
   .hamburger {
     display: flex;
   }
@@ -709,6 +712,38 @@ footer {
           }
         }
       }
+    }
+  }
+  .boxes {
+    &.boxes-3 {
+      .box {
+        width: 25%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 680px) {
+  #services {
+    .services-container {
+      .services-item {
+        max-width: 50%;
+      }
+    }
+  }
+  .boxes {
+    flex-flow: column;
+    align-items: center;
+    &.boxes-3 {
+      .box {
+        width: 60%;
+      }
+    }
+    &.procedures-boxes, &.blog-boxes {
+      gap: 3rem;
+    }
+    &.team-boxes {
+      gap: 5rem;
     }
   }
 }
