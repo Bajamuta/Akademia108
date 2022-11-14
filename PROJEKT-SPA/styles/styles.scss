@@ -650,6 +650,29 @@ footer {
       height: 30rem;
     }
   }
+  #contact {
+    .contact-container {
+      flex-flow: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  .boxes {
+    &.boxes-3 {
+      flex-flow: column;
+      width: 100%;
+      align-items: center;
+      &.procedures-boxes, &.blog-boxes {
+        gap: 3rem;
+      }
+      &.team-boxes {
+        gap: 5rem;
+      }
+      &.team-box-social {
+        flex-flow: row;
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 996px)

@@ -581,6 +581,27 @@ footer .navbar .nav-link {
   #about .about-decorations {
     height: 30rem;
   }
+
+  #contact .contact-container {
+    flex-flow: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .boxes.boxes-3 {
+    flex-flow: column;
+    width: 100%;
+    align-items: center;
+  }
+  .boxes.boxes-3.procedures-boxes, .boxes.boxes-3.blog-boxes {
+    gap: 3rem;
+  }
+  .boxes.boxes-3.team-boxes {
+    gap: 5rem;
+  }
+  .boxes.boxes-3.team-box-social {
+    flex-flow: row;
+  }
 }
 @media screen and (max-width: 996px) {
   .hamburger {
