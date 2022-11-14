@@ -46,7 +46,7 @@ body {
 
 #about {
   .about-decorations {
-    height: 45rem;
+    height: 35rem;
     z-index: -999;
     position: absolute;
     top: 0;
@@ -76,12 +76,16 @@ body {
   .about-container {
     margin-top: 15rem;
     .about-title-container {
-      width: 50%;
+      margin: 0 auto;
       .about-title {
         font-size: xxx-large;
       }
+      .about-text {
+        width: 60%;
+      }
     }
     .about-watch-container {
+      margin: 0 auto;
       display: flex;
       align-items: center;
       .about-btn-reserve {
@@ -156,8 +160,6 @@ body {
   margin: 0 auto;
   justify-content: space-between;
   &.boxes-3 {
-    width: 85%;
-
     .box {
       width: 28%;
       padding: 1rem;
@@ -242,7 +244,7 @@ body {
 #appointment {
   .appointment-container {
     display: grid;
-    grid-template-columns: 40% auto;
+    grid-template-columns: 40% 60%;
     .appointment-form-container {
       background-color: $blue;
       padding: 5rem 10rem 5rem 5rem;
@@ -319,6 +321,9 @@ img.icon {
 }
 
 header {
+  position: absolute;
+  width: 100%;
+  top: 0;
   .navbar {
     z-index: 999;
     padding-top: 2rem;
@@ -332,7 +337,7 @@ header {
 }
 
 .container {
-  max-width: 1240px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 
@@ -521,7 +526,7 @@ section {
 }
 
 .form-container {
-  width: 100%;
+  width: 80%;
   .form-group-input {
     display: flex;
     justify-content: space-between;
@@ -644,10 +649,37 @@ footer {
   background: $white;
 }
 
-@media screen and (max-width: 1080px)
+@media screen and (max-width: 1500px){
+  .container {
+    max-width: 1050px;
+  }
+  #about {
+    .about-decorations {
+      height: 35rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .container {
+    max-width: 800px;
+  }
+  .description {
+    &.extra-description {
+      width: 80%;
+    }
+  }
+  #about {
+    .about-decorations {
+      height: 30rem;
+    }
+  }
+}
+
+@media screen and (max-width: 1100px)
 {
   .container {
-   max-width: 800px;
+   max-width: 750px;
   }
   .form-container {
     .form-group-input {
@@ -660,10 +692,10 @@ footer {
   }
   #about {
     .about-decorations {
-      height: 30rem;
+      height: 25rem;
     }
     .about-container {
-      .about-title-container {
+      .about-title-container, .about-watch-container {
         width: 100%;
       }
     }
@@ -673,6 +705,7 @@ footer {
       flex-flow: column;
       align-items: center;
       text-align: center;
+      gap: 3rem;
     }
   }
   .boxes {
@@ -684,8 +717,26 @@ footer {
 
 @media screen and (max-width: 940px)
 {
+  #about {
+    .about-decorations {
+      height: 16rem;
+      padding: 0 4rem;
+    }
+    .about-container {
+      margin-top: 10rem;
+    }
+    padding: 0 5rem;
+  }
+  #appointment {
+    .appointment-container {
+      grid-template-columns: 100%;
+      .appointment-form-container {
+        text-align: center;
+      }
+    }
+  }
   .container {
-    max-width: 600px;
+    max-width: 680px;
   }
   .hamburger {
     display: flex;
@@ -721,6 +772,11 @@ footer {
       }
     }
   }
+  .description {
+    &.extra-description {
+      width: 80%;
+    }
+  }
 }
 
 @media screen and (max-width: 680px) {
@@ -728,6 +784,15 @@ footer {
     .services-container {
       .services-item {
         max-width: 50%;
+      }
+    }
+  }
+  #about {
+    .about-container {
+      .about-watch-container {
+        flex-flow: column;
+        align-items: center;
+        gap: 3rem;
       }
     }
   }
