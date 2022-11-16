@@ -476,12 +476,13 @@ header .navbar .nav-link {
 #about .about-container .about-watch-container {
   margin: 0 auto;
   display: flex;
-  align-items: center;
 }
 #about .about-container .about-watch-container .about-btn-reserve {
   text-transform: none;
 }
 #about .about-container .about-watch-container .about-watch-link {
+  display: flex;
+  align-items: center;
   text-decoration: none;
   color: #30383b;
   margin-left: 1.5rem;
@@ -828,9 +829,6 @@ footer .navbar .nav-link {
   #about .about-container .about-title-container .about-title {
     margin: 3rem 0;
   }
-  #about .about-container .about-title-container .about-text {
-    max-width: 300px;
-  }
   #about .about-decorations {
     height: 35rem;
   }
@@ -861,9 +859,6 @@ footer .navbar .nav-link {
 
   #about .about-decorations {
     height: 30rem;
-  }
-  #about .about-text {
-    max-width: 266.6666666667px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -960,10 +955,16 @@ footer .navbar .nav-link {
   #about .about-decorations {
     height: 14rem;
   }
+  #about .about-container {
+    margin-bottom: 2rem;
+  }
   #about .about-container .about-watch-container {
     flex-flow: column;
     align-items: center;
-    gap: 3rem;
+    gap: 2rem;
+  }
+  #about .about-container .about-watch-container .about-watch-link {
+    margin-left: 0;
   }
 
   .boxes {
@@ -986,10 +987,14 @@ footer .navbar .nav-link {
 @media screen and (max-width: 576px) {
   .container {
     max-width: 100%;
+    padding: 0 4rem;
   }
 
   #about .about-decorations {
     height: 10rem;
+  }
+  #about .about-container .about-text {
+    max-width: 100%;
   }
 
   #services .services-container {
@@ -1003,6 +1008,10 @@ footer .navbar .nav-link {
   .boxes.boxes-3 .box {
     width: auto;
     padding: 3rem;
+  }
+
+  .description.extra-description {
+    width: 100%;
   }
 }
 

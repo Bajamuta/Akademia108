@@ -15,9 +15,6 @@
         .about-title {
           margin: map.get(v.$theme-spaces, 'medium') 0;
         }
-        .about-text {
-          max-width: map.get(v.$container, 'large') / 3;
-        }
       }
     }
     .about-decorations {
@@ -60,9 +57,6 @@
   #about {
     .about-decorations {
       height: map.get(v.$decorations, 'big');
-    }
-    .about-text {
-      max-width: map.get(v.$container, 'big') / 3;
     }
   }
 }
@@ -181,10 +175,14 @@
       height: map.get(v.$decorations, 'normal');
     }
     .about-container {
+      margin-bottom: 2rem;
       .about-watch-container {
         flex-flow: column;
         align-items: center;
-        gap: map.get(v.$theme-spaces, 'medium');
+        gap: map.get(v.$theme-spaces, 'normal');
+        .about-watch-link {
+          margin-left: 0;
+        }
       }
     }
   }
@@ -211,10 +209,16 @@
 @media screen and (max-width: map.get(v.$theme-queries, 'small')) {
   .container {
     max-width: map.get(v.$container, 'small');
+    padding: 0 map.get(v.$theme-spaces, 'big');
   }
   #about {
     .about-decorations {
       height: map.get(v.$decorations, 'small');
+    }
+    .about-container {
+      .about-text {
+        max-width: 100%;
+      }
     }
   }
   #services {
@@ -234,5 +238,9 @@
       }
     }
   }
-
+  .description {
+    &.extra-description {
+      width: 100%;
+    }
+  }
 }

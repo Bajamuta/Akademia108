@@ -120,11 +120,12 @@ header {
     .about-watch-container {
       margin: 0 auto;
       display: flex;
-      align-items: center;
       .about-btn-reserve {
         text-transform: none;
       }
       .about-watch-link {
+        display: flex;
+        align-items: center;
         line-height: map.get(v.$theme-spaces, 'normall');
         text-decoration: none;
         color: map.get(v.$theme-colors, 'muted');
