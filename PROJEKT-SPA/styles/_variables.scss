@@ -1,0 +1,73 @@
+$theme-colors: (
+        "primary": #1ba4ce,
+        "secondary": #473452,
+        "muted": #30383b,
+        "white": white,
+        "black": black,
+        "gray": gray
+);
+
+$theme-sizes: (
+        "base": 16px,
+        "small": 15px,
+        "header": 42px,
+        "big": 50px,
+        "title": 22px,
+);
+
+$theme-shadows: (
+        "basic": 0 5px 20px #f0f0f0,
+        "menu": 0 2px 15px #606060
+);
+
+$theme-spaces: (
+        "small": 1rem,
+        "normal": 2rem,
+        "medium": 3rem,
+        "big": 4rem,
+        "large": 5rem,
+        "extra": 6rem
+);
+
+$theme-weights: (
+        "thin": 300,
+        "normal": 400,
+        "medium": 500,
+        "bold": 600,
+        "extra": 800
+);
+
+$theme-fonts: (
+        "base": 'Roboto',
+        "decorated": 'Bellota'
+);
+
+$theme-queries: (
+        "small": 576px,
+        "normal": 768px,
+        "medium": 992px,
+        "big": 1200px,
+        "large": 1700px
+);
+
+$container: (
+        "small": 100%,
+        "normal": 500px,
+        "medium": 600px,
+        "big": 800px,
+        "large": 900px,
+        "max": 1400px
+);
+
+$decorations: (
+        "small": 10rem,
+        "normal": 14rem,
+        "medium": 18rem,
+        "big": 30rem,
+        "large": 35rem,
+        "max": 45rem
+);
+$social-icons: (
+        "large": 1.5rem,
+        "max": 3rem
+);
