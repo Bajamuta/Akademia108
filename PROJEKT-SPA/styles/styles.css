@@ -396,6 +396,14 @@ body {
   width: 6rem;
 }
 
+.text-danger {
+  color: red;
+}
+
+.text-success {
+  color: lawngreen;
+}
+
 img.icon {
   width: 4rem;
 }
@@ -624,6 +632,7 @@ header .navbar .nav-link {
   position: relative;
   width: 100%;
   height: 100%;
+  max-height: 620px;
 }
 #appointment .appointment-image img {
   height: 100%;
@@ -756,6 +765,20 @@ section {
   font-family: inherit;
   font-size: medium;
   opacity: 1;
+}
+.form-container .form-item .form-input.valid {
+  background-color: white;
+  color: lawngreen;
+}
+.form-container .form-item .form-input.valid::placeholder {
+  color: lawngreen;
+}
+.form-container .form-item .form-input.invalid {
+  background-color: white;
+  color: red;
+}
+.form-container .form-item .form-input.invalid::placeholder {
+  color: red;
 }
 
 footer {

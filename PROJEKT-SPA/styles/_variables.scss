@@ -4,7 +4,11 @@ $theme-colors: (
         "muted": #30383b,
         "white": white,
         "black": black,
-        "gray": gray
+        "gray": gray,
+        "valid": lawngreen,
+        "invalid": red,
+        "danger": red,
+        "success": lawngreen
 );
 
 $theme-sizes: (
