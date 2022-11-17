@@ -66,6 +66,14 @@
 		}
 	}
 
+	.footer-below {
+		.btn-social {
+			i {
+				font-size: $base-font-size + 9;
+			}
+		}
+	}
+
 	h1, h2, h3, h4, h5, h6 {
 		color: $color-text-light;
 	}

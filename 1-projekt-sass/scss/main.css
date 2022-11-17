@@ -11387,12 +11387,13 @@ header.header-image .header-content .header-content-inner h5 {
 }
 #main-slider .carousel-caption p, #main-slider .carousel-caption h1 {
   color: #ffffff;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 #main-slider .carousel-caption h1 {
-  font-size: 48px;
+  font-size: 38px;
   margin-top: 24px;
   margin-bottom: 24px;
+  letter-spacing: 4px;
 }
 #main-slider .carousel-caption p {
   font-size: 20px;
@@ -11400,7 +11401,7 @@ header.header-image .header-content .header-content-inner h5 {
 }
 #main-slider .carousel-caption .btn-primary {
   margin-top: 48px;
-  font-size: 14px;
+  font-size: 22px;
   padding: 10px 12px;
 }
 #main-slider .icon-prev, #main-slider .icon-next {
@@ -11665,6 +11666,9 @@ header.header-image .header-content .header-content-inner h5 {
 }
 .t108-footer .footer-above .btn-default:hover {
   border-color: #a5e200;
+}
+.t108-footer .footer-below .btn-social i {
+  font-size: 25px;
 }
 .t108-footer h1, .t108-footer h2, .t108-footer h3, .t108-footer h4, .t108-footer h5, .t108-footer h6 {
   color: #979797;
