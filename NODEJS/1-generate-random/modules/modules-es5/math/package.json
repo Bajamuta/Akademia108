@@ -1,0 +1,11 @@
+{
+  "name": "math",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "main": "index.js",
+  "module": "index.js",
+  "files": [
+    "random.js"
+  ]
+}
