@@ -1,0 +1,29 @@
+{
+  "name": "mymaths",
+  "version": "1.0.0",
+  "description": "my first node module",
+  "dependencies": {
+  },
+  "main": "mymaths.js",
+  "type": "module",
+  "types": "mymaths.d.ts",
+  "module": "mymaths.mjs",
+  "exports": {
+    ".": [
+      {
+        "import": "./mymaths.mjs",
+        "require": "./mymaths.js",
+        "default": "./mymaths.js"
+      },
+      "./mymaths.js"
+    ],
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "mymaths.d.ts",
+    "mymaths.js",
+    "mymaths.mjs",
+    "mymaths.mjs.d.ts",
+    "random.js"
+  ]
+}

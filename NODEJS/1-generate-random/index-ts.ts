@@ -1,3 +1,4 @@
-import {randomTS} from "./modules/modules-es5/math-TS";
+import * as mymaths from "./modules/modules-es5/mymaths";
 
-console.log('test', randomTS(0, 9));
+
+console.log('test', mymaths.random(0,1));
