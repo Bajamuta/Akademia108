@@ -1,3 +1,3 @@
-function random(...numbers) {
-    return 0;
+function random(min, max) {
+    return Math.random();
 }
