@@ -1,4 +1,4 @@
 import * as mymaths from "./modules/modules-es5/mymaths";
-
-
-console.log('test', mymaths.random(0,1));
+let minimum = parseInt(process.argv[2]);
+let maximum = parseInt(process.argv[3]);
+console.log('Your results in typescript:', mymaths.random(minimum, maximum));

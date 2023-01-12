@@ -1,3 +1,4 @@
 const maths = require('./modules/modules-es5/mymaths/mymaths.js')
-
-console.log(maths.random(0,9));
+let minimum = parseInt(process.argv[2]);
+let maximum = parseInt(process.argv[3]);
+console.log('Your results in JS:', maths.random(minimum,maximum));
