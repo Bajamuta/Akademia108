@@ -23,6 +23,7 @@
     "mymaths.js",
     "mymaths.mjs",
     "mymaths.mjs.d.ts",
-    "random.js"
+    "randomNumber.js",
+    "randomText.js"
   ]
 }

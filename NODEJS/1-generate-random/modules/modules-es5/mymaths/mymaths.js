@@ -1,4 +1,6 @@
-const random = require("./random");
+const randomNumber = require("./randomNumber");
+const randomText = require("./randomText");
 module.exports = {
-    random: random
+    randomNumber: randomNumber,
+    randomText: randomText
 }
