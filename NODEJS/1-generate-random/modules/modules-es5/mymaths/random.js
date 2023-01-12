@@ -1,4 +1,4 @@
-export function random(min, max) {
+function random(min, max) {
     return Math.random();
 }
 

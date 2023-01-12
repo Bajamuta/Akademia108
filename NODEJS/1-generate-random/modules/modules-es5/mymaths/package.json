@@ -5,7 +5,6 @@
   "dependencies": {
   },
   "main": "mymaths.js",
-  "type": "module",
   "types": "mymaths.d.ts",
   "module": "mymaths.mjs",
   "exports": {

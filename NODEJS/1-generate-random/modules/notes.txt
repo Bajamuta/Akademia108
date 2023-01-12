@@ -1,0 +1,4 @@
+dependencies to install:
+- npm install typescript
+- npm install ts-node
+- npx i --save-dev @types/node
