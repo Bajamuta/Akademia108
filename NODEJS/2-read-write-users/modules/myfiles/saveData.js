@@ -1,10 +1,10 @@
 const {pathToFileURL} = require("url");
 const path = require("path");
+const fs = require('fs');
 
-function saveData(pathString, folderName, overwrite) {
-    const fs = require('fs');
-    fs.readFile(pathToFileURL(path.join(__dirname, '2-read-write-users.json')), null, (err, data) => {
-        console.log('data', data);
+function saveData(pathUrl, folderName, overwrite) {
+    fs.readFile(pathUrl, null, (err, data) => {
+        console.log('data', pathUrl, data);
     });
     return null;
 }
