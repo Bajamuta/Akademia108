@@ -1,0 +1,27 @@
+{
+  "name": "myfiles",
+  "version": "1.0.0",
+  "description": "node module for file stream",
+  "main": "myfiles.js",
+  "types": "myfiles.d.ts",
+  "module": "myfiles.mjs",
+  "exports": {
+    ".": [
+      {
+        "import": "./myfiles.js",
+        "require": "./myfiles.js",
+        "default": "./myfiles.js"
+      },
+      "./myfiles.js"
+    ],
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "myfiles.js",
+    "myfiles.mjs",
+    "myfiles.d.ts",
+    "saveData.js"
+  ],
+  "dependencies": {
+  }
+}
