@@ -1,3 +1,5 @@
+import {UserData} from "./myfiles";
+
 declare namespace myfiles {
     export interface UserAddressData {
         street: string;
@@ -29,5 +31,8 @@ declare namespace myfiles {
 
 declare const myfiles: {
     saveData(path: URL, folderName: string, overwrite: boolean): void;
+    createFolder(currentDirectory: string, folderName: string): void;
+    processFiles(currentDirectory: string, folderName: string, data: UserData, overwrite: boolean): void;
+    processUserData(user: UserData): void;
 }
 export = myfiles;

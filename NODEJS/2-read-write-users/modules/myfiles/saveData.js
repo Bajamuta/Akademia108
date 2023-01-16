@@ -19,7 +19,7 @@ function saveData(pathUrl, folderName, overwrite) {
     return null;
 }
 
-function createFolder(currentDirectory, folderName, data) {
+function createFolder(currentDirectory, folderName) {
     fs.access(path.join(currentDirectory, folderName), (err) => {
         if (!err)
         {
