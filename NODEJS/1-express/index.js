@@ -6,3 +6,5 @@ app.get('/', (req, res) => {
 });
 
 app.listen(8080, () => console.log('Serwer Node.Js działa'));
+
+// uruchamianie nodemon: npm start lub npx nodemon
