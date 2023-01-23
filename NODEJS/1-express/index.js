@@ -31,7 +31,10 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
 app.get('/', (req, res) => {
-    res.render('home');
+    res.render('home', {
+        title: 'My app title',
+        content: 'Lorem ipsum'
+    });
 });
 
 app.listen(8080, () => console.log('Serwer Node.Js działa'));
