@@ -24,7 +24,8 @@ app.get('/data', (req, res) => {
     res.send('Witaj programisto!');
 });*/
 
-app.use(express.static(__dirname + '/public'));
+// we can add prefix to our path
+app.use('/test', express.static(__dirname + '/public'));
 
 app.listen(8080, () => console.log('Serwer Node.Js działa'));
 
