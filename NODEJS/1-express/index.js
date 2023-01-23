@@ -2,26 +2,17 @@ const express = require('express');
 const app = express();
 const hbs = require('express-handlebars');
 const path = require("path");
+const mongoose = require("mongoose");
+const Post = require("./models/PostModel");
 
-/*
-app.get('/', (req, res) => {
-    res.send('Witaj programisto!');
-});
-app.get('/user/:id', (req, res) => {
-   res.send('Tutaj user id: ' + req.params.id);
-});
-app.get('/user/:id?/:name?', (req, res) => {
-    res.send('Tutaj user opcjonalny: ' + req.params.id);
-});
-// QUERY
-app.get('/data', (req, res) => {
-    res.send('Tutaj query: ' + req.query.search + ' ' + req.query.model);
-});
-*/
+// ONLY FOR DEVELOPMENT MODE
+mongoose.set('strictQuery', true);
+
+mongoose.connect("mongodb://localhost:27017/express-blog");
 
 // we can add prefix to our path
-// app.use('/test', express.static('/public'));
-app.use(express.static('/public'));
+// app.use('/test', express.static('public'));
+app.use(express.static('public'));
 
 // views and view engine
 app.engine("hbs", hbs.engine({extname: 'hbs', defaultLayout: 'main'}));
@@ -44,7 +35,26 @@ app.get('/blog', (req, res) => {
         displayTitle: true,
         names: ["Adam", "Jola", "Mariusz", "Agnieszka"]
     })
-})
+});
+
+app.get('/mongoose/:id', (req, res) => {
+    Post.findById(req.params.id).exec((err, post) => {
+        console.log(post);
+        if (err)
+        {
+            res.send('An error has occurred:' + err);
+        }
+        else
+        {
+            res.render("blog", {
+                title: post.title,
+                content: post.content,
+                displayTitle: true,
+                names: ["Tomasz", "Miłosz", "Kasia", "Monika"]
+            });
+        }
+    });
+});
 
 app.listen(8080, () => console.log('Serwer Node.Js działa'));
 
