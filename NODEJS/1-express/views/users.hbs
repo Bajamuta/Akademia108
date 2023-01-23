@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+<p>{{content}}</p>
+<ul>
+    {{#each users as | user |}}
+        <li>
+            {{#each user}}
+                {{firstName}} {{lastName}}:
+                {{arrayList hobby}}
+            {{/each}}
+        </li>
+    {{/each}}
+</ul>
