@@ -37,6 +37,15 @@ app.get('/', (req, res) => {
     });
 });
 
+app.get('/blog', (req, res) => {
+    res.render('blog', {
+        title: 'Blog',
+        content: 'Lorem ipsum blog test',
+        displayTitle: true,
+        names: ["Adam", "Jola", "Mariusz", "Agnieszka"]
+    })
+})
+
 app.listen(8080, () => console.log('Serwer Node.Js działa'));
 
 // to run nodemon: npm start (need to configure) or npx nodemon PATH_TO/index.js
