@@ -1,16 +1,7 @@
-function arrayList(array, options) {
-    console.log('arrat', array);
-    return array ? array.map(
-        (item, index) => {
-            if (index < array.length)
-            {
-                item = item + ', ';
-            }
-            return item;
-        }
-    ) : [];
+function fullAddress(address, options) {
+    return address.street + ', ' + address.suite + ', ' + address.zipcode + ' ' + address.city + ' (lat: ' + address.geo.lat + ', lng: ' + address.geo.lng + ')';
 }
 
 module.exports = {
-    arrayList
+    fullAddress
 }

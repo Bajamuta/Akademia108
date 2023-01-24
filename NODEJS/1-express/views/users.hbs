@@ -4,9 +4,12 @@
     {{#each users as | user |}}
         <li>
             {{#each user}}
-                {{firstName}} {{lastName}}:
-                {{arrayList hobby}}
+                <a href="https://{{website}}">{{name}}</a>
+                {{#if address}}
+                    {{fullAddress address}}
+                {{/if}}
             {{/each}}
         </li>
     {{/each}}
 </ul>
+

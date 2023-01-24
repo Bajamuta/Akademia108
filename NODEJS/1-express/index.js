@@ -31,7 +31,7 @@ app.get('/users', (req, res) => {
         else
         {
             res.render('users', {
-                title: 'User\'s list',
+                title: 'Users\' list',
                 content: 'lorem ipsum',
                 users: result
             });
