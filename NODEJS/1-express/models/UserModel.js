@@ -1,23 +1,15 @@
 const mongoose = require("mongoose");
+const AddressModel = require("./AddressModel");
+const CompanyModel = require("./CompanyModel");
 
 const UserModel = new mongoose.Schema({
     name: String,
     username: String,
     email: String,
-    address: {
-        street: String,
-        suite: String,
-        city: String,
-        zipcode: String,
-        geo: {lat: String, lng: String}
-    },
+    address: AddressModel.schema,
     phone: String,
     website: String,
-    company: {
-        name: String,
-        catchPhrase: String,
-        bs: String
-    }
+    company: CompanyModel.schema
 },
     {
         timestamps: true
