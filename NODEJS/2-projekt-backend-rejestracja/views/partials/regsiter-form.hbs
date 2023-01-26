@@ -1,0 +1,39 @@
+<form id="registerForm">
+    <div>
+        <label for="name">
+            Name: <input type="text" placeholder="Enter name" name="name" id="name" />
+        </label>
+    </div>
+    <div>
+        <label for="surname">
+            Surname: <input type="text" placeholder="Enter surname" name="surname" id="surname" />
+        </label>
+    </div>
+    <div>
+        <label for="event">
+            Event:
+            <select name="event" id="event">
+                {{#each events as | event |}}
+                    <option value="{{event.id}}">
+                        {{event.name}} - {{event.date}}, {{event.description}}
+                    </option>
+                {{/each}}
+            </select>
+        </label>
+    </div>
+    <div>
+        <label for="city">
+            City:
+            <select name="city" id="city">
+                {{#each cities as | city |}}
+                    <option value="{{city.id}}">
+                        {{city.name}}
+                    </option>
+                {{/each}}
+            </select>
+        </label>
+    </div>
+    <div>
+        <button type="submit" id="registerButton">Submit</button>
+    </div>
+</form>
