@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const EventModel = new mongoose.Schema({
-    id: Number,
+    _id: String,
     name: String,
     date: Date,
     description: String

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const CityModel = new mongoose.Schema({
-    id: Number,
+    _id: String,
     name: {
         type: String,
         required: [true, 'Name is required']

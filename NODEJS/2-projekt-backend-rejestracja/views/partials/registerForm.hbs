@@ -14,7 +14,8 @@
             Event:
             <select name="event" id="event">
                 {{#each events as | event |}}
-                    <option value="{{event.id}}">
+                    {{log event}}
+                    <option value="{{event._id}}">
                         {{event.name}} - {{event.date}}, {{event.description}}
                     </option>
                 {{/each}}
@@ -26,7 +27,9 @@
             City:
             <select name="city" id="city">
                 {{#each cities as | city |}}
-                    <option value="{{city.id}}">
+                    {{log city}}
+                    <!--co z city._id-->
+                    <option value="{{city.name}}">
                         {{city.name}}
                     </option>
                 {{/each}}

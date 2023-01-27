@@ -4,6 +4,13 @@ module.exports = {
     index: (req, res) => {
         Event.find({})
             .lean()
+            .then(
+                (result) => {
+                    return result;
+                }
+            )
+            .catch((err) => console.log('error', err))
+/*            .lean()
             .exec((err, events) => {
                 if (!err)
                 {
@@ -13,7 +20,7 @@ module.exports = {
                 {
                     res.send('An error has occurred during retrieving events\' data: ' + err);
                 }
-            })
+            })*/
     },
     event: (req, res) => {
         Event.findById(req.params.id)

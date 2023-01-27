@@ -2,18 +2,14 @@ const City = require('../models/CityModel');
 
 module.exports = {
     index: (req, res) => {
-        City.find()
+        return City.find()
             .lean()
-            .exec((err, cities) => {
-                if (!err)
-                {
-                    res.send(cities);
+            .then(
+                (result) => {
+                    return result;
                 }
-                else
-                {
-                    res.send('An error has occurred during retrieving cities\' data: ' + err);
-                }
-            });
+            )
+            .catch((err) => console.log('err', err))
     },
     city: (req, res) => {
         City.findById(req.params.id)

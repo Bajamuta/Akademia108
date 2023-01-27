@@ -18,6 +18,7 @@ app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 
 //// @@@!!! https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/forms
+// app.all('*', requireAuthentication, loadUser) /// https://expressjs.com/en/api.html
 
 
 // Wait for database to connect, logging an error if there is a problem
