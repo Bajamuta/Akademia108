@@ -15,4 +15,4 @@ router.get('/register',
     registerFormController.home
 );
 
-router.post('/register')
+router.post('/register', registerFormController.register);

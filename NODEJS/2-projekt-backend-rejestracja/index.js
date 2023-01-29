@@ -12,6 +12,7 @@ mongoose.set('strictQuery', true);
 const mongoDB = "mongodb://localhost:27017/registration";
 
 app.use(express.static('public'));
+app.use(express.urlencoded({ extended: true }));
 app.use('', routers);
 app.engine("hbs", hbs.engine({extname: 'hbs', defaultLayout: 'main', helpers: helpers}));
 app.set("view engine", "hbs");

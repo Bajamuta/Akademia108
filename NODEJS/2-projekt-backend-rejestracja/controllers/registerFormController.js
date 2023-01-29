@@ -1,5 +1,6 @@
 const eventController = require('./eventController');
 const cityController = require('./cityController');
+const customerController = require('./customerController');
 
 module.exports = {
     home: (req, res) => {
@@ -29,5 +30,23 @@ module.exports = {
                 });
             }
         );
+    },
+    register: (req, res) => {
+        let cust;
+        customerController.create(req, res)
+            .then(
+                (result) => cust = result
+            )
+            .catch(
+                (err) => console.error('An error has occurred', err)
+            )
+            .finally(
+                () => {
+                    res.render('home', {
+                        title: 'Home',
+                        content: 'You have been successfully registered'
+                    })
+                }
+            )
     }
 }
