@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "63d6d4cd09fbde3bfa0a92de"
+  },
+  "name": "Warsaw"
+},{
+  "_id": {
+    "$oid": "63d6d69909fbde3bfa0a92df"
+  },
+  "name": "Cracow"
+},{
+  "_id": {
+    "$oid": "63d6d6ae09fbde3bfa0a92e0"
+  },
+  "name": "Lodz"
+}]
