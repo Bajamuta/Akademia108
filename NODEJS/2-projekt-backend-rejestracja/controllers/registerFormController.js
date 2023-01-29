@@ -23,7 +23,7 @@ module.exports = {
                 // console.log('here', events, cities);
                 res.render('register', {
                     title: 'Registration',
-                    content: 'Test',
+                    content: 'Please fill the form below',
                     events: events,
                     cities: cities
                 });

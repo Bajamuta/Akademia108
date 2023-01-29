@@ -1,0 +1,8 @@
+.font-weight-bold {
+    font-weight: bolder;
+}
+.custom-form {
+    border: 1px solid red;
+    border-radius: 20px;
+    padding: 2rem;
+}

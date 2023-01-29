@@ -2,8 +2,14 @@ const mongoose = require("mongoose");
 
 const EventModel = new mongoose.Schema({
     _id: String,
-    name: String,
-    date: Date,
+    name: {
+        type: String,
+        required: [true, 'Name is required']
+    },
+    date: {
+        type: Date,
+        required: [true, 'Date is required']
+    },
     description: String
 }, {
     timestamps: true

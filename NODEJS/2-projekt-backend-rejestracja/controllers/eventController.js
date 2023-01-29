@@ -2,7 +2,7 @@ const Event = require("../models/EventModel");
 
 module.exports = {
     index: (req, res) => {
-        Event.find({})
+        return Event.find()
             .lean()
             .then(
                 (result) => {
@@ -10,17 +10,6 @@ module.exports = {
                 }
             )
             .catch((err) => console.log('error', err))
-/*            .lean()
-            .exec((err, events) => {
-                if (!err)
-                {
-                    res.send(events);
-                }
-                else
-                {
-                    res.send('An error has occurred during retrieving events\' data: ' + err);
-                }
-            })*/
     },
     event: (req, res) => {
         Event.findById(req.params.id)
