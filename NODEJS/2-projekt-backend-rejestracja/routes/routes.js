@@ -12,7 +12,8 @@ router.get('/', (req, res) => {
 });
 
 router.get('/register',
-    registerFormController.home
+    registerFormController.form
 );
 
-router.post('/register', registerFormController.register);
+router.post('/register', registerFormController.check,
+    registerFormController.register);
