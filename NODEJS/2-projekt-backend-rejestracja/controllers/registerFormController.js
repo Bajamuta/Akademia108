@@ -1,13 +1,13 @@
 const eventController = require('./eventController');
 const cityController = require('./cityController');
 const customerController = require('./customerController');
+const homeController = require('./homeController');
 const {check, validationResult} = require('express-validator');
 
 module.exports = {
     form: (req, res) => {
         let events;
         let cities;
-        // eventController.index(req, res);
         cityController.index(req, res)
             .then(
                 (result) => {
@@ -89,10 +89,7 @@ module.exports = {
                 )
                 .finally(
                     () => {
-                        res.render('home', {
-                            title: 'Home',
-                            content: 'You have been successfully registered'
-                        })
+                        homeController.home(req, res);
                     }
                 )
         }

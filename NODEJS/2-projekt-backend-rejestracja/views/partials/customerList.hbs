@@ -1,0 +1,22 @@
+<h2>Already registered:</h2>
+<ul>
+    {{#each customers as |customer|}}
+        <li>
+            {{log "customer" customer}}
+            {{customer.name}} {{customer.surname}}
+            {{#if customer.event}}
+                - {{#with customer.event as |event|}}
+                    {{event.name}} ({{event.date}})
+                {{/with}}
+            {{/if}}
+            {{#if customer.city}}
+                {{#with customer.city as |city|}}
+                    in {{city.name}}
+                {{/with}}
+            {{/if}}
+
+            <a href="">Update</a>
+            <a href="">Delete</a>
+        </li>
+    {{/each}}
+</ul>

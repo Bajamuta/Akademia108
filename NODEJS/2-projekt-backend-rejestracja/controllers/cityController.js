@@ -12,50 +12,38 @@ module.exports = {
             .catch((err) => console.log('err', err))
     },
     city: (req, res) => {
-        City.findById(req.params.id)
+        return City.findById(req.params.id)
             .lean()
-            .exec((err, city) => {
-                if (!err)
-                {
-                    res.send(city);
+            .then(
+                (result) => {
+                    return result;
                 }
-                else
-                {
-                    res.send('Cannot find city: ' + err);
-                }
-            });
+            )
+            .catch((err) => console.log('error', err));
     },
     create: (req, res) => {
         let newCity = new City({...req.body});
-        newCity.save().then((r) => res.send(r)).catch((err) => res.send('Cannot create city: ' + err));
+        return newCity.save();
     },
     update: (req, res) => {
-        City.findByIdAndUpdate(req.params.id)
+        return City.findByIdAndUpdate(req.params.id)
             .lean()
-            .exec((err, city) => {
-                if (!err)
-                {
-                    res.send(city);
+            .then(
+                (result) => {
+                    return result;
                 }
-                else
-                {
-                    res.send('Cannot update city: ' + err);
-                }
-            });
+            )
+            .catch((err) => console.log('error', err));
     },
     delete: (req, res) => {
-        City.findByIdAndDelete(req.params.id)
+        return City.findByIdAndDelete(req.params.id)
             .lean()
-            .exec((err) => {
-                if (!err)
-                {
-                    res.send('Success');
+            .then(
+                (result) => {
+                    return result;
                 }
-                else
-                {
-                    res.send('Cannot delete city: ' + err);
-                }
-            });
+            )
+            .catch((err) => console.log('error', err));
     }
 
 }
