@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const EventModel = new mongoose.Schema({
-    _id: String,
     name: {
         type: String,
         required: [true, 'Name is required']

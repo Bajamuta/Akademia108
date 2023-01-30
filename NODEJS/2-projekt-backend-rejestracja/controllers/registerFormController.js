@@ -35,7 +35,9 @@ module.exports = {
         let cust;
         customerController.create(req, res)
             .then(
-                (result) => cust = result
+                (result) => {
+                    cust = result;
+                }
             )
             .catch(
                 (err) => console.error('An error has occurred', err)

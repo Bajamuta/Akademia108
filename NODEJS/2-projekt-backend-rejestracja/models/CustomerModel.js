@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 const CustomerModel = new mongoose.Schema({
-    _id: String,
     name: {
         type: String,
         required: [true, 'Name is required']
@@ -12,11 +11,11 @@ const CustomerModel = new mongoose.Schema({
     },
     eventId: {
         type: String,
-        required: [true, 'Event is required']
+        required: [true, 'EventId is required']
     },
     cityId: {
         type: String,
-        required: [true, 'Name is required']
+        required: [true, 'CityId is required']
     }
 });
 module.exports = mongoose.model("Customer", CustomerModel);
