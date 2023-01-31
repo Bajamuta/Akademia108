@@ -16,7 +16,7 @@ module.exports = {
         return newCustomer.save();
     },
     customer: (req, res) => {
-      Customer.findById(req.params.id)
+      return Customer.findById(req.params.id)
           .lean()
           .then(
               (result) => {
@@ -26,7 +26,7 @@ module.exports = {
           .catch((err) => console.log('error', err))
     },
     update: (req, res) => {
-        Customer.findByIdAndUpdate(req.params.id)
+        return Customer.findByIdAndUpdate(req.params.id)
             .lean()
             .then(
                 (result) => {
@@ -36,7 +36,7 @@ module.exports = {
             .catch((err) => console.log('error', err))
     },
     remove: (req, res) => {
-        Customer.findByIdAndDelete(req.params.id)
+        return Customer.findByIdAndDelete(req.params.id)
             .lean()
             .then(
                 (result) => {

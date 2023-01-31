@@ -25,5 +25,13 @@ module.exports = {
             .catch(
                 (err) => console.error(err)
             )
+    },
+    unregister: (req, res) => {
+        customerController.remove(req, res)
+            .then(
+                (result) => {
+                    res.redirect('/')
+                }
+            )
     }
 }

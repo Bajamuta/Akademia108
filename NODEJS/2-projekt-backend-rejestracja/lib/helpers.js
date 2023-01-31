@@ -11,6 +11,7 @@ function showError(result, name) {
 }
 
 function getValue(result, name) {
+    console.log('resu', result);
     if (result)
     {
         const obj =  Object.entries(result).find(([key, value]) => {
@@ -21,9 +22,16 @@ function getValue(result, name) {
     return null;
 }
 
+function selected(result, name, compare){
+    const val = getValue(result, name);
+    console.log('selected', val, compare);
+    return val ? val === compare : false;
+}
+
 module.exports = {
     notHome,
     findError,
     showError,
-    getValue
+    getValue,
+    selected
 }
