@@ -26,7 +26,7 @@ module.exports = {
           .catch((err) => console.log('error', err))
     },
     update: (req, res) => {
-        return Customer.findByIdAndUpdate(req.params.id)
+        return Customer.findByIdAndUpdate(req.params.id, req.body)
             .lean()
             .then(
                 (result) => {

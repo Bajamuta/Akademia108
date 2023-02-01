@@ -26,7 +26,7 @@ module.exports = {
         return newCity.save();
     },
     update: (req, res) => {
-        return City.findByIdAndUpdate(req.params.id)
+        return City.findByIdAndUpdate(req.params.id, req.body)
             .lean()
             .then(
                 (result) => {

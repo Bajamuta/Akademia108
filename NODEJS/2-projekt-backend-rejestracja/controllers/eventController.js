@@ -26,7 +26,7 @@ module.exports = {
         return newEvent.save();
     },
     update: (req, res) => {
-        return Event.findByIdAndUpdate(req.params.id)
+        return Event.findByIdAndUpdate(req.params.id, req.body)
             .lean()
             .then(
                 (result) => {
