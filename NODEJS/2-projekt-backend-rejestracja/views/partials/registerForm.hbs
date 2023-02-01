@@ -1,6 +1,5 @@
 <form id="registerForm" class="custom-form mb-4" method="post" action="{{action}}">
     <div>
-        {{log customer}}
         <label for="name" class="form-label w-100">
             <span class="font-weight-bold">Name:</span>
             <input type="text" placeholder="Enter name" name="name"
@@ -38,7 +37,6 @@
             <span class="font-weight-bold">Event:</span>
             <select name="eventId" id="eventId" class="form-control form-select">
                 {{#each events as | event |}}
-                    {{log "here" event.selected}}
                     <option value="{{event._id}}" {{#if event.selected}}selected{{/if}}>
                         {{event.name}} - {{event.date}}, {{event.description}}
                     </option>
@@ -52,7 +50,7 @@
             <select name="cityId" id="cityId" class="form-control form-select">
                 {{#each cities as | city |}}
                     <!--co z city._id-->
-                    <option value="{{city._id}}">
+                    <option value="{{city._id}}" {{#if city.selected}}selected{{/if}}>
                         {{city.name}}
                     </option>
                 {{/each}}

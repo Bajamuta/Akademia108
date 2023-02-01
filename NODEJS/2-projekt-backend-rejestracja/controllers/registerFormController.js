@@ -113,12 +113,23 @@ module.exports = {
             .then(
                     (result) => {
                         cities = result;
+                        cities = cities.map(
+                            (cit) => {
+                                cit.selected = cit._id.toString() === customer.cityId;
+                                return cit;
+                            }
+                        );
                         return eventController.index(req, res);
                     }
                 )
             .then(
                 (result) => {
                     events = result;
+                    events = events.map(
+                        (ev) => {
+                            ev.selected = ev._id.toString() === customer.eventId;
+                            return ev;
+                        });
                 }
             )
             .finally(
@@ -154,6 +165,12 @@ module.exports = {
                 .then(
                     (result) => {
                         cities = result;
+                        cities = cities.map(
+                            (cit) => {
+                                cit.selected = cit._id.toString() === customer.cityId;
+                                return cit;
+                            }
+                        );
                         return eventController.index(req, res);
                     }
                 )
