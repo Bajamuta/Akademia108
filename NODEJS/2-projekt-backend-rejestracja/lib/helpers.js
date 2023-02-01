@@ -11,7 +11,6 @@ function showError(result, name) {
 }
 
 function getValue(result, name) {
-    console.log('resu', result);
     if (result)
     {
         const obj =  Object.entries(result).find(([key, value]) => {

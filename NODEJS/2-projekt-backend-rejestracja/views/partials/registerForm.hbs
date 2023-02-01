@@ -38,8 +38,8 @@
             <span class="font-weight-bold">Event:</span>
             <select name="eventId" id="eventId" class="form-control form-select">
                 {{#each events as | event |}}
-                    {{log "here" customer}}
-                    <option value="{{event._id}}">
+                    {{log "here" event.selected}}
+                    <option value="{{event._id}}" {{#if event.selected}}selected{{/if}}>
                         {{event.name}} - {{event.date}}, {{event.description}}
                     </option>
                 {{/each}}

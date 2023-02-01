@@ -160,6 +160,12 @@ module.exports = {
                 .then(
                     (result) => {
                         events = result;
+                        events = events.map(
+                            (ev) => {
+                                ev.selected = ev._id.toString() === customer.eventId;
+                                return ev;
+                            }
+                        )
                     }
                 )
                 .finally(
