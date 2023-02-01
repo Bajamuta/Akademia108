@@ -10,6 +10,7 @@ import Login from "./views/Login";
 import SignUp from "./views/SignUp";
 import SignOut from "./views/SignOut";
 import Registered from "./views/Registered";
+import * as mongoose from "mongoose";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+/*const conn = await mongoose.createConnection('mongodb:://localhost:27017/typescript-registration').asPromise();
+
+conn.readyState; // ?*/
+
 root.render(
   <React.StrictMode>
       <RouterProvider router={router} />
