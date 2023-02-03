@@ -5,15 +5,18 @@ const path = require("path");
 const mongoose = require("mongoose");
 const helpers = require('./lib/helpers');
 const routers = require('./routes/routes');
+const apiRoutes = require('./api/routes/apiRoutes');
 
 mongoose.set('strictQuery', true);
 
 // Define the database URL to connect to.
-const mongoDB = "mongodb://localhost:27017/registration";
+const mongoDB = "mongodb://localhost:27017/mern";
 
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use('', routers);
+app.use('', apiRoutes);
 app.engine("hbs", hbs.engine({extname: 'hbs', defaultLayout: 'main', helpers: helpers}));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));

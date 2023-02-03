@@ -1,3 +1,6 @@
 /node_modules/
+/NODEJS/node_modules/
 /NODEJS/1-express/node_modules/
 /NODEJS/2-projekt-backend-rejestracja/node_modules/
+/NODEJS/1-projekt-mern/backend/node_modules/
+/NODEJS/1-projekt-mern/frontend/node_modules/
