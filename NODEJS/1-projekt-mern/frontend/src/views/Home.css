@@ -1,0 +1,28 @@
+.HomeContainer {
+    display: flex;
+    flex-flow: column;
+}
+
+.PostList {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.NewPostContainer {
+    width: 800px;
+    margin: 0 auto 50px auto;
+}
+
+.NewPostContainer .NewPostForm {
+    display: flex;
+    column-gap: 30px;
+    width: 100%;
+}
+
+.NewPostContainer .NewPostTextarea {
+    width: 100%;
+}
+
+.LoadMoreButton {
+    margin: 20px auto;
+}
