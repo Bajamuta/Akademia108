@@ -1,14 +1,16 @@
-export interface User {
-    id: number,
-    username: string,
-    email: string,
-    avatar_url: string,
-    created_at: Date,
-    updated_at?: Date
-}
-
 export interface DatabaseResponse {
     _id: string
+}
+
+export interface User {
+    username: string,
+    email: string,
+    avatarUrl: string,
+    createdAt: Date,
+    updatedAt?: Date
+}
+
+export interface UserResponse extends DatabaseResponse, User{
 }
 
 export interface City{
@@ -19,7 +21,7 @@ export interface CityResponse extends DatabaseResponse, City{}
 
 export interface Event {
     name: string,
-    date: Date,
+    date: string,
     description: string
 }
 

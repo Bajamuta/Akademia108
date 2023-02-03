@@ -4,6 +4,7 @@ import {CityResponse, EventResponse, ObjectContext} from "../helpers/interfaces"
 import './Home.css';
 import {useOutletContext} from "react-router-dom";
 import ApiService from "../services/ApiService";
+import {datePipe} from "../helpers/dateHelpers";
 export default function Home() {
 
     const objectContext: ObjectContext = useOutletContext();
@@ -19,7 +20,9 @@ export default function Home() {
     const getAllCities = () => {
         apiService.getAllCities()
             .then(
-                (response: AxiosResponse<CityResponse[]>) => setCities(response.data)
+                (response: AxiosResponse<CityResponse[]>) => {
+                    setCities(response.data);
+                }
             )
             .catch((error) => console.error('An error has occurred:', error))
     }
@@ -49,6 +52,7 @@ export default function Home() {
 
     useEffect(() => {
         getAllCities();
+        getAllEvents();
     }, []);
 
     return (
@@ -59,14 +63,26 @@ export default function Home() {
                     {
                         events?.map(
                             (event: EventResponse) => {
-                                return <li key={event._id}>{event.name}</li>
+                                return (<li key={event._id}>
+                                            {event.name} {event.description} {datePipe(event.date)}
+                                        </li>);
                             }
                         )
                     }
                 </ul>
             </div>
             <h2>You can find us in:</h2>
-            <div className="ListContainer"></div>
+            <div className="ListContainer">
+                <ul>
+                    {
+                        cities?.map(
+                            (city: CityResponse) => {
+                                return <li key={city._id}>{city.name}</li>
+                            }
+                        )
+                    }
+                </ul>
+            </div>
             {/*{objectContext.loggedUser.jwt_token.length > 0 &&
                 <div className="NewPostContainer">
                     <form className="NewPostForm" onSubmit={(event: FormEvent<HTMLFormElement>) => addNewPost(event)}>
