@@ -6,6 +6,7 @@ const mongoose = require("mongoose");
 const helpers = require('./lib/helpers');
 const routers = require('./routes/routes');
 const apiRoutes = require('./api/routes/apiRoutes');
+const cors = require("cors");
 
 mongoose.set('strictQuery', true);
 
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use('', routers);
 app.use('', apiRoutes);
+app.use(cors());
 app.engine("hbs", hbs.engine({extname: 'hbs', defaultLayout: 'main', helpers: helpers}));
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));

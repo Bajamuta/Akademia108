@@ -1,12 +1,3 @@
-export interface Post {
-    id: number,
-    content: string,
-    created_at: Date,
-    updated_at: Date,
-    likes: User[],
-    user?: User
-}
-
 export interface User {
     id: number,
     username: string,
@@ -14,6 +5,38 @@ export interface User {
     avatar_url: string,
     created_at: Date,
     updated_at?: Date
+}
+
+export interface DatabaseResponse {
+    _id: string
+}
+
+export interface City{
+    name: string
+}
+
+export interface CityResponse extends DatabaseResponse, City{}
+
+export interface Event {
+    name: string,
+    date: Date,
+    description: string
+}
+
+export interface EventResponse extends DatabaseResponse, Event {}
+
+export interface CustomerRequest {
+    firstname: string,
+    surname: string,
+    eventId: string,
+    cityId: string
+}
+
+export interface CustomerResponse extends DatabaseResponse, CustomerRequest {}
+
+export interface Customer extends CustomerResponse {
+    event: Event,
+    city: City
 }
 
 export interface InputValue {
@@ -34,7 +57,7 @@ export interface FormDataRegister{
     passwordConfirm: InputValue
 }
 
-export interface ResponseLogin {
+export interface LoginResponse {
     error?: boolean,
     id?: number,
     jwt_token: string,
@@ -43,6 +66,6 @@ export interface ResponseLogin {
 }
 
 export interface ObjectContext {
-    loggedUser: ResponseLogin,
-    setLoggedUser: (res: ResponseLogin) => void
+    loggedUser: LoginResponse,
+    setLoggedUser: (res: LoginResponse) => void
 }

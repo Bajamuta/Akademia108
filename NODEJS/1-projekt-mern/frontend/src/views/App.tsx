@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import './App.css';
 import {Link, Outlet} from "react-router-dom";
-import {ResponseLogin} from "../helpers/interfaces";
+import {LoginResponse} from "../helpers/interfaces";
 
 function App() {
     const initLocal = localStorage.getItem("loggedUser") || '';
-    const [loggedUser, setLoggedUser] = useState<ResponseLogin>(initLocal.length > 0 ? JSON.parse( initLocal) : {jwt_token: ''});
+    const [loggedUser, setLoggedUser] = useState<LoginResponse>(initLocal.length > 0 ? JSON.parse( initLocal) : {jwt_token: ''});
 
   return (
     <div className="App">

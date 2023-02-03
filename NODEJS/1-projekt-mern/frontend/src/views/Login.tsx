@@ -1,9 +1,9 @@
 import React, {FormEvent, useState} from "react";
 import './Login.css';
-import {FormDataLogin, ObjectContext, ResponseLogin} from "../helpers/interfaces";
+import {FormDataLogin, ObjectContext, LoginResponse} from "../helpers/interfaces";
 import axios, {AxiosResponse} from "axios";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import {REACT_APP_API_URL} from "../react-app-env.d";
+import {API_URL} from "../react-app-env.d";
 
 export default function Login() {
 
@@ -19,10 +19,10 @@ export default function Login() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        axios.post(`${REACT_APP_API_URL}/user/login`, {
+        axios.post(`${API_URL}/user/login`, {
             username: formData.username,
             password: formData.password
-        }).then((response: AxiosResponse<ResponseLogin>) => {
+        }).then((response: AxiosResponse<LoginResponse>) => {
             if (response.status === 200) {
                 localStorage.setItem("loggedUser", JSON.stringify(response.data));
                 objectContext.setLoggedUser(response.data);

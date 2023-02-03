@@ -1,6 +1,6 @@
 import React from "react";
 import axios, {AxiosResponse} from "axios";
-import {REACT_APP_API_URL} from "../react-app-env.d";
+import {API_URL} from "../react-app-env.d";
 import {ObjectContext} from "../helpers/interfaces";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import {SubmitHandler, useForm} from "react-hook-form";
@@ -20,7 +20,7 @@ export default function SignUp() {
     const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
 
     const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-        axios.post(`${REACT_APP_API_URL}/user/signup`, {
+        axios.post(`${API_URL}/user/signup`, {
             username: data.username,
             password: data.password,
             email: data.email
