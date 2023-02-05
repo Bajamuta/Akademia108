@@ -4,12 +4,13 @@ import {useNavigate, useOutletContext} from "react-router-dom";
 import {SubmitHandler, useForm, Controller} from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import {Button} from "react-bootstrap";
+import ApiService from "../services/ApiService";
 
 export default function SignUp() {
 
     const objectContext: ObjectContext = useOutletContext();
     const navigate = useNavigate();
-
+    const apiService: ApiService = new ApiService();
     const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<FormDataRegister>();
 
     const onSubmit: SubmitHandler<FormDataRegister> = (data: FormDataRegister) => {
