@@ -11,3 +11,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.FormContainer {
+  width: 600px;
+  margin: 0 auto;
+}
+
+.FormBody label{
+  display: block;
+  width: 100%;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}

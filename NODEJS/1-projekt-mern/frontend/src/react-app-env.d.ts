@@ -1,5 +1,5 @@
 /// <reference types="react-scripts" />
-export const API_URL = "http://0.0.0.0:8080/api";
+export const API_URL = "http://localhost:8080/api";
 
 /*
 * CITIES

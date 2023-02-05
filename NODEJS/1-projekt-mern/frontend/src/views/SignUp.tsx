@@ -1,26 +1,20 @@
-import React from "react";
-import axios, {AxiosResponse} from "axios";
-import {API_URL} from "../react-app-env.d";
-import {ObjectContext} from "../helpers/interfaces";
+import React, {ChangeEvent} from "react";
+import {FormDataRegister, ObjectContext} from "../helpers/interfaces";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import {SubmitHandler, useForm} from "react-hook-form";
-
-type Inputs = {
-    username: string,
-    email: string,
-    password: string,
-    passwordConfirm: string
-};
+import {SubmitHandler, useForm, Controller} from "react-hook-form";
+import Form from 'react-bootstrap/Form';
+import {Button} from "react-bootstrap";
 
 export default function SignUp() {
 
     const objectContext: ObjectContext = useOutletContext();
     const navigate = useNavigate();
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>();
+    const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<FormDataRegister>();
 
-    const onSubmit: SubmitHandler<Inputs> = (data: Inputs) => {
-        axios.post(`${API_URL}/user/signup`, {
+    const onSubmit: SubmitHandler<FormDataRegister> = (data: FormDataRegister) => {
+        console.log('inouts', data);
+        /*axios.post(`${API_URL}/user/signup`, {
             username: data.username,
             password: data.password,
             email: data.email
@@ -32,26 +26,12 @@ export default function SignUp() {
                 console.log(response);
             }
         })
-            .catch((error) => console.error("An error has occurred during registering an user:", error));
+            .catch((error) => console.error("An error has occurred during registering an user:", error));*/
     }
-
-    /*const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-        axios.post(`${REACT_APP_API_URL}/user/signup`, {
-            username: formData.username,
-            password: formData.password,
-            email: formData.email
-        }).then((response: AxiosResponse<any>) => {
-            if (response.status === 200) {
-                navigate('/registered');
-            }
-            else {
-                console.log(response);
-            }
-        })
-            .catch((error) => console.error("An error has occurred during registering an user:", error));
-    }*/
-
+    const test = (e: ChangeEvent<HTMLInputElement>) => {
+        console.log('test', e.target);
+        // register("username", { required: true, minLength: 3 });
+    }
 
     const passwordMatches = () => {
         return watch().password?.trim().length > 0
@@ -60,27 +40,76 @@ export default function SignUp() {
 
     return (<div className="FormContainer">
         <h2>Sign Up</h2>
-        <form name="signupForm" className="FormBody" onSubmit={handleSubmit(onSubmit)}>
-            <label >Username*:</label>
-            <input type="text"
-                   placeholder="Enter username"
-                   {...register("username", { required: true, minLength: 3 })} />
-            {errors.username && <span className="ValidationMessage">{errors.username?.message}</span>}
-            <label >E-mail*:</label>
-            <input type="email" placeholder="Enter e-mail"
-                   {...register("email", { required: true, pattern: /^\/w+@\/w+.\/w{2}$/ })}/>
-            {errors.email && <span className="ValidationMessage">{errors.email?.message}</span>}
-            <label>Password*:</label>
-            <input type="password" placeholder="Enter password"
-                   {...register("password", { required: true, pattern: /^\/w+$/ })}/>
-            {errors.password && <span className="ValidationMessage">{errors.password?.message}</span>}
-            <label>Confirm Password*:</label>
-            <input type="password" placeholder="Enter password to confirm"
-                   {...register("passwordConfirm", { required: true, pattern: /^\/w+$/ })}/>
-            {errors.passwordConfirm && <span className="ValidationMessage">{errors.passwordConfirm?.message}</span>}
-            <button className={passwordMatches() ? 'Button PrimaryButton' : 'Button DisabledButton'}
-                    disabled={!passwordMatches()}
-                    type="submit">Sign Up</button>
-        </form>
+        <Form name="signupForm" className="FormBody" onSubmit={handleSubmit(onSubmit)}>
+            <Form.Group className="my-3" controlId="username">
+                <Form.Label>Username*:</Form.Label>
+                <Controller control={control} name="username" defaultValue=""
+                            render={({field: {onChange, onBlur, value, ref}}) => (
+                    <Form.Control type="text" placeholder="Enter username"
+                                  required
+                                  minLength={3}
+                                  onChange={onChange} value={value} ref={ref} isInvalid={!!errors.username}>
+                    </Form.Control>
+                )} />
+                <Form.Control.Feedback type='invalid'>
+                    {errors.username?.message}
+                </Form.Control.Feedback>
+                {errors.username && <Form.Text className="ValidationMessage">{errors.username?.message}</Form.Text>}
+            </Form.Group>
+            <Form.Group className="my-3" controlId="email">
+                <Form.Label>Email*:</Form.Label>
+                <Controller control={control} name="email" defaultValue=""
+                            render={({field: {onChange, onBlur, value, ref}}) => (
+                                <Form.Control type="email" placeholder="Enter email"
+                                              required
+                                              className={errors.email ? 'invalid' : 'valid'}
+                                              onChange={onChange} value={value} ref={ref} isInvalid={!!errors.email}>
+                                </Form.Control>
+                            )} />
+                {/*<Form.Control type="email" placeholder="Enter email"
+                              {...register("email", { required: true, pattern: /^\/w+@\/w+.\/w{2}$/ })}>
+                </Form.Control>*/}
+                {errors.email && <Form.Text className="ValidationMessage">{errors.email?.message}</Form.Text>}
+            </Form.Group>
+            <Form.Group className="my-3" controlId="password">
+                <Form.Label>Password*:</Form.Label>
+                <Controller control={control} name="password" defaultValue=""
+                            render={({field: {onChange, onBlur, value, ref}}) => (
+                                <Form.Control type="password" placeholder="Enter password"
+                                              className={errors.password ? 'invalid' : 'valid'}
+                                              required
+                                              pattern="^\w+\d$"
+                                              onChange={onChange}
+                                              value={value} ref={ref}
+                                              isInvalid={!!errors.password}>
+                                </Form.Control>
+                            )} />
+                {/*<Form.Control type="password" placeholder="Enter password"
+                              {...register("password", { required: true, pattern: /^\/w+$/ })}>
+                </Form.Control>*/}
+                {errors.password && <Form.Text className="ValidationMessage">{errors.password?.message}</Form.Text>}
+            </Form.Group>
+            <Form.Group className="my-3" controlId="passwordConfirm">
+                <Form.Label>Confirm password*:</Form.Label>
+                <Controller control={control} name="passwordConfirm" defaultValue=""
+                            render={({field: {onChange, onBlur, value, ref}}) => (
+                                <Form.Control type="password" placeholder="Confirm password"
+                                              required
+                                              pattern="^\w+\d$"
+                                              onChange={onChange} value={value} ref={ref}
+                                              isInvalid={!!errors.passwordConfirm || !passwordMatches()}
+                                >
+                                </Form.Control>
+                            )} />
+                {/*<Form.Control type="password" placeholder="Confirm password"
+                              {...register("passwordConfirm", { required: true, pattern: /^\/w+$/ })}>
+                </Form.Control>*/}
+                {errors.passwordConfirm && <Form.Text className="ValidationMessage">{errors.passwordConfirm?.message}</Form.Text>}
+            </Form.Group>
+            <Button variant="primary"
+                    size="lg"
+
+                    type="submit">Sign Up</Button>
+        </Form>
     </div>);
 }

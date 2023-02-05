@@ -41,22 +41,16 @@ export interface Customer extends CustomerResponse {
     city: City
 }
 
-export interface InputValue {
-    value: string,
-    isValid: boolean,
-    error: string
-}
-
 export interface FormDataLogin {
     username: string,
     password: string
 }
 
 export interface FormDataRegister{
-    username: InputValue,
-    password: InputValue,
-    email: InputValue,
-    passwordConfirm: InputValue
+    username: string,
+    password: string,
+    email: string,
+    passwordConfirm: string
 }
 
 export interface LoginResponse {

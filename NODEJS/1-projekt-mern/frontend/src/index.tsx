@@ -10,6 +10,8 @@ import Login from "./views/Login";
 import SignUp from "./views/SignUp";
 import SignOut from "./views/SignOut";
 import Registered from "./views/Registered";
+import Register from "./views/Register";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const router = createBrowserRouter([
     {
@@ -17,6 +19,9 @@ const router = createBrowserRouter([
         children: [
             {
                 path: "/", element: <Home/>, index: true
+            },
+            {
+                path: 'register', element: <Register/>
             },
             {
                 path: "login", element: <Login/>,

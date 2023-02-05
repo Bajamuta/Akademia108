@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-          <h1>Social App</h1>
+          <h1>Events&apos; Registration Control</h1>
       </header>
         <nav className="AppNavbar">
             <ul>
@@ -22,6 +22,9 @@ function App() {
                         <Link to={"/login"}>LOG IN</Link>
                     </li>
                 }
+                <li>
+                    <Link to={"/register"}>REGISTER TO AN EVENT</Link>
+                </li>
                 {loggedUser.jwt_token.length === 0 &&
                     <li>
                         <Link to={"/signup"}>SIGN UP</Link>

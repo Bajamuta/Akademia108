@@ -1,4 +1,4 @@
-export const datePipe = (dataString: any) => {
+export const datePipe = (dataString: string) => {
     const d: Date = new Date(dataString);
     const year = d.getFullYear();
     const month = d.getMonth() < 10 ? '0' + d.getMonth() : d.getMonth();
