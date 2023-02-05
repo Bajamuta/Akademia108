@@ -17,14 +17,14 @@ function App() {
                 <li>
                     <Link to={"/"}>HOME</Link>
                 </li>
+                <li>
+                    <Link to={"/register"}>REGISTER TO AN EVENT</Link>
+                </li>
                 {loggedUser.jwt_token.length === 0 &&
                     <li>
                         <Link to={"/login"}>LOG IN</Link>
                     </li>
                 }
-                <li>
-                    <Link to={"/register"}>REGISTER TO AN EVENT</Link>
-                </li>
                 {loggedUser.jwt_token.length === 0 &&
                     <li>
                         <Link to={"/signup"}>SIGN UP</Link>

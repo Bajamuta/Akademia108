@@ -12,6 +12,7 @@ import SignOut from "./views/SignOut";
 import Registered from "./views/Registered";
 import Register from "./views/Register";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ThankYou from "./views/ThankYou";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +32,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "signout", element: <SignOut/>
+            },
+            {
+              path: 'thankyou', element: <ThankYou/>
             },
             {
                 path: "registered", element: <Registered/>

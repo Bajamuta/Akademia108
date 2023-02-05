@@ -28,7 +28,7 @@ export interface Event {
 export interface EventResponse extends DatabaseResponse, Event {}
 
 export interface CustomerRequest {
-    firstname: string,
+    name: string,
     surname: string,
     eventId: string,
     cityId: string
