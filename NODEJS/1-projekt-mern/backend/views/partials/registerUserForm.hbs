@@ -1,0 +1,71 @@
+<form id="registerForm" class="custom-form mb-4" method="post" action="{{action}}">
+    <div>
+        <label for="name" class="form-label w-100">
+            <span class="font-weight-bold">Username:</span>
+            <input type="text" placeholder="Enter username" name="username"
+                   id="username"
+                   value="{{#if user}}{{getValue user "username"}}{{else}}
+                       {{getValue request.body "username"}}{{/if}}"
+                {{#if (findError errors "username")}}
+                   class="form-control is-invalid"
+                {{else}}
+                   class="form-control"
+                {{/if}} />
+            {{#if (findError errors "username")}}
+                <p class="text-danger">{{showError errors "username"}}</p>
+            {{/if}}
+        </label>
+    </div>
+    <div>
+        <label for="surname" class="form-label w-100">
+            <span class="font-weight-bold">Email:</span>
+            <input type="email" placeholder="Enter email" name="email" id="email"
+                   value="{{#if user}}{{getValue user "email"}}{{else}}
+                       {{getValue request.body "email"}}{{/if}}"
+                {{#if (findError errors "email")}}
+                   class="form-control is-invalid"
+                {{else}}
+                   class="form-control"
+                {{/if}}/>
+            {{#if (findError errors "email")}}
+                <p class="text-danger">{{showError errors "email"}}</p>
+            {{/if}}
+        </label>
+    </div>
+    <div>
+        <label for="eventId" class="form-label w-100">
+            <span class="font-weight-bold">Password:</span>
+            <input type="password" placeholder="Enter password" name="password" id="password"
+                   value="{{#if user}}{{getValue user "password"}}{{else}}
+                       {{getValue request.body "password"}}{{/if}}"
+                {{#if (findError errors "password")}}
+                   class="form-control is-invalid"
+                {{else}}
+                   class="form-control"
+                {{/if}}/>
+            {{#if (findError errors "password")}}
+                <p class="text-danger">{{showError errors "password"}}</p>
+            {{/if}}
+        </label>
+    </div>
+    <div>
+        <label for="cityId" class="form-label w-100">
+            <span class="font-weight-bold">Confirm password:</span>
+            <input type="text" placeholder="Confirm password" name="confirmPassword" id="confirmPassword"
+                   value="{{#if user}}{{getValue user "confirmPassword"}}{{else}}
+                       {{getValue request.body "confirmPassword"}}{{/if}}"
+                {{#if (findError errors "confirmPassword")}}
+                   class="form-control is-invalid"
+                {{else}}
+                   class="form-control"
+                {{/if}}/>
+            {{#if (findError errors "confirmPassword")}}
+                <p class="text-danger">{{showError errors "confirmPassword"}}</p>
+            {{/if}}
+        </label>
+    </div>
+    <div class="d-flex">
+        <button type="submit" id="registerButton"
+                class="btn btn-primary btn-rounded w-50 mx-auto mt-4">{{button}}</button>
+    </div>
+</form>

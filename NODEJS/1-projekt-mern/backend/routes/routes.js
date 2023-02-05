@@ -17,3 +17,6 @@ router.get('/register/delete/:id', homeController.unregister);
 router.get('/register/update/:id', registerFormController.updateForm);
 
 router.post('/register/update/:id', registerFormController.check, registerFormController.update);
+
+router.get('/user', registerFormController.userForm);
+

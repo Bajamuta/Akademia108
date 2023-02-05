@@ -1,7 +1,9 @@
 const eventController = require('./eventController');
 const cityController = require('./cityController');
 const customerController = require('./customerController');
+const userController = require('./userController');
 const {check, validationResult} = require('express-validator');
+const e = require("express");
 
 module.exports = {
     form: (req, res) => {
@@ -208,6 +210,63 @@ module.exports = {
                     (result) => {
                         customer = result;
                     }
+                )
+                .catch(
+                    (err) => console.error('An error has occurred', err)
+                )
+                .finally(
+                    () => {
+                        res.redirect('/');
+                    }
+                )
+        }
+    },
+    userForm: (req, res) => {
+        res.render('user', {
+            title: 'User create',
+            content: 'Please fill the form below',
+            action: '/user',
+            button: "Submit",
+            request: {},
+            errors: []
+        })
+    },
+    checkUserForm: [
+        check('username')
+            .trim()
+            .isLength({min: 3, max: 50})
+            .withMessage('Must contain between 3 and 50 characters'),
+        check('email')
+            .trim()
+            .isEmail()
+            .withMessage('Must be an valid email address'),
+        check('password')
+            .trim()
+            .isLength({min: 10, max: 100})
+            .withMessage('Must contain between 10 and 100 characters'),
+        check('password')
+            .isStrongPassword()
+            .withMessage('Must be a strong password')
+    ],
+    createUser: async (req, res) => {
+        const errors = validationResult(req);
+        let user;
+        if (!errors.isEmpty())
+        {
+            res.render('user', {
+                title: 'User create',
+                content: 'Please fill the form below',
+                action: '/user',
+                button: "Submit",
+                request: req,
+                errors: errors
+            });
+        }
+        else
+        {
+            userController.create(req, res)
+                .then(
+                    (result) => user = result
                 )
                 .catch(
                     (err) => console.error('An error has occurred', err)
