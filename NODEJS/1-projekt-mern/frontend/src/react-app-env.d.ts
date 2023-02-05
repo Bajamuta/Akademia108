@@ -29,3 +29,12 @@ export const API_CUSTOMERS_BY_CITY = `${API_CUSTOMER_URL}/city`;
 export const API_CUSTOMER_CREATE = `${API_CUSTOMER_URL}/add`;
 export const API_CUSTOMER_UPDATE = `${API_CUSTOMER_URL}/update`;
 export const API_CUSTOMER_DELETE = `${API_CUSTOMER_URL}/delete`;
+
+/*
+* USERS
+* */
+export const API_USER_URL = `${API_URL}/user`;
+export const API_ALL_USERS = `${API_USER_URL}/all`;
+export const API_USER_CREATE = `${API_USER_URL}/add`;
+export const API_USER_UPDATE = `${API_USER_URL}/update`;
+export const API_USER_DELETE = `${API_USER_URL}/delete`;

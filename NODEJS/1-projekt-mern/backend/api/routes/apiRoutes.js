@@ -3,6 +3,7 @@ const router = express.Router();
 const cityController = require('../controllers/cityController');
 const eventController = require('../controllers/eventController');
 const customerController = require('../controllers/customerController');
+const userController = require('../controllers/userController');
 
 module.exports = router;
 
@@ -38,3 +39,12 @@ router.get('/api/customer/event/:eventId/city/:cityId', customerController.index
 router.post('/api/customer/add', customerController.create);
 router.post('/api/customer/update/:id', customerController.update);
 router.delete('/api/customer/delete/:id', customerController.delete);
+
+/*
+* USERS
+* */
+router.get('/api/user/all', userController.index);
+router.get('/api/user/:id', userController.user);
+router.get('/api/user/add', userController.create);
+router.get('/api/user/update/:id', userController.update);
+router.get('/api/user/delete/:id', userController.delete);
