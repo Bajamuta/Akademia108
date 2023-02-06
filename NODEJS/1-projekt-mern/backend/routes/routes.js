@@ -20,3 +20,4 @@ router.post('/register/update/:id', registerFormController.check, registerFormCo
 
 router.get('/user', registerFormController.userForm);
 
+router.post('/user', registerFormController.checkUserForm, registerFormController.createUser);

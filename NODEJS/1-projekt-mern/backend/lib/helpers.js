@@ -27,10 +27,15 @@ function selected(result, name, compare){
     return val ? val === compare : false;
 }
 
+function passwordMatched(pass1, pass2) {
+    return pass1.isDeepStrictEqual(pass2);
+}
+
 module.exports = {
     notHome,
     findError,
     showError,
     getValue,
-    selected
+    selected,
+    passwordMatched
 }

@@ -255,7 +255,7 @@ module.exports = {
         {
             res.render('user', {
                 title: 'User create',
-                content: 'Please fill the form below',
+                content: 'The form contains errors!',
                 action: '/user',
                 button: "Submit",
                 request: req,
