@@ -1,4 +1,5 @@
 const User = require('../models/UserModel');
+const bcrypt = require('bcrypt');
 
 module.exports = {
     index: (req, res) => {
@@ -45,13 +46,28 @@ module.exports = {
             )
             .catch((err) => console.log('err', err))
     },
-    login: (req, res) => {
-        const query = req.query || {};
-        return User.find(query)
-            .lean()
+    login: (body, res) => {
+        // console.log('query', query);
+        return User.findOne({username: body.username})
             .then(
-                (result) => {
-                    return result;
+                (user) => {
+                    if (user)
+                    {
+                        bcrypt.compare(body.password, user.password, (err, logged) => {
+                           if (logged)
+                           {
+                               const token = user.generateAuthToken(user);
+                               if (token) {
+                                   res.cookie('AuthToken', token);
+                                   res.render('logged', {
+                                       title: "Logged in",
+                                       content: "You have been successfully logged in"
+                                   });
+                               }
+                           }
+                        });
+                    }
+                    return user;
                 }
             )
             .catch((err) => console.log('err', err))

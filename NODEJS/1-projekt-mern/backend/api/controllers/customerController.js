@@ -33,4 +33,5 @@ module.exports = {
             .then((result) => res.json(result))
             .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
     }
+    /*TODO logowanie ma zwracać na frontend token; localStorage! tutaj authController*/
 }

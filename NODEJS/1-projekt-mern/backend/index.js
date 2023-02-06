@@ -7,6 +7,7 @@ const helpers = require('./lib/helpers');
 const routers = require('./routes/routes');
 const apiRoutes = require('./api/routes/apiRoutes');
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 
 mongoose.set('strictQuery', true);
 
@@ -16,6 +17,7 @@ const mongoDB = "mongodb://localhost:27017/mern";
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser());
 app.use(express.json());
 app.use('', routers);
 app.use('', apiRoutes);

@@ -46,6 +46,7 @@ module.exports = {
             errors: []
         });
     },
+    /*TODO przenieść do userController*/
     login: (req, res) => {
         const errors = validationResult(req);
         if (req.query.loginRedirect)
@@ -72,13 +73,24 @@ module.exports = {
         }
         else
         {
-            userController.login(req, res)
+            console.log('sprawdz', req.body);
+            userController.login(req.body, res)
                 .then(
                     (result) =>
                     {
-                        res.render('logged', {
+                        // console.log('result', result);
+                        /*res.render('logged', {
                             title: "Logged in",
                             content: "You have been successfully logged in"
+                        });*/
+                        return result;
+                    }
+                )
+                .catch(
+                    (err) => {
+                        res.render('logged', {
+                            title: 'Error',
+                            content: 'There was a problem with loggin in'
                         })
                     }
                 )

@@ -48,3 +48,9 @@ router.get('/api/user/:id', userController.user);
 router.get('/api/user/add', userController.create);
 router.get('/api/user/update/:id', userController.update);
 router.get('/api/user/delete/:id', userController.delete);
+
+/*
+* AUTH
+* */
+// api login + api
+router.get('/auth', authController) /*MUSI ODESŁAĆ JSON*/
