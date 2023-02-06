@@ -44,5 +44,16 @@ module.exports = {
                 }
             )
             .catch((err) => console.log('err', err))
+    },
+    login: (req, res) => {
+        const query = req.query || {};
+        return User.find(query)
+            .lean()
+            .then(
+                (result) => {
+                    return result;
+                }
+            )
+            .catch((err) => console.log('err', err))
     }
 }

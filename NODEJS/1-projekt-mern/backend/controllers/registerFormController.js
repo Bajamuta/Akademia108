@@ -23,7 +23,6 @@ module.exports = {
             )
             .finally(
             () => {
-                // console.log('here', events, cities);
                 res.render('register', {
                     title: 'Registration',
                     content: 'Please fill the form below',
@@ -69,7 +68,6 @@ module.exports = {
                 )
                 .finally(
                     () => {
-                        // console.log('here', events, cities);
                         res.render('register', {
                             title: 'Registration',
                             content: 'The form contains errors!',
@@ -189,7 +187,6 @@ module.exports = {
                 )
                 .finally(
                     () => {
-                        // console.log('here', events, cities);
                         res.render('register', {
                             title: 'Update registration',
                             content: 'The form contains errors!',

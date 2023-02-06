@@ -23,7 +23,6 @@ function getValue(result, name) {
 
 function selected(result, name, compare){
     const val = getValue(result, name);
-    console.log('selected', val, compare);
     return val ? val === compare : false;
 }
 
