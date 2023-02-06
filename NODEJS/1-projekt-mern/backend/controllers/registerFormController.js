@@ -266,14 +266,27 @@ module.exports = {
         {
             userController.create(req, res)
                 .then(
-                    (result) => user = result
+                    (result) => {
+                        user = result;
+                        res.redirect('/');
+                    }
                 )
                 .catch(
-                    (err) => console.error('An error has occurred', err)
+                    (err) => {
+                        console.error('An error has occurred', err);
+                        res.render('user', {
+                            title: 'User create',
+                            content: 'An error has occurred...',
+                            action: '/user',
+                            button: "Submit",
+                            request: req,
+                            errors: errors
+                        });
+                    }
                 )
                 .finally(
                     () => {
-                        res.redirect('/');
+                        // res.redirect('/');
                     }
                 )
         }

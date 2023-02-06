@@ -31,7 +31,7 @@ const UserModel = new mongoose.Schema({
     });
 
 /*FOR SECURITY REASON - ENCRYPT THE PASSWORD*/
-UserModel.pre('save', (next) => {
+UserModel.pre('save', function(next) {
     const user = this;
     console.log('here', user);
     if (!user.isModified('password')) {
