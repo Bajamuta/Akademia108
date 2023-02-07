@@ -10,7 +10,7 @@ module.exports = {
                         if (logged) {
                             const token = user.generateAuthToken(user);
                             if (token) {
-                                res.json({token: token});
+                                res.json({jwt_token: token, username: user.username, id: user._id, ttl: new Date()});
                             }
                         }
                     });
