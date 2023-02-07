@@ -3,7 +3,7 @@ import './Login.css';
 import {FormDataLogin, ObjectContext, LoginResponse} from "../helpers/interfaces";
 import axios, {AxiosResponse} from "axios";
 import {useNavigate, useOutletContext} from "react-router-dom";
-import {API_URL} from "../react-app-env.d";
+import {API_URL, AUTH_TOKEN} from "../react-app-env.d";
 
 export default function Login() {
 
@@ -19,7 +19,7 @@ export default function Login() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        axios.post(`${API_URL}/user/login`, {
+        axios.post(`${AUTH_TOKEN}`, {
             username: formData.username,
             password: formData.password
         }).then((response: AxiosResponse<LoginResponse>) => {

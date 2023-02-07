@@ -38,3 +38,9 @@ export const API_ALL_USERS = `${API_USER_URL}/all`;
 export const API_USER_CREATE = `${API_USER_URL}/add`;
 export const API_USER_UPDATE = `${API_USER_URL}/update`;
 export const API_USER_DELETE = `${API_USER_URL}/delete`;
+
+
+/*
+* AUTH
+* */
+export const AUTH_TOKEN = `http://localhost:8080/auth/login`;

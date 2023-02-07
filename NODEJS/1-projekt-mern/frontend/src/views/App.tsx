@@ -4,6 +4,7 @@ import {Link, Outlet} from "react-router-dom";
 import {LoginResponse} from "../helpers/interfaces";
 
 function App() {
+    /*TODO sprawdzić co zwraca auth token -> zalogowany tylko gdy loggedUser ma token, inaczej nie ustawiaj localstorage!*/
     const initLocal = localStorage.getItem("loggedUser") || '';
     const [loggedUser, setLoggedUser] = useState<LoginResponse>(initLocal.length > 0 ? JSON.parse( initLocal) : {jwt_token: ''});
 
@@ -20,17 +21,17 @@ function App() {
                 <li>
                     <Link to={"/register"}>REGISTER TO AN EVENT</Link>
                 </li>
-                {loggedUser.jwt_token.length === 0 &&
+                {!loggedUser &&
                     <li>
                         <Link to={"/login"}>LOG IN</Link>
                     </li>
                 }
-                {loggedUser.jwt_token.length === 0 &&
+                {!loggedUser &&
                     <li>
                         <Link to={"/signup"}>SIGN UP</Link>
                     </li>
                 }
-                {loggedUser.jwt_token.length > 0 &&
+                {!!loggedUser &&
                     <li>
                         <Link to={"/signout"}>SIGN OUT</Link>
                     </li>
