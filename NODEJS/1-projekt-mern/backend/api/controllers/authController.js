@@ -13,7 +13,15 @@ module.exports = {
                                 res.json({jwt_token: token, username: user.username, id: user._id, ttl: new Date()});
                             }
                         }
+                        else
+                        {
+                            res.json({error: `Wrong password`});
+                        }
                     });
+                }
+                else
+                {
+                    res.json({error: `User does not exist`})
                 }
                 /*res.json(user)*/
             })
