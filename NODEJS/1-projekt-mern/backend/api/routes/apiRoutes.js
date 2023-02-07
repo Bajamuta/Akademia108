@@ -4,10 +4,11 @@ const cityController = require('../controllers/cityController');
 const eventController = require('../controllers/eventController');
 const customerController = require('../controllers/customerController');
 const userController = require('../controllers/userController');
+const authController = require('../controllers/authController');
 
 module.exports = router;
 
-// router.get('/api/register', )
+// router.get('/api/registerCustomer', )
 
 /*
 * CITIES
@@ -53,4 +54,4 @@ router.get('/api/user/delete/:id', userController.delete);
 * AUTH
 * */
 // api login + api
-router.get('/auth', authController) /*MUSI ODESŁAĆ JSON*/
+router.get('/auth', authController.index) /*MUSI ODESŁAĆ JSON*/

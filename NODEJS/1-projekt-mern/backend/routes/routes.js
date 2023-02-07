@@ -2,29 +2,31 @@ const express = require('express');
 const router = express.Router();
 const registerFormController = require('../controllers/registerFormController');
 const homeController = require('../controllers/homeController');
+const customerController = require('../controllers/customerController');
+const userController = require('../controllers/userController');
 const authHelper = require('../lib/authHelper');
 
 module.exports = router;
 
 router.get('/', homeController.home);
 
-router.get('/register', registerFormController.form);
+router.get('/registerCustomer', registerFormController.customerForm);
 
-router.post('/register', registerFormController.check,
-    registerFormController.register);
+router.post('/registerCustomer', registerFormController.checkCustomerForm,
+    customerController.registerCustomer);
 
-router.get('/register/delete/:id', homeController.unregister);
+router.get('/registerCustomer/delete/:id', customerController.unregisterCustomer);
 
-router.get('/register/update/:id', registerFormController.updateForm);
+router.get('/registerCustomer/update/:id', registerFormController.updateCustomerForm);
 
-router.post('/register/update/:id', registerFormController.check, registerFormController.update);
+router.post('/registerCustomer/update/:id', registerFormController.checkCustomerForm, customerController.update);
 
-router.get('/user', registerFormController.userForm);
+router.get('/user', userController.userForm);
 
-router.post('/user', registerFormController.checkUserForm, registerFormController.createUser);
+router.post('/user', userController.checkUserForm, userController.addNewUser);
 
-router.get('/user/login', homeController.loginForm);
+router.get('/user/login', userController.loginForm);
 
-router.post('/user/login', homeController.login);
+router.post('/user/login', userController.login);
 
 router.get('/test', authHelper, homeController.home);
