@@ -9,7 +9,7 @@ export default function Login() {
 
     const objectContext: ObjectContext = useOutletContext();
     const navigate = useNavigate();
-    const errorMessage = "Incorrect username or password";
+    const [errorMessage, setErrorMessage] = useState<string>("Incorrect username or password");
 
     const [formData, setFormData] = useState<FormDataLogin>({
         username: "",
@@ -24,9 +24,19 @@ export default function Login() {
             password: formData.password
         }).then((response: AxiosResponse<LoginResponse>) => {
             if (response.status === 200) {
-                localStorage.setItem("loggedUser", JSON.stringify(response.data));
-                objectContext.setLoggedUser(response.data);
-                navigate('/');
+                if (!response.data.error)
+                {
+                    setShowErrorMessage(false);
+                    localStorage.setItem("loggedUser", JSON.stringify(response.data));
+                    objectContext.setLoggedUser(response.data);
+                    navigate('/');
+                }
+                else
+                {
+                    console.error('An error has occurred during retrieving login token', response.data.error);
+                    // setErrorMessage(response.data.error)
+                    setShowErrorMessage(true);
+                }
             }
             else {
                 setShowErrorMessage(true);

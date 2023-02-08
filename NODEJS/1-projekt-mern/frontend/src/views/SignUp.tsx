@@ -1,10 +1,12 @@
 import React, {ChangeEvent} from "react";
-import {FormDataRegister, ObjectContext} from "../helpers/interfaces";
+import {FormDataRegister, LoginResponse, ObjectContext} from "../helpers/interfaces";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import {SubmitHandler, useForm, Controller} from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import {Button} from "react-bootstrap";
 import ApiService from "../services/ApiService";
+import axios, {AxiosResponse} from "axios";
+import {API_USER_CREATE} from "../react-app-env.d";
 
 export default function SignUp() {
 
@@ -15,19 +17,26 @@ export default function SignUp() {
 
     const onSubmit: SubmitHandler<FormDataRegister> = (data: FormDataRegister) => {
         console.log('inouts', data);
-        /*axios.post(`${API_URL}/user/signup`, {
+        axios.post(`${API_USER_CREATE}`, {
             username: data.username,
             password: data.password,
             email: data.email
-        }).then((response: AxiosResponse<any>) => {
+        }).then((response: AxiosResponse<LoginResponse>) => {
             if (response.status === 200) {
-                navigate('/registered');
+                if (!response.data.error)
+                {
+                    navigate('/registered');
+                }
+               else
+                {
+                    console.error('An error has occurred during creating an user', response.data.error);
+                }
             }
             else {
                 console.log(response);
             }
         })
-            .catch((error) => console.error("An error has occurred during registering an user:", error));*/
+            .catch((error) => console.error("An error has occurred during registering an user:", error));
     }
     const test = (e: ChangeEvent<HTMLInputElement>) => {
         console.log('test', e.target);
@@ -79,7 +88,7 @@ export default function SignUp() {
                                 <Form.Control type="password" placeholder="Enter password"
                                               className={errors.password ? 'invalid' : 'valid'}
                                               required
-                                              pattern="^\w+\d$"
+                                              pattern="^[\w\d]+$"
                                               onChange={onChange}
                                               value={value} ref={ref}
                                               isInvalid={!!errors.password}>
@@ -96,7 +105,7 @@ export default function SignUp() {
                             render={({field: {onChange, onBlur, value, ref}}) => (
                                 <Form.Control type="password" placeholder="Confirm password"
                                               required
-                                              pattern="^\w+\d$"
+                                              pattern="^[\w\d]+$"
                                               onChange={onChange} value={value} ref={ref}
                                               isInvalid={!!errors.passwordConfirm || !passwordMatches()}
                                 >

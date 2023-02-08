@@ -1,9 +1,9 @@
 import React, {useEffect} from "react";
 import {ObjectContext} from "../helpers/interfaces";
 import {useOutletContext} from "react-router-dom";
-import "./SignOut.css";
+import "./LogOut.css";
 
-export default function SignOut() {
+export default function LogOut() {
 
     const objectContext: ObjectContext = useOutletContext();
 
@@ -13,7 +13,7 @@ export default function SignOut() {
     }, []);
 
     return (<div className="Container">
-        <h2>Sign Out</h2>
-        <p>You have been successfully signed out.</p>
+        <h2>Log Out</h2>
+        <p>You have been successfully logged out.</p>
     </div>);
 }

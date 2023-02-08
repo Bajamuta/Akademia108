@@ -56,7 +56,7 @@ export default function Home() {
 
     return (
         <div className="HomeContainer">
-            {!!objectContext.loggedUser && <p>Zalogowano jako {objectContext.loggedUser.username}</p>}
+            {!!objectContext.loggedUser?.jwt_token && <p>Zalogowano jako {objectContext.loggedUser.username}</p>}
             <h2>Our events:</h2>
             <div className="ListContainer">
                 <ul>

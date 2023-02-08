@@ -8,7 +8,7 @@ import Home from "./views/Home";
 import ErrorPage from "./views/ErrorPage";
 import Login from "./views/Login";
 import SignUp from "./views/SignUp";
-import SignOut from "./views/SignOut";
+import LogOut from "./views/LogOut";
 import Registered from "./views/Registered";
 import Register from "./views/Register";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
                 path: "signup", element: <SignUp/>
             },
             {
-                path: "signout", element: <SignOut/>
+                path: "logout", element: <LogOut/>
             },
             {
               path: 'thankyou', element: <ThankYou/>
