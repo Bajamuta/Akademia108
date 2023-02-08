@@ -53,5 +53,5 @@ router.delete('/api/user/delete/:id', userController.delete);
 /*
 * AUTH
 * */
-// api login + api
 router.post('/auth/login', authController.getToken) /*MUSI ODESŁAĆ JSON*/
+/*TODO */

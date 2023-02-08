@@ -17,8 +17,17 @@ module.exports = {
     },
     user: (req, res) => {
         User.findById(req.params.id)
-            .lean()
-            .then((result) => res.json(result))
+            .then((user) => {
+                const userDTO = {
+                    username: user.username,
+                    email: user.email,
+                    id: user._id,
+                    avatarUrl: user.avatarUrl,
+                    createdAt: user.createdAt,
+                    updatedAt: user.updatedAt
+                }
+                res.json(userDTO);
+            })
             .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
     },
     update: (req, res) => {
@@ -33,4 +42,5 @@ module.exports = {
             .then((result) => res.json(result))
             .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
     }
+    /*TODO podczas rejestracji na event ogarnąć relacje wiele do wielu*/
 }

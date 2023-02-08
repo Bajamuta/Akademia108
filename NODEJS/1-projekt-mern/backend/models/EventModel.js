@@ -9,7 +9,14 @@ const EventModel = new mongoose.Schema({
         type: Date,
         required: [true, 'Date is required']
     },
-    description: String
+    description: String,
+    users: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
+        }
+    ]
+    /*TODO customer jest userem*/
 }, {
     timestamps: true
 });
