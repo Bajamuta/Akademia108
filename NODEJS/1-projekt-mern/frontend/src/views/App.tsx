@@ -21,19 +21,19 @@ function App() {
                 <li>
                     <Link to={"/register"}>REGISTER TO AN EVENT</Link>
                 </li>
-                {!loggedUser &&
+                {!loggedUser?.jwt_token &&
                     <li>
                         <Link to={"/login"}>LOG IN</Link>
                     </li>
                 }
-                {!loggedUser &&
+                {!loggedUser?.jwt_token &&
                     <li>
                         <Link to={"/signup"}>SIGN UP</Link>
                     </li>
                 }
-                {!!loggedUser &&
+                {!!loggedUser?.jwt_token &&
                     <li>
-                        <Link to={"/signout"}>SIGN OUT</Link>
+                        <Link to={"/logout"}>LOG OUT</Link>
                     </li>
                 }
             </ul>

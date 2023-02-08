@@ -3,7 +3,6 @@ const bcrypt = require('bcrypt');
 module.exports = {
     getToken: (req, res) => {
         User.findOne({username: req.body.username})
-            .lean()
             .then((user) => {
                 if (user) {
                     bcrypt.compare(req.body.password, user.password, (err, logged) => {
