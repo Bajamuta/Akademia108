@@ -25,7 +25,14 @@ const UserModel = new mongoose.Schema({
     },
     updatedAt: {
         type: Date
-    }
+    },
+    events: [
+        {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Event"
+        }
+    ]
+    /*TODO registered events jeden do wielu*/
 },
     {
         timestamps: true

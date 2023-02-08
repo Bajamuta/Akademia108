@@ -14,7 +14,7 @@ export default function Home() {
 /*    const [newPostContent, setNewPostContent] = useState<string>('');
     const [recommendations, setRecommendations] = useState<User[]>([]);*/
 
-   axios.defaults.headers.common['Authorization'] = "Bearer " + (objectContext.loggedUser.jwt_token?.length > 0 ? objectContext.loggedUser.jwt_token : '');
+   axios.defaults.headers.common['Authorization'] = "Bearer " + (objectContext.loggedUser.jwt_token || '');
 
     const getAllCities = () => {
         apiService.getAllCities()

@@ -1,5 +1,5 @@
 import React, {ChangeEvent} from "react";
-import {FormDataRegister, LoginResponse, ObjectContext} from "../helpers/interfaces";
+import {FormDataRegister, LoginResponse, ObjectContext, UserResponse} from "../helpers/interfaces";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import {SubmitHandler, useForm, Controller} from "react-hook-form";
 import Form from 'react-bootstrap/Form';
@@ -17,11 +17,13 @@ export default function SignUp() {
 
     const onSubmit: SubmitHandler<FormDataRegister> = (data: FormDataRegister) => {
         console.log('inouts', data);
-        axios.post(`${API_USER_CREATE}`, {
+/*        axios.post(`${API_USER_CREATE}`, {
             username: data.username,
             password: data.password,
             email: data.email
-        }).then((response: AxiosResponse<LoginResponse>) => {
+        })*/
+        apiService.registerUser(data)
+            .then((response: AxiosResponse<UserResponse>) => {
             if (response.status === 200) {
                 if (!response.data.error)
                 {
@@ -37,10 +39,6 @@ export default function SignUp() {
             }
         })
             .catch((error) => console.error("An error has occurred during registering an user:", error));
-    }
-    const test = (e: ChangeEvent<HTMLInputElement>) => {
-        console.log('test', e.target);
-        // register("username", { required: true, minLength: 3 });
     }
 
     const passwordMatches = () => {

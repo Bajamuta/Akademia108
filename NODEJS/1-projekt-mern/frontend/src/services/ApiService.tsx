@@ -1,11 +1,11 @@
 import axios from "axios";
-import {API_ALL_CITIES, API_ALL_EVENTS, API_CUSTOMER_CREATE, API_USER_CREATE} from "../react-app-env.d";
+import {API_ALL_CITIES, API_ALL_EVENTS, API_CUSTOMER_CREATE, API_USER_CREATE, API_USER_URL} from "../react-app-env.d";
 import {
     CityResponse,
     CustomerRequest,
     CustomerResponse,
     EventResponse,
-    FormDataRegister,
+    FormDataRegister, UserDetailsRequest,
     UserResponse
 } from "../helpers/interfaces";
 
@@ -21,5 +21,9 @@ export default class ApiService {
     }
     public registerUser(data: FormDataRegister){
         return axios.post<UserResponse>(`${API_USER_CREATE}`, data);
+    }
+
+    public getUserDetails(id: string){
+        return axios.get<UserResponse>(`${API_USER_URL}/${id}`);
     }
 }

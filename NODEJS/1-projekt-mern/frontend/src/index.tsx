@@ -13,6 +13,7 @@ import Registered from "./views/Registered";
 import Register from "./views/Register";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ThankYou from "./views/ThankYou";
+import User from "./views/User";
 
 const router = createBrowserRouter([
     {
@@ -38,6 +39,9 @@ const router = createBrowserRouter([
             },
             {
                 path: "registered", element: <Registered/>
+            },
+            {
+                path: 'user', element: <User/>
             }
         ],
         errorElement: <ErrorPage/>

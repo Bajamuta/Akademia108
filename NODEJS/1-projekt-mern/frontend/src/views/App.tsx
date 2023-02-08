@@ -36,6 +36,11 @@ function App() {
                         <Link to={"/logout"}>LOG OUT</Link>
                     </li>
                 }
+                {!!loggedUser?.jwt_token &&
+                    <li>
+                        <Link to={"/user"}>USER</Link>
+                    </li>
+                }
             </ul>
         </nav>
         <Outlet context={{loggedUser, setLoggedUser}}/>

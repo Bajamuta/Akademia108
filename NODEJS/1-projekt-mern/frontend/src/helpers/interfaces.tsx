@@ -1,5 +1,6 @@
 export interface DatabaseResponse {
-    _id: string
+    _id: string,
+    error?: string
 }
 
 export interface User {
@@ -11,6 +12,11 @@ export interface User {
 }
 
 export interface UserResponse extends DatabaseResponse, User{
+}
+
+export interface UserDetailsRequest {
+    username: string,
+    _id: string
 }
 
 export interface City{
@@ -54,14 +60,18 @@ export interface FormDataRegister{
 }
 
 export interface LoginResponse {
-    error?: boolean,
-    id?: number,
-    jwt_token: string,
-    ttl?: number,
+    error?: Error,
+    id?: string,
+    jwt_token?: string,
+    ttl?: string,
     username?: string
 }
 
 export interface ObjectContext {
     loggedUser: LoginResponse,
     setLoggedUser: (res: LoginResponse) => void
+}
+
+export interface Error {
+    message: string
 }
