@@ -1,32 +1,33 @@
 const express = require('express');
 const router = express.Router();
-const registerFormController = require('../controllers/registerFormController');
-const homeController = require('../controllers/homeController');
-const customerController = require('../controllers/customerController');
 const userController = require('../controllers/userController');
 const authHelper = require('../lib/authHelper');
 
 module.exports = router;
 
-router.get('/', homeController.home);
+router.get('/', (req, res) => {
+    res.render('home', {
+        title: 'Home',
+        content: 'Welcome to our page'
+    });
+})
 
-router.get('/registerCustomer', registerFormController.customerForm);
+router.get('/user/profile', authHelper, userController.userProfile);
 
-router.post('/registerCustomer', registerFormController.checkCustomerForm,
-    customerController.registerCustomer);
+router.get('/user/update', authHelper, userController.checkUserForm, userController.update);
 
-router.get('/registerCustomer/delete/:id', customerController.unregisterCustomer);
+router.post('/user/update', authHelper, userController.update);
 
-router.get('/registerCustomer/update/:id', registerFormController.updateCustomerForm);
+router.get('/user/event/add', authHelper, userController.chooseEventForm);
 
-router.post('/registerCustomer/update/:id', registerFormController.checkCustomerForm, customerController.update);
+router.post('/user/event/add', authHelper, userController.addEvent);
 
-router.get('/user', userController.userForm);
+router.get('/user/event/delete', authHelper, userController.deleteEvent);
 
-router.post('/user', userController.checkUserForm, userController.addNewUser);
+router.get('/user/signup', userController.userForm);
+
+router.post('/user/signup', userController.checkUserForm, userController.userFormErrors);
 
 router.get('/user/login', userController.loginForm);
 
 router.post('/user/login', userController.login);
-
-router.get('/test', authHelper, homeController.home);

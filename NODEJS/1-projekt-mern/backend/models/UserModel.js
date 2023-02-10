@@ -7,6 +7,14 @@ const UserModel = new mongoose.Schema({
         required: [true, 'Username is required'],
         minLength: [3, 'Should contains minimum 3 characters'],
     },
+    name: {
+            type: String,
+            required: [true, 'Name is required']
+        },
+    surname: {
+            type: String,
+            required: [true, 'Surname is required']
+        },
     email: {
         type: String,
         required: [true, 'Email is required']
@@ -26,10 +34,10 @@ const UserModel = new mongoose.Schema({
     updatedAt: {
         type: Date
     },
-    events: [
+    registrations: [
         {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Event"
+            ref: "Registration"
         }
     ]
     /*TODO registered events jeden do wielu*/

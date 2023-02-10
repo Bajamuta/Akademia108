@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const cityController = require('../controllers/cityController');
 const eventController = require('../controllers/eventController');
-const customerController = require('../controllers/customerController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
 
@@ -30,22 +29,17 @@ router.post('/api/event/update/:id', eventController.update);
 router.delete('/api/event/delete/:id', eventController.delete);
 
 /*
-* CUSTOMERS (registrations)
-* */
-router.get('/api/customer/all', customerController.index);
-router.get('/api/customer/:id', customerController.customer);
-router.get('/api/customer/event/:eventId', customerController.index);
-router.get('/api/customer/city/:cityId', customerController.index);
-router.get('/api/customer/event/:eventId/city/:cityId', customerController.index);
-router.post('/api/customer/add', customerController.create);
-router.post('/api/customer/update/:id', customerController.update);
-router.delete('/api/customer/delete/:id', customerController.delete);
-
-/*
 * USERS
 * */
 router.get('/api/user/all', userController.index);
 router.get('/api/user/:id', userController.user);
+/*show users for that specified event, for all cities*/
+router.get('/api/user/event/:eventId', userController.index);
+/*show users for all events but in specified city*/
+router.get('/api/user/city/:cityId', userController.index);
+/*show users for specified event, for specified city*/
+/*TODO how exactly it should be done? city is inside event*/
+router.get('/api/user/event/:eventId/city/:cityId', userController.index);
 router.post('/api/user/add', userController.create);
 router.post('/api/user/update/:id', userController.update);
 router.delete('/api/user/delete/:id', userController.delete);
@@ -54,4 +48,4 @@ router.delete('/api/user/delete/:id', userController.delete);
 * AUTH
 * */
 router.post('/auth/login', authController.getToken) /*MUSI ODESŁAĆ JSON*/
-/*TODO */
+/*TODO API CONTROLLERS*/

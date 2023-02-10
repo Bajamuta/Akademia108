@@ -1,0 +1,31 @@
+<form id="registerForm" class="custom-form mb-4" method="post" action="{{action}}">
+    <div>
+        <label for="eventId" class="form-label w-100">
+            <span class="font-weight-bold">Event:</span>
+            <select name="eventId" id="eventId" class="form-control form-select">
+                {{#each events as | event |}}
+                    <option value="{{event._id}}" {{#if event.selected}}selected{{/if}}>
+                        {{event.name}} - {{event.date}}, {{event.description}}
+                    </option>
+                {{/each}}
+            </select>
+        </label>
+    </div>
+    <div>
+        <label for="cityId" class="form-label w-100">
+            <span class="font-weight-bold">City:</span>
+            <select name="cityId" id="cityId" class="form-control form-select">
+                {{#each cities as | city |}}
+                    <!--co z city._id-->
+                    <option value="{{city._id}}" {{#if city.selected}}selected{{/if}}>
+                        {{city.name}}
+                    </option>
+                {{/each}}
+            </select>
+        </label>
+    </div>
+    <div class="d-flex">
+        <button type="submit" id="registerButton"
+                class="btn btn-primary btn-rounded w-50 mx-auto mt-4">{{button}}</button>
+    </div>
+</form>

@@ -1,6 +1,12 @@
 const User = require('../models/UserModel');
+const Registration = require('../models/RegistrationModel');
+const City = require('../models/CityModel');
+const Event = require('../models/EventModel');
 const bcrypt = require('bcrypt');
 const {validationResult, check} = require("express-validator");
+const cityController = require("./cityController");
+const eventController = require("./eventController");
+const registrationController = require('./registrationController');
 
 module.exports = {
     index: (req, res) => {
@@ -47,21 +53,35 @@ module.exports = {
             )
             .catch((err) => console.log('err', err))
     },
-    userForm: (req, res) => {
+    userForm: async (req, res) => {
+        let user = {};
+        if (res.locals.userId)
+        {
+            user = await User.findById(res.locals.userId);
+        }
         res.render('user', {
             title: 'User create',
-            content: 'Please fill the customerForm below',
-            action: '/user',
+            content: 'Please fill the form below',
+            action: '/use/signup',
             button: "Submit",
             request: {},
-            errors: []
-        })
+            errors: [],
+            user: user
+        });
     },
     checkUserForm: [
         check('username')
             .trim()
             .isLength({min: 3, max: 50})
             .withMessage('Must contain between 3 and 50 characters'),
+        check('name')
+            .trim()
+            .isLength({min: 3, max: 50})
+            .withMessage('Must contain between 3 and 50 characters'),
+        check('surname')
+            .trim()
+            .isLength({min: 2, max: 100})
+            .withMessage('Must contain between 2 and 100 characters'),
         check('email')
             .trim()
             .isEmail()
@@ -74,18 +94,23 @@ module.exports = {
             .isStrongPassword()
             .withMessage('Must be a strong password')
     ],
-    addNewUser: async (req, res) => {
+    userFormErrors: async (req, res) => {
         const errors = validationResult(req);
-        let user;
+        let user = {};
+        if (res.locals.userId)
+        {
+            user = await User.findById(res.locals.userId);
+        }
         if (!errors.isEmpty())
         {
-            res.render('user', {
-                title: 'User create',
-                content: 'The customerForm contains errors!',
-                action: '/user',
+            res.render('signUp', {
+                title: user ? 'User update' : 'User create',
+                content: 'The form contains errors!',
+                action: user ? '/user/update' : '/user/signup',
                 button: "Submit",
                 request: req,
-                errors: errors
+                errors: errors,
+                user: user
             });
         }
         else
@@ -102,22 +127,117 @@ module.exports = {
                 .catch(
                     (err) => {
                         console.error('An error has occurred', err);
-                        res.render('user', {
-                            title: 'User create',
+                        res.render('signUp', {
+                            title: user ? 'User update' : 'User create',
                             content: 'An error has occurred...',
-                            action: '/user',
+                            action: user ? '/user/update' : '/user/signup',
                             button: "Submit",
                             request: req,
-                            errors: errors
+                            errors: errors,
+                            user: user
                         });
                     }
                 )
                 .finally(
                     () => {
-                        // res.redirect('/');
+                        res.redirect('/');
                     }
                 )
         }
+    },
+    chooseEventForm: (req, res) => {
+        let events;
+        let cities;
+        cityController.index(req, res)
+            .then(
+                (result) => {
+                    cities = result;
+                    return eventController.index(req, res);
+                }
+            )
+            .then(
+                (result) => {
+                    events = result;
+                }
+            )
+            .finally(
+                () => {
+                    res.render('chooseEvent', {
+                        title: 'Register for an event',
+                        content: 'Please fill the form below',
+                        action: '/user/event/add',
+                        events: events,
+                        cities: cities,
+                        button: "Submit",
+                        request: {},
+                        errors: [],
+                        customer: {}
+                    });
+                }
+            );
+    },
+    addEvent: (req, res) => {
+        const errors = validationResult(req);
+        let events;
+        let cities;
+        if (!errors.isEmpty())
+        {
+            cityController.index(req, res)
+                .then(
+                    (citiesResult) => {
+                        cities = citiesResult;
+                        return eventController.index(req, res);
+                    }
+                )
+                .then(
+                    (eventsResult) => {
+                        events = eventsResult;
+                    }
+                )
+                .finally(
+                    () => {
+                        res.render('chooseEvent', {
+                            title: 'Register for an event',
+                            content: 'The form contains errors!',
+                            action: '/user/event/add',
+                            events: events,
+                            cities: cities,
+                            button: 'Submit',
+                            request: req,
+                            errors: errors,
+                            customer: {}
+                        });
+                    }
+                );
+        }
+        else {
+            let user;
+            User.findById(res.locals.userId)
+                .then(
+                    (userResult) => {
+                        user = userResult;
+                        const params = {userId: res.locals.userId, cityId: req.params.cityId, eventId: req.params.eventId};
+                        return registrationController.create({params: params});
+                    }
+                )
+                .then(
+                    (registrationResult) => {
+                        user.registrations.push(registrationResult._id);
+                    }
+                )
+                .catch((err) => console.error('err', err))
+                .finally(
+                    () => {
+                        res
+                    }
+                )
+        }
+    },
+    deleteEvent: (req, res) => {
+        User.findById(res.locals.userid)
+            .then(
+
+            )
     },
     loginForm: (req, res) => {
         res.render('loginUser', {
@@ -130,7 +250,6 @@ module.exports = {
         });
     },
     login: (req, res) => {
-        // console.log('query', query);
         const errors = validationResult(req);
         if (req.query.loginRedirect)
         {
@@ -155,7 +274,6 @@ module.exports = {
             });
         }
         else {
-            console.log('sprawdz', req.body);
             return User.findOne({username: req.body.username})
                 .then(
                     (user) => {
@@ -165,7 +283,7 @@ module.exports = {
                                     const token = user.generateAuthToken(user);
                                     if (token) {
                                         res.cookie('AuthToken', token);
-                                        res.render('logged', {
+                                        res.render('home', {
                                             title: "Logged in",
                                             content: "You have been successfully logged in"
                                         });
@@ -178,5 +296,13 @@ module.exports = {
                 )
                 .catch((err) => console.log('err', err))
         }
+    },
+    userProfile: async (req, res) => {
+        const user = await User.findById(req.params.id).lean();
+        res.render('userProfile', {
+            title: 'User Profile',
+            content: 'Check your details',
+            user: user
+        });
     }
 }

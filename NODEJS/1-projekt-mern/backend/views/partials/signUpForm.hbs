@@ -16,6 +16,39 @@
         </label>
     </div>
     <div>
+        <label for="name" class="form-label w-100">
+            <span class="font-weight-bold">Name:</span>
+            <input type="text" placeholder="Enter name" name="name"
+                   id="name"
+                   value="{{#if user}}{{getValue user "name"}}{{else}}
+                       {{getValue request.body "name"}}{{/if}}"
+                {{#if (findError errors "name")}}
+                   class="form-control is-invalid"
+                {{else}}
+                   class="form-control"
+                {{/if}} />
+            {{#if (findError errors "name")}}
+                <p class="text-danger">{{showError errors "name"}}</p>
+            {{/if}}
+        </label>
+    </div>
+    <div>
+        <label for="surname" class="form-label w-100">
+            <span class="font-weight-bold">Surname:</span>
+            <input type="text" placeholder="Enter surname" name="surname" id="surname"
+                   value="{{#if user}}{{getValue user "surname"}}{{else}}
+                       {{getValue request.body "surname"}}{{/if}}"
+                {{#if (findError errors "surname")}}
+                   class="form-control is-invalid"
+                {{else}}
+                   class="form-control"
+                {{/if}}/>
+            {{#if (findError errors "surname")}}
+                <p class="text-danger">{{showError errors "surname"}}</p>
+            {{/if}}
+        </label>
+    </div>
+    <div>
         <label for="email" class="form-label w-100">
             <span class="font-weight-bold">Email:</span>
             <input type="email" placeholder="Enter email" name="email" id="email"
