@@ -68,6 +68,13 @@ UserModel.pre('save', function(next) {
     });
 });
 
+/*
+UserModel.pre('find', function (next) {
+    this.populate("registrations");
+    next();
+});
+*/
+
 UserModel.methods.generateAuthToken = (user) => {
     const token = jwt.sign({ _id: user._id }, 'abc123', {
         expiresIn: "1h",

@@ -3,3 +3,22 @@
 <p>{{content}}</p>
 
 <p>Username: {{user.username}}</p>
+<p>Email: {{user.email}}</p>
+<p>Name: {{user.name}}</p>
+<p>Surname: {{user.surname}}</p>
+
+<h2>Events:</h2>
+
+{{#if user.registrations}}
+    <ul></ul>
+    {{#each user.registrations}}
+        <div>
+
+        </div>
+        <p>{{this.city.name}}</p>
+    {{/each}}
+{{else}}
+    <p>No events.</p>
+{{/if}}
+
+

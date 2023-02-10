@@ -17,4 +17,9 @@ const RegistrationModel = new mongoose.Schema(
     }
 );
 
+RegistrationModel.pre('find', function (next) {
+    this.populate("event city user");
+    next();
+});
+
 module.exports = mongoose.model('Registration', RegistrationModel);

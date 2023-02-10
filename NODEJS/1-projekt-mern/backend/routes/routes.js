@@ -5,18 +5,21 @@ const authHelper = require('../lib/authHelper');
 
 module.exports = router;
 
+/*TODO loggedUserHelper*/
+/*TODO save token time in cookies*/
 router.get('/', (req, res) => {
     res.render('home', {
         title: 'Home',
         content: 'Welcome to our page'
     });
-})
+});
 
 router.get('/user/profile', authHelper, userController.userProfile);
 
-router.get('/user/update', authHelper, userController.checkUserForm, userController.update);
 
-router.post('/user/update', authHelper, userController.update);
+router.get('/user/update', authHelper, userController.checkUserForm, userController.userForm);
+
+router.post('/user/update', authHelper, userController.userFormErrors);
 
 router.get('/user/event/add', authHelper, userController.chooseEventForm);
 
@@ -31,3 +34,10 @@ router.post('/user/signup', userController.checkUserForm, userController.userFor
 router.get('/user/login', userController.loginForm);
 
 router.post('/user/login', userController.login);
+
+router.get('/logout', (req, res) => {
+    res.render('home', {
+        title: 'Home',
+        content: 'You have been logged out'
+    });
+});

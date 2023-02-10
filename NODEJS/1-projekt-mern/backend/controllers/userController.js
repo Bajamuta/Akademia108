@@ -21,6 +21,7 @@ module.exports = {
     },
     user: (req, res) => {
         return User.findById(req.params.id)
+            .populate("registrations")
             .lean()
             .then(
                 (result) => {
@@ -57,12 +58,13 @@ module.exports = {
         let user = {};
         if (res.locals.userId)
         {
-            user = await User.findById(res.locals.userId);
+            user = await User.findById(res.locals.userId).populate("registrations");
         }
-        res.render('user', {
+        console.log('form user', user);
+        res.render('signUp', {
             title: 'User create',
             content: 'Please fill the form below',
-            action: '/use/signup',
+            action: '/user/signup',
             button: "Submit",
             request: {},
             errors: [],
@@ -99,7 +101,7 @@ module.exports = {
         let user = {};
         if (res.locals.userId)
         {
-            user = await User.findById(res.locals.userId);
+            user = await User.findById(res.locals.userId).populate("registrations");
         }
         if (!errors.isEmpty())
         {
@@ -170,8 +172,7 @@ module.exports = {
                         cities: cities,
                         button: "Submit",
                         request: {},
-                        errors: [],
-                        customer: {}
+                        errors: []
                     });
                 }
             );
@@ -204,8 +205,7 @@ module.exports = {
                             cities: cities,
                             button: 'Submit',
                             request: req,
-                            errors: errors,
-                            customer: {}
+                            errors: errors
                         });
                     }
                 );
@@ -216,19 +216,20 @@ module.exports = {
                 .then(
                     (userResult) => {
                         user = userResult;
-                        const params = {userId: res.locals.userId, cityId: req.params.cityId, eventId: req.params.eventId};
+                        const params = {userId: res.locals.userId, cityId: req.body.cityId, eventId: req.body.eventId};
                         return registrationController.create({params: params});
                     }
                 )
                 .then(
                     (registrationResult) => {
                         user.registrations.push(registrationResult._id);
+                        user.save();
                     }
                 )
                 .catch((err) => console.error('err', err))
                 .finally(
                     () => {
-                        res
+                        res.redirect('/user/profile');
                     }
                 )
         }
@@ -236,7 +237,7 @@ module.exports = {
     deleteEvent: (req, res) => {
         User.findById(res.locals.userid)
             .then(
-
+/*TODO delete event*/
             )
     },
     loginForm: (req, res) => {
@@ -283,11 +284,15 @@ module.exports = {
                                     const token = user.generateAuthToken(user);
                                     if (token) {
                                         res.cookie('AuthToken', token);
-                                        res.render('home', {
-                                            title: "Logged in",
-                                            content: "You have been successfully logged in"
-                                        });
+                                        res.redirect('/user/profile');
                                     }
+                                }
+                                else
+                                {
+                                    res.render('home', {
+                                        title: 'Home',
+                                        content: 'Wrong credentials'
+                                    });
                                 }
                             });
                         }
@@ -298,7 +303,8 @@ module.exports = {
         }
     },
     userProfile: async (req, res) => {
-        const user = await User.findById(req.params.id).lean();
+        const user = await User.findById(res.locals.userId).populate("registrations").lean();
+        console.log('user', user);
         res.render('userProfile', {
             title: 'User Profile',
             content: 'Check your details',
