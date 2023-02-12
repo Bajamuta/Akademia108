@@ -38,7 +38,6 @@ router.get('/api/user/event/:eventId', userController.index);
 /*show users for all events but in specified city*/
 router.get('/api/user/city/:cityId', userController.index);
 /*show users for specified event, for specified city*/
-/*TODO how exactly it should be done? city is inside event*/
 router.get('/api/user/event/:eventId/city/:cityId', userController.index);
 router.post('/api/user/add', userController.create);
 router.post('/api/user/update/:id', userController.update);

@@ -235,10 +235,21 @@ module.exports = {
         }
     },
     deleteEvent: (req, res) => {
-        User.findById(res.locals.userid)
+        Registration.findByIdAndDelete(req.params.id)
             .then(
-/*TODO delete event*/
+                (result) => {
+                    User.findById(res.locals.userId)
+                        .then(
+                            (user) => {
+                                /*TODO remove registration*/
+                                const reg = user.registrations.find((r) => r)
+                                user.registrations.remove()
+                            }
+                        )
+                    res.redirect('/')
+                }
             )
+            .catch((err) => console.log('error', err))
     },
     loginForm: (req, res) => {
         res.render('loginUser', {

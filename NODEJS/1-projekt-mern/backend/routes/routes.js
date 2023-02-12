@@ -7,25 +7,25 @@ module.exports = router;
 
 /*TODO loggedUserHelper*/
 /*TODO save token time in cookies*/
-router.get('/', (req, res) => {
+router.get('/', authHelper.isUserLoggedIn, (req, res) => {
     res.render('home', {
         title: 'Home',
         content: 'Welcome to our page'
     });
 });
 
-router.get('/user/profile', authHelper, userController.userProfile);
+router.get('/user/profile', authHelper.redirectLogin, userController.userProfile);
 
 
-router.get('/user/update', authHelper, userController.checkUserForm, userController.userForm);
+router.get('/user/update', authHelper.redirectLogin, userController.checkUserForm, userController.userForm);
 
-router.post('/user/update', authHelper, userController.userFormErrors);
+router.post('/user/update', authHelper.redirectLogin, userController.userFormErrors);
 
-router.get('/user/event/add', authHelper, userController.chooseEventForm);
+router.get('/user/event/add', authHelper.redirectLogin, userController.chooseEventForm);
 
-router.post('/user/event/add', authHelper, userController.addEvent);
+router.post('/user/event/add', authHelper.redirectLogin, userController.addEvent);
 
-router.get('/user/event/delete', authHelper, userController.deleteEvent);
+router.post('/user/event/delete', authHelper.redirectLogin, userController.deleteEvent);
 
 router.get('/user/signup', userController.userForm);
 
