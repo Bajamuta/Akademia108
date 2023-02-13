@@ -44,18 +44,10 @@ export interface RegistrationResponse extends DatabaseResponse, Registration {}
 
 export interface EventResponse extends DatabaseResponse, Event {}
 
-export interface CustomerRequest {
-    name: string,
-    surname: string,
+export interface RegistrationRequest {
+    userId: string,
     eventId: string,
     cityId: string
-}
-
-export interface CustomerResponse extends DatabaseResponse, CustomerRequest {}
-
-export interface Customer extends CustomerResponse {
-    event: Event,
-    city: City
 }
 
 export interface FormDataLogin {
@@ -87,4 +79,8 @@ export interface ObjectContext {
 
 export interface Error {
     message: string
+}
+
+export interface Response {
+    result: string
 }
