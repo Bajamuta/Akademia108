@@ -5,7 +5,6 @@ const authHelper = require('../lib/authHelper');
 
 module.exports = router;
 
-/*TODO loggedUserHelper*/
 /*TODO save token time in cookies*/
 router.get('/', authHelper.isUserLoggedIn, (req, res) => {
     res.render('home', {

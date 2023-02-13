@@ -1,7 +1,5 @@
 const User = require('../models/UserModel');
 const Registration = require('../models/RegistrationModel');
-const City = require('../models/CityModel');
-const Event = require('../models/EventModel');
 const bcrypt = require('bcrypt');
 const {validationResult, check} = require("express-validator");
 const cityController = require("./cityController");
@@ -261,8 +259,12 @@ module.exports = {
             errors: []
         });
     },
-    login: (req, res) => {
-        const errors = validationResult(req);
+    login: async (req, res) => {
+        let user = {};
+        if (res.body)
+        {
+            user = await User.findOne({username: req.body.username});
+        }
         if (req.query.loginRedirect)
         {
             res.render('loginUser', {
@@ -271,18 +273,8 @@ module.exports = {
                 action: '/user/login',
                 button: 'Login',
                 request: req,
-                errors: []
-            });
-        }
-        else if (!errors.isEmpty())
-        {
-            res.render('loginUser', {
-                title: 'Login',
-                content: 'Enter your credentials to log in',
-                action: '/user/login',
-                button: 'Login',
-                request: req,
-                errors: errors
+                errors: [],
+                user: user
             });
         }
         else {
@@ -300,14 +292,30 @@ module.exports = {
                                 }
                                 else
                                 {
-                                    res.render('home', {
-                                        title: 'Home',
-                                        content: 'Wrong credentials'
+                                    res.render('loginUser', {
+                                        title: 'Login',
+                                        content: 'Wrong credentials',
+                                        action: '/user/login',
+                                        button: 'Login',
+                                        request: req,
+                                        errors: [],
+                                        user: user
                                     });
                                 }
                             });
                         }
-                        return user;
+                        else
+                        {
+                            res.render('loginUser', {
+                                title: 'Login',
+                                content: 'User does not exists',
+                                action: '/user/login',
+                                button: 'Login',
+                                request: req,
+                                errors: [],
+                                user: {}
+                            });
+                        }
                     }
                 )
                 .catch((err) => console.log('err', err))

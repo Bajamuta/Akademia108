@@ -61,6 +61,10 @@ function isUserLoggedIn (req, res, next){
                     }
                 );
         }
+        else
+        {
+            next();
+        }
     }
     catch (e) {
         console.error('An error has occurred', e);

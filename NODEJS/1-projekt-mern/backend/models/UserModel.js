@@ -40,7 +40,6 @@ const UserModel = new mongoose.Schema({
             ref: "Registration"
         }
     ]
-    /*TODO registered events jeden do wielu*/
 },
     {
         timestamps: true

@@ -4,6 +4,7 @@
             <span class="font-weight-bold">Username:</span>
             <input type="text" placeholder="Enter username" name="username"
                    id="username"
+                   required
                    value="{{#if user}}{{getValue user "username"}}{{else}}{{getValue request.body "username"}}{{/if}}"
                 {{#if (findError errors "username")}}
                    class="form-control is-invalid"
@@ -18,7 +19,7 @@
     <div>
         <label for="password" class="form-label w-100">
             <span class="font-weight-bold">Password:</span>
-            <input type="password" placeholder="Enter password" name="password" id="password"
+            <input type="password" placeholder="Enter password" name="password" id="password" required
                    value="{{#if user}}{{getValue user "password"}}{{else}}{{getValue request.body "password"}}{{/if}}"
                 {{#if (findError errors "password")}}
                    class="form-control is-invalid"
