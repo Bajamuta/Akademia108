@@ -64,6 +64,36 @@ export default function SignUp() {
                 </Form.Control.Feedback>
                 {errors.username && <Form.Text className="ValidationMessage">{errors.username?.message}</Form.Text>}
             </Form.Group>
+            <Form.Group className="my-3" controlId="name">
+                <Form.Label>Name*:</Form.Label>
+                <Controller control={control} name="name" defaultValue=""
+                            render={({field: {onChange, onBlur, value, ref}}) => (
+                                <Form.Control type="text" placeholder="Enter name"
+                                              required
+                                              minLength={3}
+                                              onChange={onChange} value={value} ref={ref} isInvalid={!!errors.name}>
+                                </Form.Control>
+                            )} />
+                <Form.Control.Feedback type='invalid'>
+                    {errors.name?.message}
+                </Form.Control.Feedback>
+                {errors.name && <Form.Text className="ValidationMessage">{errors.name?.message}</Form.Text>}
+            </Form.Group>
+            <Form.Group className="my-3" controlId="surname">
+                <Form.Label>Name*:</Form.Label>
+                <Controller control={control} name="surname" defaultValue=""
+                            render={({field: {onChange, onBlur, value, ref}}) => (
+                                <Form.Control type="text" placeholder="Enter surname"
+                                              required
+                                              minLength={3}
+                                              onChange={onChange} value={value} ref={ref} isInvalid={!!errors.surname}>
+                                </Form.Control>
+                            )} />
+                <Form.Control.Feedback type='invalid'>
+                    {errors.surname?.message}
+                </Form.Control.Feedback>
+                {errors.surname && <Form.Text className="ValidationMessage">{errors.surname?.message}</Form.Text>}
+            </Form.Group>
             <Form.Group className="my-3" controlId="email">
                 <Form.Label>Email*:</Form.Label>
                 <Controller control={control} name="email" defaultValue=""

@@ -43,8 +43,8 @@ export default function User() {
             <p>Name: {userDetails?.name}</p>
             <p>Surname: {userDetails?.surname}</p>
             <h3>Events:</h3>
-            {!userDetails?.registrations && <p>No events.</p>}
-            {userDetails?.registrations && <ul>
+            {!userDetails?.registrations?.length && <p>No events.</p>}
+            {!!userDetails?.registrations?.length && <ul>
                 {userDetails.registrations.map(
                     (registration) => {
                         return (<li key={registration._id}>

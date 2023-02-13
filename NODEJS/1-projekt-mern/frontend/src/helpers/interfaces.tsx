@@ -65,6 +65,8 @@ export interface FormDataLogin {
 
 export interface FormDataRegister{
     username: string,
+    name: string,
+    surname: string,
     password: string,
     email: string,
     passwordConfirm: string
