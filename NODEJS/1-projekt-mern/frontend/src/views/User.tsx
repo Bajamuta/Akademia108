@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {ObjectContext, UserResponse} from "../helpers/interfaces";
+import {EventResponse, ObjectContext, UserResponse} from "../helpers/interfaces";
 import {useOutletContext} from "react-router-dom";
 import ApiService from "../services/ApiService";
 import axios, {AxiosResponse} from "axios";
 import {Button} from "react-bootstrap";
+import {datePipe} from "../helpers/dateHelpers";
 
 export default function User() {
     const objectContext: ObjectContext = useOutletContext();
@@ -39,6 +40,19 @@ export default function User() {
             <img className="UserAvatar" src={userDetails?.avatarUrl || defaultAvatarUrl} />
             <p>Username: {userDetails?.username}</p>
             <p>Email: {userDetails?.email}</p>
+            <p>Name: {userDetails?.name}</p>
+            <p>Surname: {userDetails?.surname}</p>
+            <h3>Events:</h3>
+            {!userDetails?.registrations && <p>No events.</p>}
+            {userDetails?.registrations && <ul>
+                {userDetails.registrations.map(
+                    (registration) => {
+                        return (<li key={registration._id}>
+                            {registration.event.name} {registration.event.description} {datePipe(registration.event.date)}
+                        </li>);
+                    }
+                )}
+            </ul>}
             <Button type="button">Edit</Button>
         </div>
     );

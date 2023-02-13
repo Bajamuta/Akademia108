@@ -4,10 +4,13 @@ export interface DatabaseResponse {
 }
 
 export interface User {
+    name: string,
+    surname: string,
     username: string,
     email: string,
     avatarUrl: string,
     createdAt: Date,
+    registrations: RegistrationResponse[],
     updatedAt?: Date
 }
 
@@ -30,6 +33,14 @@ export interface Event {
     date: string,
     description: string
 }
+
+export interface Registration {
+    event: Event,
+    city: City,
+    user: User
+}
+
+export interface RegistrationResponse extends DatabaseResponse, Registration {}
 
 export interface EventResponse extends DatabaseResponse, Event {}
 
