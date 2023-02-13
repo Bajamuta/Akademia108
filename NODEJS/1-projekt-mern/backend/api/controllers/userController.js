@@ -16,12 +16,16 @@ module.exports = {
             .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
     },
     user: (req, res) => {
-        User.findById(req.params.id)
+        User.findById(req.params.id).populate('registrations')
             .then((user) => {
+                console.log("DTO USER", user);
                 const userDTO = {
+                    name: user.name,
+                    surname: user.surname,
                     username: user.username,
                     email: user.email,
                     id: user._id,
+                    registrations: user.registrations,
                     avatarUrl: user.avatarUrl,
                     createdAt: user.createdAt,
                     updatedAt: user.updatedAt
