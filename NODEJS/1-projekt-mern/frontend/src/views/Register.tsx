@@ -5,7 +5,7 @@ import axios, {AxiosResponse} from "axios";
 import ApiService from "../services/ApiService";
 import Form from 'react-bootstrap/Form';
 import {Button} from "react-bootstrap";
-import {CityResponse, CustomerRequest, CustomerResponse, EventResponse, ObjectContext} from "../helpers/interfaces";
+import {CityResponse, RegistrationRequest, EventResponse, ObjectContext} from "../helpers/interfaces";
 
 export default function Register() {
     const objectContext: ObjectContext = useOutletContext();
@@ -13,11 +13,11 @@ export default function Register() {
     const apiService: ApiService = new ApiService();
     const [cities, setCities] = useState<CityResponse[]>([]);
     const [events, setEvents] = useState<EventResponse[]>([]);
-    const { register, handleSubmit, watch, control, reset, formState: { errors } } = useForm<CustomerRequest>();
+    const { register, handleSubmit, watch, control, reset, formState: { errors } } = useForm<RegistrationRequest>();
 
-    const onSubmit: SubmitHandler<CustomerRequest> = (data: CustomerRequest) => {
-        apiService.registerCustomer(data)
-            .then((response: AxiosResponse<CustomerResponse>) => {
+    const onSubmit: SubmitHandler<RegistrationRequest> = (data: RegistrationRequest) => {
+        apiService.registerForEvent({...data, userId: objectContext.loggedUser.id as string})
+            .then((response: AxiosResponse<Response>) => {
             if (response.status === 200) {
                 navigate('/thankyou');
                 console.log('resp', response);
@@ -48,36 +48,6 @@ export default function Register() {
         <div className="FormContainer">
             <h2>Register for an event</h2>
             <Form name="customerForm" className="FormBody" onSubmit={handleSubmit(onSubmit)}>
-                <Form.Group className="my-3" controlId="name">
-                    <Form.Label>First name*:</Form.Label>
-                    <Controller control={control} name="name" defaultValue=""
-                                render={({field: {onChange, onBlur, value, ref}}) => (
-                                    <Form.Control type="text" placeholder="Enter first name"
-                                                  required
-                                                  minLength={3}
-                                                  onChange={onChange} value={value} ref={ref} isInvalid={!!errors.name}>
-                                    </Form.Control>
-                                )} />
-                    <Form.Control.Feedback type='invalid'>
-                        {errors.name?.message}
-                    </Form.Control.Feedback>
-                    {errors.name && <Form.Text className="ValidationMessage">{errors.name?.message}</Form.Text>}
-                </Form.Group>
-                <Form.Group className="my-3" controlId="surname">
-                    <Form.Label>Surname*:</Form.Label>
-                    <Controller control={control} name="surname" defaultValue=""
-                                render={({field: {onChange, onBlur, value, ref}}) => (
-                                    <Form.Control type="text" placeholder="Enter surname"
-                                                  required
-                                                  minLength={4}
-                                                  onChange={onChange} value={value} ref={ref} isInvalid={!!errors.surname}>
-                                    </Form.Control>
-                                )} />
-                    <Form.Control.Feedback type='invalid'>
-                        {errors.surname?.message}
-                    </Form.Control.Feedback>
-                    {errors.surname && <Form.Text className="ValidationMessage">{errors.surname?.message}</Form.Text>}
-                </Form.Group>
                 <Form.Group className="my-3" controlId="eventId">
                     <Form.Label>Event*:</Form.Label>
                     <Controller control={control} name="eventId" defaultValue=""

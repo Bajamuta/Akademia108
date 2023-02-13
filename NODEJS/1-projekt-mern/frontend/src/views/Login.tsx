@@ -22,6 +22,7 @@ export default function Login() {
         axios.post(`${AUTH_TOKEN}`, {
             username: formData.username,
             password: formData.password
+            /*TODO separate response type: loginresponse vs errorresponse*/
         }).then((response: AxiosResponse<LoginResponse>) => {
             if (response.status === 200) {
                 if (!response.data.error)

@@ -49,11 +49,13 @@ export default function User() {
                     (registration) => {
                         return (<li key={registration._id}>
                             {registration.event.name} {registration.event.description} {datePipe(registration.event.date)}
+                            <Button type="button">Unregister</Button>
                         </li>);
                     }
                 )}
             </ul>}
-            <Button type="button">Edit</Button>
+            <Button type="button">Edit details</Button>
+            <Button type="button">Delete account</Button>
         </div>
     );
 }

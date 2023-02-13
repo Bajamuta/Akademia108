@@ -39,6 +39,13 @@ export const API_USER_CREATE = `${API_USER_URL}/add`;
 export const API_USER_UPDATE = `${API_USER_URL}/update`;
 export const API_USER_DELETE = `${API_USER_URL}/delete`;
 
+/*show users for that specified event, for all cities*/
+export const API_USERS_EVENT = `${API_USER_URL}/event`;
+/*show users for all events but in specified city*/
+export const  API_USERS_CITY = `${API_USER_URL}/city`;
+
+
+export const API_REGISTRATION_CREATE = `${API_URL}/registration/add`;
 
 /*
 * AUTH
