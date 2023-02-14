@@ -9,7 +9,7 @@ export default function LogOut() {
 
     useEffect(() => {
         localStorage.removeItem("loggedUser");
-        objectContext.setLoggedUser({jwt_token: ''});
+        objectContext.setLoggedUser({jwt_token: "", username: "", ttl: "", id: "", error: ""});
     }, []);
 
     return (<div className="Container">

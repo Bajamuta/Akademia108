@@ -1,6 +1,6 @@
 import React, {FormEvent, useState} from "react";
 import './Login.css';
-import {FormDataLogin, ObjectContext, LoginResponse} from "../helpers/interfaces";
+import {FormDataLogin, ObjectContext, LoginResponse, ErrorResponse} from "../helpers/interfaces";
 import axios, {AxiosResponse} from "axios";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import {API_URL, AUTH_TOKEN} from "../react-app-env.d";

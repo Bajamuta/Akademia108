@@ -10,14 +10,13 @@
 <h2>Events:</h2>
 
 {{#if user.registrations}}
-    <form action="user/event/delete"></form>
     <ul>
         {{#each user.registrations}}
             <li>
                 <p class="font-weight-bold">{{this.event.date}}</p>
                 <p class="">{{this.event.name}}, {{this.city.name}}</p>
                 <!--TODO how to pass javascript method?-->
-                <a class="link-danger" onClick="">Unregister</a>
+                <a class="link-danger" href="/user/event/delete">Unregister</a>
             </li>
         {{/each}}
     </ul>

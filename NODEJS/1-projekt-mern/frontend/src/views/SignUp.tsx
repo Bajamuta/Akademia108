@@ -5,8 +5,7 @@ import {SubmitHandler, useForm, Controller} from "react-hook-form";
 import Form from 'react-bootstrap/Form';
 import {Button} from "react-bootstrap";
 import ApiService from "../services/ApiService";
-import axios, {AxiosResponse} from "axios";
-import {API_USER_CREATE} from "../react-app-env.d";
+import {AxiosResponse} from "axios";
 
 export default function SignUp() {
 
@@ -16,12 +15,6 @@ export default function SignUp() {
     const { register, handleSubmit, control, reset, watch, formState: { errors } } = useForm<FormDataRegister>();
 
     const onSubmit: SubmitHandler<FormDataRegister> = (data: FormDataRegister) => {
-        console.log('inouts', data);
-/*        axios.post(`${API_USER_CREATE}`, {
-            username: data.username,
-            password: data.password,
-            email: data.email
-        })*/
         apiService.registerUser(data)
             .then((response: AxiosResponse<UserResponse>) => {
             if (response.status === 200) {
@@ -80,7 +73,7 @@ export default function SignUp() {
                 {errors.name && <Form.Text className="ValidationMessage">{errors.name?.message}</Form.Text>}
             </Form.Group>
             <Form.Group className="my-3" controlId="surname">
-                <Form.Label>Name*:</Form.Label>
+                <Form.Label>Surname*:</Form.Label>
                 <Controller control={control} name="surname" defaultValue=""
                             render={({field: {onChange, onBlur, value, ref}}) => (
                                 <Form.Control type="text" placeholder="Enter surname"
@@ -146,7 +139,6 @@ export default function SignUp() {
             </Form.Group>
             <Button variant="primary"
                     size="lg"
-
                     type="submit">Sign Up</Button>
         </Form>
     </div>);

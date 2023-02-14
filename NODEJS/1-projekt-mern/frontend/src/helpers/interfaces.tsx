@@ -50,6 +50,11 @@ export interface RegistrationRequest {
     cityId: string
 }
 
+export interface UnregistrationRequest {
+    registrationId: string,
+    userId: string
+}
+
 export interface FormDataLogin {
     username: string,
     password: string
@@ -65,11 +70,19 @@ export interface FormDataRegister{
 }
 
 export interface LoginResponse {
-    error?: Error,
-    id?: string,
-    jwt_token?: string,
-    ttl?: string,
-    username?: string
+    id: string,
+    jwt_token: string,
+    ttl: string,
+    username: string
+    error: string
+}
+
+export interface ErrorResponse {
+    error: Error;
+}
+
+export interface ResultResponse {
+    result: string;
 }
 
 export interface ObjectContext {
@@ -81,6 +94,3 @@ export interface Error {
     message: string
 }
 
-export interface Response {
-    result: string
-}
