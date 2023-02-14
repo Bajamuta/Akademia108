@@ -34,8 +34,6 @@ router.delete('/api/event/delete/:id', eventController.delete);
 router.get('/api/user/all', userController.index);
 router.get('/api/user/:id', userController.user);
 
-router.post('/api/registration/add', userController.registerForEvent);
-
 /*show users for that specified event, for all cities*/
 router.get('/api/user/event/:eventId', userController.index);
 /*show users for all events but in specified city*/
@@ -45,6 +43,12 @@ router.get('/api/user/event/:eventId/city/:cityId', userController.index);
 router.post('/api/user/add', userController.create);
 router.post('/api/user/update/:id', userController.update);
 router.delete('/api/user/delete/:id', userController.delete);
+
+/*
+* REGISTRATIONS
+* */
+router.post('/api/registration/add', userController.registerForEvent);
+router.delete('/api/registration/delete', userController.registerForEvent);
 
 /*
 * AUTH

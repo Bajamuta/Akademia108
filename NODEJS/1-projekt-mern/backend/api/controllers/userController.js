@@ -49,7 +49,6 @@ module.exports = {
             .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
     },
     registerForEvent: async (req, res) => {
-        console.log('BODY', req.body);
         const choosedEvent = await Event.findById(req.body.eventId);
         const choosedCity = await City.findById(req.body.cityId);
         const user = await User.findById(req.body.userId);
@@ -62,6 +61,9 @@ module.exports = {
             }
         )
             .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
+    },
+    unregisterFromEvent: async (req, res) => {
+        const user = await User.findById(req.body.userId);
+        const registration = await Registration.findById(req.body.registrationId);
     }
-    /*TODO podczas rejestracji na event ogarnąć relacje wiele do wielu*/
 }
