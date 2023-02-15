@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {EventResponse, ObjectContext, RegistrationResponse, UserResponse} from "../helpers/interfaces";
+import {EventResponse, ObjectContext, RegistrationResponse, UserDetails, UserResponse} from "../helpers/interfaces";
 import {useNavigate, useOutletContext} from "react-router-dom";
 import ApiService from "../services/ApiService";
 import axios, {AxiosResponse} from "axios";
@@ -27,24 +27,33 @@ export default function User() {
     axios.defaults.headers.common['Authorization'] = "Bearer " + (objectContext.loggedUser.jwt_token || '');
 
     useEffect(() => {
-        getUserDetails();
+        getUserDetails()
+            .then((userDetails) => setUserDetails(userDetails));
     }, []);
 
-    const getUserDetails = () => {
-        apiService.getUserDetails(objectContext.loggedUser.id)
+    const getUserDetails = (): Promise<UserResponse> => {
+        return apiService.getUserDetails(objectContext.loggedUser.id)
             .then(
                 (response: AxiosResponse<UserResponse>) => {
-                    if (!response.data.error)
-                    {
-                        setUserDetails(response.data);
-                        console.log('tu', response.data);
-                    }
-                    else
-                    {
+                    if (!response.data.error) {
+                        return Promise.resolve(response.data);
+                    } else {
                         console.error('An error has occurred during retrieving logged user\'s details', response.data.error);
+                        return Promise.reject();
                     }
                 }
-            )
+            );
+    }
+
+    const deleteUser = () => {
+        return apiService.deleteUser(userDetails._id).then(
+            (result: AxiosResponse<Response>) => {
+                if (result.status === 200 || result.status === 204)
+                {
+                    navigate('/logout');
+                }
+            }
+        )
     }
 
     return (
@@ -67,7 +76,7 @@ export default function User() {
                 )}
             </ul>}
             <Button type="button" variant="info" onClick={() => setShowEdit(true)}>Edit details</Button>
-            <Button type="button" variant="danger" onClick={() => apiService.deleteUser(userDetails._id)}>Delete account</Button>
+            <Button type="button" variant="danger" onClick={deleteUser}>Delete account</Button>
             {showEdit && <EditProfile userDetails={userDetails} cancel={() => setShowEdit(false)}/>}
         </div>
     );

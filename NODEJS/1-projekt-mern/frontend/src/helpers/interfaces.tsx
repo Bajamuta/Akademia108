@@ -17,9 +17,8 @@ export interface User {
 export interface UserResponse extends DatabaseResponse, User{
 }
 
-export interface UserDetailsRequest {
-    username: string,
-    _id: string
+export interface UserDetails extends User {
+    id: string;
 }
 
 export interface City{

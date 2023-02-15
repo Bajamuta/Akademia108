@@ -1,11 +1,11 @@
 import ApiService from "../services/ApiService";
 import {Controller, SubmitHandler, useForm} from "react-hook-form";
-import {FormDataRegister, User, UserResponse} from "../helpers/interfaces";
+import {FormDataRegister, User, UserDetails, UserResponse} from "../helpers/interfaces";
 import {AxiosResponse} from "axios/index";
 import {useNavigate} from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import {Button} from "react-bootstrap";
-import React from "react";
+import React, {useEffect} from "react";
 
 interface EditProfileProps {
     userDetails: UserResponse;
@@ -23,19 +23,25 @@ export default function EditProfile(props: EditProfileProps) {
                 if (response.status === 200) {
                     if (!response.data.error)
                     {
-                        navigate('/registered');
+                        navigate('/');
                     }
                     else
                     {
-                        console.error('An error has occurred during creating an user', response.data.error);
+                        console.error('An error has occurred during updating an user', response.data.error);
                     }
                 }
                 else {
                     console.log(response);
                 }
             })
-            .catch((error) => console.error("An error has occurred during registering an user:", error));
+            .catch((error) => console.error("An error has occurred:", error));
     }
+
+    useEffect( () => {
+        console.log('tu', props.userDetails)
+    }
+    )
+
 
     const passwordMatches = () => {
         return watch().password?.trim().length > 0
