@@ -73,6 +73,7 @@ module.exports = {
                         reg.save();
                         user.registrations.pull({_id: req.body.registrationId});
                         user.save();
+                        return res.json({result: 'Unregistered'});
                     }
                 )
                 .catch((err) => res.json({error: `An error has occurred: ${err}}`}));

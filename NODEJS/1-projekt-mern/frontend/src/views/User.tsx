@@ -56,6 +56,31 @@ export default function User() {
         )
     }
 
+    const unregisterFromAnEvent = (registrationId: string) => {
+        return apiService.unregisterFromAnEvent(userDetails._id, registrationId)
+            .then(
+                (result) => {
+                    console.log('tu', result);
+                    if (result.status === 200 || result.status === 204)
+                    {
+                        return getUserDetails()
+                    }
+                }
+            )
+            .then(
+                (userDetails) => {
+                    if (userDetails)
+                    {
+                        setUserDetails(userDetails)
+                    }
+                    else
+                    {
+                        navigate('/');
+                    }
+                }
+            )
+    }
+
     return (
         <div className="HomeContainer">
             <img className="UserAvatar" src={userDetails.avatarUrl || defaultAvatarUrl} alt="user's avatar" />
@@ -70,7 +95,7 @@ export default function User() {
                     (registration) => {
                         return (<li key={registration._id}>
                             {registration.event.name} {registration.event.description} {datePipe(registration.event.date)}
-                            <Button type="button" variant="danger" onClick={()=> apiService.unregisterFromAnEvent(userDetails._id, registration._id)}>Unregister</Button>
+                            <Button type="button" variant="danger" onClick={() => unregisterFromAnEvent(registration._id)}>Unregister</Button>
                         </li>);
                     }
                 )}
