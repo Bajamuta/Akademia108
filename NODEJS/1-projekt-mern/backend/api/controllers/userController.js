@@ -64,19 +64,15 @@ module.exports = {
     },
     unregisterFromEvent: async (req, res) => {
         const user = await User.findById(req.body.userId);
-        const reg = await Registration.findById(req.body.registrationId);
-        if (reg)
-        {
-            Registration.findByIdAndDelete(req.body.registrationId)
-                .then(
-                    (deletedResult) => {
-                        reg.save();
-                        user.registrations.pull({_id: req.body.registrationId});
-                        user.save();
-                        return res.json({result: 'Unregistered'});
-                    }
-                )
-                .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
-        }
+        /*TODO zamienić na promisy*/
+        Registration.findByIdAndDelete(req.body.registrationId)
+            .then(
+                (deletedResult) => {
+                    user.registrations.pull({_id: req.body.registrationId});
+                    user.save();
+                    return res.json({result: 'Unregistered'});
+                }
+            )
+            .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
     }
 }
