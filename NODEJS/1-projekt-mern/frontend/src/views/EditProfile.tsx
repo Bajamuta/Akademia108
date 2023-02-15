@@ -24,6 +24,8 @@ export default function EditProfile(props: EditProfileProps) {
                     if (!response.data.error)
                     {
                         navigate('/');
+                        /*TODO pokaż widok usera zamiast redirecta*/
+                        /*TODO poprawić grafikę*/
                     }
                     else
                     {
@@ -36,11 +38,6 @@ export default function EditProfile(props: EditProfileProps) {
             })
             .catch((error) => console.error("An error has occurred:", error));
     }
-
-    useEffect( () => {
-        console.log('tu', props.userDetails)
-    }
-    )
 
 
     const passwordMatches = () => {
