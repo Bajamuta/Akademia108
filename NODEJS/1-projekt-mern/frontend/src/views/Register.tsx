@@ -21,7 +21,7 @@ export default function Register() {
             if (response.status === 200) {
                 navigate('/thankyou');
                 console.log('resp', response);
-                //TODO how to handle errors from database?
+                //TODO handle errors from database
                 // if (!response.error)
             }
             else {
