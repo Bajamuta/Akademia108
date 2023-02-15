@@ -48,7 +48,7 @@ router.delete('/api/user/delete/:id', userController.delete);
 * REGISTRATIONS
 * */
 router.post('/api/registration/add', userController.registerForEvent);
-router.delete('/api/registration/delete', userController.registerForEvent);
+router.post('/api/registration/delete', userController.unregisterFromEvent);
 
 /*
 * AUTH
