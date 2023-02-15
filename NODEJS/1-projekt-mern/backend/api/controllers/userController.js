@@ -26,7 +26,7 @@ module.exports = {
                     surname: user.surname,
                     username: user.username,
                     email: user.email,
-                    id: user._id,
+                    _id: user._id,
                     registrations: user.registrations,
                     avatarUrl: user.avatarUrl,
                     createdAt: user.createdAt,
@@ -64,6 +64,18 @@ module.exports = {
     },
     unregisterFromEvent: async (req, res) => {
         const user = await User.findById(req.body.userId);
-        const registration = await Registration.findById(req.body.registrationId);
+        const reg = await Registration.findById(req.body.registrationId);
+        if (reg)
+        {
+            Registration.findByIdAndDelete(req.body.registrationId)
+                .then(
+                    (deletedResult) => {
+                        reg.save();
+                        user.registrations.pull({_id: req.body.registrationId});
+                        user.save();
+                    }
+                )
+                .catch((err) => res.json({error: `An error has occurred: ${err}}`}));
+        }
     }
 }
