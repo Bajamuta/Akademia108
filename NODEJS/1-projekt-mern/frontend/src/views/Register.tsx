@@ -20,9 +20,6 @@ export default function Register() {
             .then((response: AxiosResponse<Response>) => {
             if (response.status === 200) {
                 navigate('/thankyou');
-                console.log('resp', response);
-                //TODO handle errors from database
-                // if (!response.error)
             }
             else {
                 console.log(response);
@@ -45,17 +42,17 @@ export default function Register() {
     }, []);
 
     return (
-        <div className="FormContainer">
+        <div className="Container BorderContainer mb-5">
             <h2>Register for an event</h2>
             <Form name="customerForm" className="FormBody" onSubmit={handleSubmit(onSubmit)}>
-                <Form.Group className="my-3" controlId="eventId">
+                <Form.Group className="" controlId="eventId">
                     <Form.Label>Event*:</Form.Label>
                     <Controller control={control} name="eventId" defaultValue=""
                                 render={({field: {onChange, onBlur, value, ref}}) => (
                                     <Form.Select aria-label="Select an event"
                                                   required
                                                   onChange={onChange} value={value} ref={ref} isInvalid={!!errors.eventId}>
-                                        <option>Select an event from the list</option>
+                                        <option value="" disabled>Select an event from the list</option>
                                         {
                                             events?.map(
                                                 (event: EventResponse) => {
@@ -69,19 +66,16 @@ export default function Register() {
                                         }
                                     </Form.Select>
                                 )} />
-                    <Form.Control.Feedback type='invalid'>
-                        {errors.eventId?.message}
-                    </Form.Control.Feedback>
                     {errors.eventId && <Form.Text className="ValidationMessage">{errors.eventId?.message}</Form.Text>}
                 </Form.Group>
-                <Form.Group className="my-3" controlId="cityId">
+                <Form.Group className="" controlId="cityId">
                     <Form.Label>City*:</Form.Label>
                     <Controller control={control} name="cityId" defaultValue=""
                                 render={({field: {onChange, onBlur, value, ref}}) => (
                                     <Form.Select aria-label="Select a city"
                                                  required
-                                                 onChange={onChange} value={value} ref={ref} isInvalid={!!errors.eventId}>
-                                        <option>Select a city from the list</option>
+                                                 onChange={onChange} value={value} ref={ref} isInvalid={!!errors.cityId}>
+                                        <option value="" disabled>Select a city from the list</option>
                                         {
                                             cities?.map(
                                                 (city: CityResponse) => {
@@ -95,14 +89,9 @@ export default function Register() {
                                         }
                                     </Form.Select>
                                 )} />
-                    <Form.Control.Feedback type='invalid'>
-                        {errors.cityId?.message}
-                    </Form.Control.Feedback>
                     {errors.cityId && <Form.Text className="ValidationMessage">{errors.cityId?.message}</Form.Text>}
                 </Form.Group>
-                <Button variant="primary"
-                        size="lg"
-                        type="submit">Register</Button>
+                <Button variant="primary" size="lg" type="submit" className="mt-4">Register</Button>
             </Form>
         </div>
     );

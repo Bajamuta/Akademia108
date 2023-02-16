@@ -8,7 +8,7 @@ export default function Registered() {
     return (<div className="Container">
         <h2>Registered</h2>
         <p>You have been successfully registered!</p>
-        <button className="Button PrimaryButton"
+        <button className="btn btn-primary btn-lg mb-5"
                 onClick={() => navigate("/login")}>
             Go to login page
         </button>

@@ -81,28 +81,46 @@ export default function User() {
             )
     }
 
+    const refreshView = () => {
+        setShowEdit(false);
+        getUserDetails().then((userDetails) => setUserDetails(userDetails));
+    }
+
     return (
         <div className="HomeContainer">
-            <img className="UserAvatar" src={userDetails.avatarUrl || defaultAvatarUrl} alt="user's avatar" />
-            <p>Username: {userDetails.username}</p>
-            <p>Email: {userDetails.email}</p>
-            <p>Name: {userDetails.name}</p>
-            <p>Surname: {userDetails.surname}</p>
-            <h3>Events:</h3>
-            {!userDetails?.registrations.length && <p>No events.</p>}
-            {!!userDetails?.registrations.length && <ul>
-                {userDetails.registrations.map(
-                    (registration) => {
-                        return (<li key={registration._id}>
-                            {registration.event.name} {registration.event.description} {datePipe(registration.event.date)}
-                            <Button type="button" variant="danger" onClick={() => unregisterFromAnEvent(registration._id)}>Unregister</Button>
-                        </li>);
-                    }
-                )}
-            </ul>}
-            <Button type="button" variant="info" onClick={() => setShowEdit(true)}>Edit details</Button>
-            <Button type="button" variant="danger" onClick={deleteUser}>Delete account</Button>
-            {showEdit && <EditProfile userDetails={userDetails} cancel={() => setShowEdit(false)}/>}
+            <div className="d-flex justify-content-between">
+                <img className="UserAvatar w-50" src={userDetails.avatarUrl || defaultAvatarUrl} alt="user's avatar" />
+                <div className="w-50">
+                    <p><span className="fw-bold">Username:</span> {userDetails.username}</p>
+                    <p><span className="fw-bold">Email:</span> {userDetails.email}</p>
+                    <p><span className="fw-bold">Name:</span> {userDetails.name}</p>
+                    <p><span className="fw-bold">Surname:</span> {userDetails.surname}</p>
+                    <div className="d-flex flex-column">
+                        <Button type="button" className="w-50 mb-4" variant="info" onClick={() => setShowEdit(true)}>Edit details</Button>
+                        <Button type="button" className="w-50" variant="danger" onClick={deleteUser}>Delete account</Button>
+                    </div>
+                </div>
+            </div>
+            <div className="d-flex justify-content-between">
+                <div className="w-50">
+                    <h3 className="mt-4">Events:</h3>
+                    {!userDetails?.registrations.length && <p>No events.</p>}
+                    {!!userDetails?.registrations.length && <ul className="pe-5">
+                        {userDetails.registrations.map(
+                            (registration) => {
+                                return (<li key={registration._id} className="mb-4">
+                                    {registration.event.name}<br/>{registration.event.description}<br/>{datePipe(registration.event.date)}
+                                    <br/>
+                                    <Button type="button" className="mt-3" variant="danger" onClick={() => unregisterFromAnEvent(registration._id)}>Unregister</Button>
+                                </li>);
+                            }
+                        )}
+                    </ul>}
+                </div>
+                <div className="w-50">
+                    {showEdit && <EditProfile userDetails={userDetails} cancel={() => setShowEdit(false)} refreshView={refreshView}/>}
+                </div>
+            </div>
         </div>
     );
 }

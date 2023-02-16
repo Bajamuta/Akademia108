@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import './App.css';
 import {Link, Outlet} from "react-router-dom";
 import {LoginResponse} from "../helpers/interfaces";
+import Footer from "./Footer";
+import Header from "./Header";
 
 function App() {
     const initLocal = localStorage.getItem("loggedUser") || '';
@@ -9,9 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-          <h1>Events&apos; Registration Control</h1>
-      </header>
+        <Header/>
         <nav className="AppNavbar">
             <ul>
                 <li>
@@ -44,6 +44,7 @@ function App() {
             </ul>
         </nav>
         <Outlet context={{loggedUser, setLoggedUser}}/>
+        <Footer/>
     </div>
   );
 }

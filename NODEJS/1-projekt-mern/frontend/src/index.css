@@ -12,22 +12,27 @@ code {
     monospace;
 }
 
-.FormContainer {
-  width: 600px;
-  margin: 0 auto;
-}
-
-.FormBody label{
-  display: block;
-  width: 100%;
-  margin-bottom: 5px;
-  margin-top: 10px;
-}
-
 .UserAvatar {
     max-width: 300px;
     max-height: 300px;
-    width: auto;
-    height: auto;
+    object-fit: cover;
     border-radius: 100%;
+}
+
+.BorderContainer {
+    border: 1px solid bisque;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px rgba(0,0,0,0.5);
+}
+
+.ButtonsContainer {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.ButtonsContainer Button {
+    flex-grow: 1;
 }

@@ -39,10 +39,10 @@ export default function SignUp() {
             && watch().password === watch().passwordConfirm;
     }
 
-    return (<div className="FormContainer">
+    return (<div className="Container BorderContainer mb-5">
         <h2>Sign Up</h2>
         <Form name="signupForm" className="FormBody" onSubmit={handleSubmit(onSubmit)}>
-            <Form.Group className="my-3" controlId="username">
+            <Form.Group className="" controlId="username">
                 <Form.Label>Username*:</Form.Label>
                 <Controller control={control} name="username" defaultValue=""
                             render={({field: {onChange, onBlur, value, ref}}) => (
@@ -57,7 +57,7 @@ export default function SignUp() {
                 </Form.Control.Feedback>
                 {errors.username && <Form.Text className="ValidationMessage">{errors.username?.message}</Form.Text>}
             </Form.Group>
-            <Form.Group className="my-3" controlId="name">
+            <Form.Group className="" controlId="name">
                 <Form.Label>Name*:</Form.Label>
                 <Controller control={control} name="name" defaultValue=""
                             render={({field: {onChange, onBlur, value, ref}}) => (
@@ -72,7 +72,7 @@ export default function SignUp() {
                 </Form.Control.Feedback>
                 {errors.name && <Form.Text className="ValidationMessage">{errors.name?.message}</Form.Text>}
             </Form.Group>
-            <Form.Group className="my-3" controlId="surname">
+            <Form.Group className="" controlId="surname">
                 <Form.Label>Surname*:</Form.Label>
                 <Controller control={control} name="surname" defaultValue=""
                             render={({field: {onChange, onBlur, value, ref}}) => (
@@ -87,7 +87,7 @@ export default function SignUp() {
                 </Form.Control.Feedback>
                 {errors.surname && <Form.Text className="ValidationMessage">{errors.surname?.message}</Form.Text>}
             </Form.Group>
-            <Form.Group className="my-3" controlId="email">
+            <Form.Group className="" controlId="email">
                 <Form.Label>Email*:</Form.Label>
                 <Controller control={control} name="email" defaultValue=""
                             render={({field: {onChange, onBlur, value, ref}}) => (
@@ -102,14 +102,14 @@ export default function SignUp() {
                 </Form.Control>*/}
                 {errors.email && <Form.Text className="ValidationMessage">{errors.email?.message}</Form.Text>}
             </Form.Group>
-            <Form.Group className="my-3" controlId="password">
+            <Form.Group className="" controlId="password">
                 <Form.Label>Password*:</Form.Label>
                 <Controller control={control} name="password" defaultValue=""
                             render={({field: {onChange, onBlur, value, ref}}) => (
                                 <Form.Control type="password" placeholder="Enter password"
                                               className={errors.password ? 'invalid' : 'valid'}
                                               required
-                                              pattern="^[\w\d]+$"
+                                              pattern="[1-9a-Z$%&*()#@!]+"
                                               onChange={onChange}
                                               value={value} ref={ref}
                                               isInvalid={!!errors.password}>
@@ -120,13 +120,13 @@ export default function SignUp() {
                 </Form.Control>*/}
                 {errors.password && <Form.Text className="ValidationMessage">{errors.password?.message}</Form.Text>}
             </Form.Group>
-            <Form.Group className="my-3" controlId="passwordConfirm">
+            <Form.Group className="" controlId="passwordConfirm">
                 <Form.Label>Confirm password*:</Form.Label>
                 <Controller control={control} name="passwordConfirm" defaultValue=""
                             render={({field: {onChange, onBlur, value, ref}}) => (
                                 <Form.Control type="password" placeholder="Confirm password"
                                               required
-                                              pattern="^[\w\d]+$"
+                                              pattern="[1-9a-Z$%&*()#@!]+"
                                               onChange={onChange} value={value} ref={ref}
                                               isInvalid={!!errors.passwordConfirm || !passwordMatches()}
                                 >
@@ -137,9 +137,7 @@ export default function SignUp() {
                 </Form.Control>*/}
                 {errors.passwordConfirm && <Form.Text className="ValidationMessage">{errors.passwordConfirm?.message}</Form.Text>}
             </Form.Group>
-            <Button variant="primary"
-                    size="lg"
-                    type="submit">Sign Up</Button>
+            <Button variant="primary" size="lg" type="submit" className="mt-4">Sign Up</Button>
         </Form>
     </div>);
 }

@@ -10,6 +10,7 @@ import React, {useEffect} from "react";
 interface EditProfileProps {
     userDetails: UserResponse;
     cancel: () => void;
+    refreshView: () => void;
 }
 
 export default function EditProfile(props: EditProfileProps) {
@@ -23,8 +24,7 @@ export default function EditProfile(props: EditProfileProps) {
                 if (response.status === 200) {
                     if (!response.data.error)
                     {
-                        navigate('/');
-                        /*TODO pokaż widok usera zamiast redirecta*/
+                        props.refreshView();
                         /*TODO poprawić grafikę*/
                     }
                     else
@@ -46,7 +46,7 @@ export default function EditProfile(props: EditProfileProps) {
     }
 
     return (
-        <div className="FormContainer">
+        <div className="FormContainer BorderContainer mb-5">
             <h2>Edit profile</h2>
             <Form name="signupForm" className="FormBody" onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="my-3" controlId="username">
@@ -144,10 +144,10 @@ export default function EditProfile(props: EditProfileProps) {
                 </Form.Control>*/}
                     {errors.passwordConfirm && <Form.Text className="ValidationMessage">{errors.passwordConfirm?.message}</Form.Text>}
                 </Form.Group>
-                <Button variant="primary"
-                        size="lg"
-                        type="submit">Save</Button>
-                <Button variant="danger" size="lg" type="reset" onClick={props.cancel}>Cancel</Button>
+                <div className="ButtonsContainer">
+                    <Button variant="outline-danger" size="lg" type="reset" onClick={props.cancel}>Cancel</Button>
+                    <Button variant="primary" size="lg" type="submit">Save</Button>
+                </div>
             </Form>
         </div>
     );

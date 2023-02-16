@@ -55,18 +55,20 @@ export default function Login() {
         });
         setShowErrorMessage(false);
     }
-    return (<div className="FormContainer">
+    return (<div className="Container BorderContainer mb-5">
         <h2>Log In</h2>
         <form className="FormBody" onSubmit={handleSubmit}>
-            <label form={formData.username}>Username*:</label>
+            <label form={formData.username} className="form-label">Username*:</label>
             <input type="text"
                    name="username"
+                   className="form-control"
                    placeholder="Enter username"
                    onChange={handleInputChange}/>
-            <label form={formData.password}>Password*:</label>
+            <label form={formData.password} className="form-label">Password*:</label>
             <input type="password" placeholder="Enter password"
+                   className="form-control"
                    name="password" onChange={handleInputChange}/>
-            <button type="submit" className="Button PrimaryButton">Login</button>
+            <button type="submit" className="btn btn-primary w-75 align-self-center mt-5">Login</button>
         </form>
         {showErrorMessage && <p className="FontItalic FontRed">{errorMessage}</p>}
     </div>);
